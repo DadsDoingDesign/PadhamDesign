@@ -1,0 +1,234 @@
+.project-detail {
+  min-height: 100vh;
+  background-color: $color-background-dark;
+  color: $color-text-primary;
+  position: relative;
+  
+  &__content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: $spacing-lg; // Space for the navigation
+  }
+  
+  &__carousel-wrapper {
+    margin-bottom: $spacing-lg;
+    overflow: hidden;
+    padding-top: 60px; // Add padding to prevent overlap with navigation
+  }
+  
+  &__info {
+    width: 100%;
+    padding: 0 80px; // Single 80px padding on left and right
+    box-sizing: border-box;
+  }
+  
+  &__header {
+    margin-bottom: $spacing-xs; // Reduced from $spacing-md to $spacing-xs
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0; // No padding here
+  }
+  
+  &__title {
+    font-family: $font-family-serif;
+    font-size: $font-size-xl; // Reduced from $font-size-xxxl to $font-size-xl (48px)
+    font-weight: $font-weight-regular;
+    font-style: italic;
+    color: $color-white;
+    margin-bottom: $spacing-xs;
+    width: 100%;
+  }
+  
+  &__location {
+    font-family: $font-family-sans;
+    font-size: $font-size-md; // Reduced from $font-size-lg (32px) to $font-size-md (24px)
+    font-weight: $font-weight-semibold;
+    color: $color-white;
+    width: 100%;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__description-wrapper {
+    width: 100%;
+    padding: 0; // No padding here
+    margin-top: 0; // Ensure no extra margin
+  }
+  
+  &__description {
+    @each $property, $value in $typography-b2 {
+      #{$property}: $value;
+    }
+    margin-bottom: $spacing-lg;
+    font-style: italic; // Explicitly set italic style
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    &__title {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-sm;
+    }
+    
+    &__description {
+      font-size: $font-size-md;
+    }
+    
+    &__info {
+      padding: 0 $spacing-md; // Smaller padding on mobile
+    }
+  }
+}
+
+// Project Navigation Styles
+.project-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: $spacing-sm $spacing-md;
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+  
+  &__home-link {
+    @each $property, $value in $typography-nav-link {
+      #{$property}: $value;
+    }
+    color: $color-text-primary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: $color-text-highlight;
+    }
+  }
+  
+  &__next-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-text-primary;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateX(4px);
+    }
+  }
+  
+  &__next-icon {
+    font-size: $font-size-lg;
+  }
+}
+
+// Project Carousel Styles
+.project-carousel {
+  position: relative;
+  width: 100%;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 63vh; // Reduced by 10% from 70vh to 63vh
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &__main-image {
+    position: absolute;
+    top: 0;
+    left: 10%; // 10% from left
+    width: 80%; // 80% width of the screen
+    height: 100%;
+    z-index: 1;
+  }
+  
+  &__preview {
+    position: absolute;
+    height: 80%; // 80% of the main image height
+    width: 10%; // Reduced width to avoid overlapping
+    top: 10%; // Center vertically
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    &--left {
+      left: 0;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.7));
+        pointer-events: none;
+      }
+    }
+    
+    &--right {
+      right: 0;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.7));
+        pointer-events: none;
+      }
+    }
+  }
+  
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-xs;
+    margin-top: 0;
+    padding: 16px 0; // 16px padding top and bottom
+    position: relative; // Changed from absolute to relative
+    bottom: auto; // Remove absolute positioning
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: $color-background-dark; // Match page background
+  }
+  
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba($color-text-primary, 0.3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease;
+    
+    &--active {
+      background-color: $color-text-primary;
+    }
+    
+    &:hover {
+      background-color: rgba($color-text-primary, 0.6);
+    }
+  }
+}

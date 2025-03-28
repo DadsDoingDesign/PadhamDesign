@@ -1,0 +1,175 @@
+// Primitive: Panel
+// Reusable panel component with configurable border radius
+
+@import '../tokens/borders';
+@import '../tokens/animations';
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  
+  // Panel image
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform $duration-slow $easing-decelerate;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  // Panel image wrapper for Next.js Image component
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    overflow: hidden;
+    
+    img {
+      transition: transform $duration-slow $easing-decelerate;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  // Panel image content wrapper
+  &__image-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    .publications-logos {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      padding: $spacing-sm 0;
+      background: none;
+      
+      .publication-logo {
+        height: 80px;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        opacity: 0.8;
+        transition: opacity $transition-hover;
+        
+        &:hover {
+          opacity: 1;
+        }
+        
+        img {
+          height: 100%;
+          width: auto;
+          position: relative;
+        }
+      }
+    }
+  }
+  
+  // Panel image placeholder
+  &__placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-background-secondary;
+    color: $color-text-primary;
+    font-family: $font-family-sans;
+    font-size: $font-size-md;
+    text-align: center;
+    border: 1px solid rgba($color-text-primary, 0.2);
+  }
+  
+  // Panel content overlay
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: $spacing-md;
+    color: $color-text-primary;
+  }
+  
+  // Panel container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+    position: relative;
+  }
+  
+  // Panel variants with different border radius configurations
+  &--left {
+    border-radius: $border-radius-panel-left;
+    
+    .panel__container {
+      padding-bottom: $spacing-5xl;
+    }
+    
+    .panel__image-wrapper {
+      border-radius: $border-radius-panel-left;
+      height: 100%;
+    }
+  }
+  
+  &--center {
+    border-radius: $border-radius-panel-center;
+    
+    .panel__container {
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+      
+      .content {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+        padding: $spacing-md;
+        order: -1;
+        
+        .title {
+          margin-bottom: $spacing-sm;
+        }
+        
+        .subtitle {
+          margin-bottom: $spacing-md;
+        }
+      }
+    }
+    
+    .panel__image-wrapper {
+      border-radius: $border-radius-panel-center;
+    }
+  }
+  
+  &--right {
+    border-radius: $border-radius-panel-right;
+    
+    .panel__container {
+      padding-bottom: $spacing-5xl;
+    }
+    
+    .panel__image-wrapper {
+      border-radius: $border-radius-panel-right;
+    }
+  }
+}

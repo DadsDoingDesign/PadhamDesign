@@ -1,0 +1,27 @@
+// Primitive: Container
+// A basic container component to control width and padding consistently
+
+@import '../tokens/spacing';
+
+.container {
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+  width: 100%;
+  
+  &--narrow {
+    max-width: 1024px;
+  }
+  
+  &--wide {
+    max-width: 1680px;
+  }
+  
+  &--full-bleed {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

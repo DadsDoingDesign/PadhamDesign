@@ -1,0 +1,23 @@
+// Design Tokens: Colors
+// Based on the provided style guide
+
+// Color Primitives
+$color-white: #F2F2F2;
+$color-gray: #626262;
+$color-black: #101010;
+$color-dark-gray: #191919;
+
+// Semantic Color Tokens
+$color-text-primary: $color-white;
+$color-text-secondary: $color-gray;
+$color-background-primary: $color-black;
+$color-background-secondary: $color-dark-gray;
+$color-background-dark: $color-black; // Added for project detail page
+$color-border: $color-white;
+$color-accent: $color-white;
+$color-text-highlight: $color-white; // Added for hover states
+
+// UI State Colors
+$color-hover: rgba($color-white, 0.1);
+$color-focus: rgba($color-white, 0.2);
+$color-active: rgba($color-white, 0.3);

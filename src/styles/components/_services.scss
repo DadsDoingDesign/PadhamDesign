@@ -1,0 +1,80 @@
+.services {
+  padding: $spacing-section-vertical $spacing-section-horizontal;
+  background-color: $color-background-primary;
+  color: $color-text-primary;
+  overflow: hidden;
+  border-top-right-radius: $border-radius-lg;
+  border-bottom-left-radius: $border-radius-lg;
+  
+  &__header {
+    margin-bottom: $spacing-xl;
+    text-align: left;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &__title {
+    @each $property, $value in $typography-h2 {
+      #{$property}: $value;
+    }
+    margin-bottom: $spacing-xl;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-2xl;
+    }
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding: $spacing-md 0;
+    
+    @media (min-width: 768px) {
+      padding-right: $spacing-xl;
+      justify-content: center;
+    }
+  }
+  
+  &__item-title {
+    @each $property, $value in $typography-h3 {
+      #{$property}: $value;
+    }
+    color: $color-text-primary;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__item-description {
+    @each $property, $value in $typography-b1 {
+      #{$property}: $value;
+    }
+    margin: 0;
+    width: 100%;
+    color: $color-text-primary;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+  
+  &__image-container {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    position: relative;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

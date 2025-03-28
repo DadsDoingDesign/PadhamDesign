@@ -1,0 +1,143 @@
+.portfolio {
+  padding: 80px;
+  background-color: $color-background-secondary;
+  
+  &__header {
+    margin-bottom: $spacing-xl;
+    text-align: left;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &__title {
+    @each $property, $value in $typography-h2 {
+      #{$property}: $value;
+    }
+    margin-bottom: $spacing-md;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $spacing-md;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-lg;
+    }
+  }
+  
+  &__item {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    // Apply border radius to specific items based on their position
+    &:nth-child(odd) {
+      .portfolio__link {
+        border-radius: $border-radius-panel-left;
+        overflow: hidden;
+      }
+    }
+    
+    &:nth-child(even) {
+      .portfolio__link {
+        border-radius: $border-radius-panel-right;
+        overflow: hidden;
+      }
+    }
+    
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2);
+      
+      .portfolio__image-wrapper img {
+        transform: scale(1.05);
+      }
+    }
+  }
+  
+  &__link {
+    display: block;
+    height: 100%;
+    color: $color-text-primary;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 66.67%; // 3:2 aspect ratio
+    
+    img {
+      transition: transform 0.5s ease;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      object-fit: cover;
+    }
+  }
+  
+  &__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: $spacing-md;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    z-index: 2;
+    // Inherit border radius from parent
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+  
+  &__project-title {
+    @each $property, $value in $typography-h4 {
+      #{$property}: $value;
+    }
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  &__publications-logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    
+    .publication-logo {
+      height: 80px;
+      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      opacity: 0.8;
+      transition: opacity $transition-hover;
+      
+      &:hover {
+        opacity: 1;
+      }
+      
+      img {
+        height: 100%;
+        width: auto;
+        position: relative;
+      }
+    }
+  }
+}

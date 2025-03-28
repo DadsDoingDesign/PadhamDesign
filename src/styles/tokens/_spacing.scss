@@ -1,0 +1,32 @@
+// Design Tokens: Spacing
+// Consistent spacing values for margins, padding, and layout
+
+// Spacing Primitives
+$spacing-xs: 0.5rem;  // 8px
+$spacing-sm: 1rem;    // 16px
+$spacing-md: 2rem;    // 32px
+$spacing-lg: 3rem;    // 48px
+$spacing-xl: 4rem;    // 64px
+$spacing-2xl: 6rem;   // 96px
+$spacing-3xl: 8rem;   // 128px
+$spacing-4xl: 10rem;  // 160px
+$spacing-5xl: 12rem;  // 192px
+$spacing-6xl: 14rem;  // 224px
+$spacing-7xl: 16rem;  // 256px
+$spacing-8xl: 18rem;  // 288px
+$spacing-9xl: 20rem;  // 320px
+$spacing-10xl: 22rem; // 352px
+
+// Semantic Spacing
+$spacing-section-vertical: $spacing-2xl;
+$spacing-section-horizontal: $spacing-lg;
+$spacing-component-vertical: $spacing-md;
+$spacing-component-horizontal: $spacing-md;
+$spacing-element-vertical: $spacing-sm;
+$spacing-element-horizontal: $spacing-sm;
+$spacing-inset: $spacing-sm;
+
+// Layout Specific
+$container-max-width: 1200px;
+$container-padding: $spacing-md;
+$grid-gap: $spacing-md;

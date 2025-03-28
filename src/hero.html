@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padham Design - Interior Design</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- Font imports -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="hero">
+    <div class="container hero__container">
+      <!-- Navigation -->
+      <nav class="hero__nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+          <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="#publications" class="nav__link">Publications</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Image Panels -->
+      <div class="grid grid--hero-panels hero__panels">
+        <div class="panel panel--left animate-on-scroll">
+          <img 
+            src="https://placehold.co/600x800/191919/F2F2F2?text=Living+Room" 
+            alt="Modern living room interior design" 
+            class="panel__image"
+          />
+        </div>
+        
+        <div class="panel panel--center animate-on-scroll">
+          <img 
+            src="https://placehold.co/600x1000/191919/F2F2F2?text=Bathroom" 
+            alt="Elegant bathroom design" 
+            class="panel__image"
+          />
+        </div>
+        
+        <div class="panel panel--right animate-on-scroll">
+          <img 
+            src="https://placehold.co/600x800/191919/F2F2F2?text=Vaulted+Ceiling" 
+            alt="Vaulted ceiling living area" 
+            class="panel__image"
+          />
+        </div>
+      </div>
+      
+      <!-- Branding Content -->
+      <div class="hero__content">
+        <h1 class="hero__title animate-on-scroll">Padham Design</h1>
+        <h3 class="hero__tagline animate-on-scroll">Custom Interiors</h3>
+        <button class="button hero__cta animate-on-scroll">Start A Project</button>
+      </div>
+      
+      <!-- Publication Logos -->
+      <div class="hero__publications">
+        <img src="https://placehold.co/120x30/F2F2F2/191919?text=PUBLICATION" alt="Featured in publication" class="publication__logo stagger-item animate-on-scroll" />
+        <img src="https://placehold.co/120x30/F2F2F2/191919?text=PUBLICATION" alt="Featured in publication" class="publication__logo stagger-item animate-on-scroll" />
+        <img src="https://placehold.co/120x30/F2F2F2/191919?text=PUBLICATION" alt="Featured in publication" class="publication__logo stagger-item animate-on-scroll" />
+        <img src="https://placehold.co/120x30/F2F2F2/191919?text=PUBLICATION" alt="Featured in publication" class="publication__logo stagger-item animate-on-scroll" />
+        <img src="https://placehold.co/120x30/F2F2F2/191919?text=PUBLICATION" alt="Featured in publication" class="publication__logo stagger-item animate-on-scroll" />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Simple intersection observer for animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+      
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+// Primitive: Navigation
+// Basic navigation component styles
+
+@import '../tokens/typography';
+@import '../tokens/animations';
+
+.nav {
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  &__item {
+    margin: 0 1.5rem;
+    
+    @media (max-width: 768px) {
+      margin: 0.5rem 0;
+    }
+  }
+  
+  &__link {
+    @include typography-style($typography-nav-link);
+    text-decoration: none;
+    transition: opacity $transition-hover;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    &--active {
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+      }
+    }
+  }
+}

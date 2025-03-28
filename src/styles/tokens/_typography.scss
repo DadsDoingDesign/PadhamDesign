@@ -1,0 +1,145 @@
+// Design Tokens: Typography
+// Based on the provided style guide
+
+// Font Family Primitives
+$font-family-serif: 'Dancing Script', cursive;
+$font-family-sans: 'Open Sans', sans-serif;
+
+// Font Size Primitives
+$font-size-xs: 16px;
+$font-size-sm: 18px;
+$font-size-md: 24px;
+$font-size-lg: 32px;
+$font-size-xl: 48px;
+$font-size-xxl: 56px;
+$font-size-xxxl: 72px;
+$font-size-xxxxl: 84px;
+
+// Font Weight Primitives
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Height Primitives
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-loose: 1.8;
+
+// Style Guide Specific Typography
+$typography-h1: (
+  font-family: $font-family-serif,
+  font-size: $font-size-xxxxl,
+  font-weight: $font-weight-regular,
+  color: $color-white
+);
+
+$typography-h2: (
+  font-family: $font-family-serif,
+  font-size: $font-size-xxxl,
+  font-weight: $font-weight-regular,
+  font-style: italic,
+  color: $color-white
+);
+
+$typography-h3: (
+  font-family: $font-family-sans,
+  font-size: $font-size-lg,
+  font-weight: $font-weight-semibold,
+  color: $color-white
+);
+
+$typography-h4: (
+  font-family: $font-family-sans,
+  font-size: $font-size-md,
+  font-weight: $font-weight-semibold,
+  color: $color-white
+);
+
+$typography-b1: (
+  font-family: $font-family-sans,
+  font-size: $font-size-lg,
+  font-weight: $font-weight-regular,
+  color: $color-white
+);
+
+$typography-b2: (
+  font-family: $font-family-sans,
+  font-size: $font-size-md,
+  font-weight: $font-weight-regular,
+  font-style: italic,
+  color: $color-white
+);
+
+$typography-button-text: (
+  font-family: $font-family-sans,
+  font-size: $font-size-sm,
+  font-weight: $font-weight-semibold,
+  color: $color-white
+);
+
+$typography-button-link: (
+  font-family: $font-family-sans,
+  font-size: $font-size-sm,
+  font-weight: $font-weight-semibold,
+  color: $color-white
+);
+
+$typography-nav-link: (
+  font-family: $font-family-sans,
+  font-size: $font-size-sm,
+  font-weight: $font-weight-semibold,
+  color: $color-gray
+);
+
+// Typography Mixins
+@mixin typography-style($style) {
+  font-family: map-get($style, font-family);
+  font-size: map-get($style, font-size);
+  font-weight: map-get($style, font-weight);
+  color: map-get($style, color);
+  
+  @if map-has-key($style, font-style) {
+    font-style: map-get($style, font-style);
+  }
+  
+  @if map-has-key($style, line-height) {
+    line-height: map-get($style, line-height);
+  }
+}
+
+// Typography Usage Classes
+.h1 {
+  @include typography-style($typography-h1);
+}
+
+.h2 {
+  @include typography-style($typography-h2);
+}
+
+.h3 {
+  @include typography-style($typography-h3);
+}
+
+.h4 {
+  @include typography-style($typography-h4);
+}
+
+.b1 {
+  @include typography-style($typography-b1);
+}
+
+.b2 {
+  @include typography-style($typography-b2);
+}
+
+.button-text {
+  @include typography-style($typography-button-text);
+}
+
+.button-link {
+  @include typography-style($typography-button-link);
+}
+
+.nav-link {
+  @include typography-style($typography-nav-link);
+}

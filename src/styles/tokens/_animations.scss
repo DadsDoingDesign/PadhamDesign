@@ -1,0 +1,29 @@
+// Design Tokens: Animations
+// Animation durations, timing functions, and other animation-related properties
+
+// Duration Primitives
+$duration-fast: 150ms;
+$duration-medium: 250ms; // Reduced from 300ms
+$duration-slow: 350ms; // Reduced from 500ms
+$duration-very-slow: 500ms; // Reduced from 800ms
+
+// Timing Function Primitives
+$easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+$easing-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
+$easing-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
+$easing-natural: cubic-bezier(0.25, 0.1, 0.25, 1); // Added natural easing
+
+// Semantic Animation Tokens
+$transition-hover: $duration-medium $easing-standard;
+$transition-page: $duration-slow $easing-decelerate;
+$transition-element: $duration-medium $easing-standard;
+$transition-scroll: $duration-medium $easing-natural; // Added for scroll animations
+
+// Parallax Settings
+$parallax-ratio-subtle: 0.2;
+$parallax-ratio-medium: 0.4;
+$parallax-ratio-strong: 0.6;
+
+// Animation Delay
+$delay-stagger: 75ms; // Reduced from 100ms
+$delay-initial: 150ms; // Reduced from 200ms

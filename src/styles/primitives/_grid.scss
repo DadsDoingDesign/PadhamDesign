@@ -1,0 +1,77 @@
+// Primitive: Grid
+// Flexible grid system for layout components
+
+@import '../tokens/spacing';
+
+.grid {
+  display: grid;
+  gap: $grid-gap;
+  
+  // Common grid layouts
+  &--2-col {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &--3-col {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &--4-col {
+    grid-template-columns: repeat(4, 1fr);
+    
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  // Hero section specific grid
+  &--hero-panels {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    height: 60vh;
+    min-height: 500px;
+    
+    @media (max-width: 1024px) {
+      height: 50vh;
+    }
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      height: auto;
+    }
+  }
+  
+  // Gap variations
+  &--gap-sm {
+    gap: $spacing-sm;
+  }
+  
+  &--gap-md {
+    gap: $spacing-md;
+  }
+  
+  &--gap-lg {
+    gap: $spacing-lg;
+  }
+}

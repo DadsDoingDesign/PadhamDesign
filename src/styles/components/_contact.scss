@@ -1,0 +1,145 @@
+// Component: Contact Section
+// Styles for the contact form section
+
+@import '../tokens/index';
+@import '../primitives/index';
+
+.contact {
+  background-color: $color-background-primary;
+  color: $color-text-primary;
+  padding: $spacing-section-vertical $spacing-section-horizontal;
+  
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    @include typography-style($typography-h2);
+    margin-bottom: $spacing-xl;
+    text-align: center;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__email,
+  &__phone {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $color-text-primary;
+    text-decoration: none;
+    transition: color $transition-hover;
+    @each $property, $value in $typography-b1 {
+      #{$property}: $value;
+    }
+    
+    &:hover {
+      color: $color-text-secondary;
+    }
+  }
+
+  &__icon {
+    font-size: 1.2em;
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $spacing-xl;
+    background-color: $color-background-secondary;
+    border-radius: $border-radius-panel-left; 
+    box-shadow: 0 24px 96px rgba($color-black, 0.7);
+    
+    .button {
+      display: block;
+      margin: 0 auto;
+      min-width: 200px;
+    }
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__label {
+    @include typography-style($typography-button-text);
+  }
+
+  &__input,
+  &__textarea {
+    padding: $spacing-element-vertical $spacing-element-horizontal;
+    background-color: rgba($color-black, 0.7);
+    border: $border-width-thin $border-style-solid rgba($color-gray, 0.3);
+    border-radius: $border-radius-sm;
+    font-family: $font-family-sans;
+    font-size: $font-size-md;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: rgba($color-white, 0.5);
+    }
+
+    &::placeholder {
+      color: rgba($color-white, 0.5);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  &__submit {
+    width: 100%;
+    padding: $spacing-md $spacing-lg;
+    background-color: $color-accent;
+    color: $color-background-primary;
+    border: none;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: $color-hover;
+      color: $color-text-primary;
+    }
+  }
+
+  &__error,
+  &__success {
+    padding: $spacing-element-vertical;
+    border-radius: $border-radius-sm;
+    font-family: $font-family-sans;
+    font-size: $font-size-sm;
+    text-align: center;
+  }
+
+  &__error {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: $border-width-thin $border-style-solid rgba(220, 53, 69, 0.4);
+  }
+
+  &__success {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: $border-width-thin $border-style-solid rgba(40, 167, 69, 0.4);
+  }
+}

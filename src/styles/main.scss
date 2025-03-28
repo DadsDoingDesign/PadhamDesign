@@ -1,0 +1,113 @@
+// Main Stylesheet
+// Imports all design system components and defines global styles
+
+// Reset and Normalize
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth; // Enable smooth scrolling for the entire page
+}
+
+// Design System
+@import 'tokens/index';
+@import 'primitives/index';
+@import 'components/hero';
+@import 'components/portfolio';
+@import 'components/services';
+@import 'components/about';
+@import 'components/publications';
+@import 'components/project-detail';
+@import 'components/contact';
+
+// Global Styles
+body {
+  font-family: $font-family-sans;
+  color: $color-text-primary;
+  background-color: $color-background-secondary;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-md;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Utility Classes
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+
+// Animation Utility Classes
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity $duration-slow $easing-standard, 
+              transform $duration-slow $easing-standard;
+  
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  &:nth-child(2) { transition-delay: 100ms; }
+  &:nth-child(3) { transition-delay: 200ms; }
+  &:nth-child(4) { transition-delay: 300ms; }
+  &:nth-child(5) { transition-delay: 400ms; }
+}

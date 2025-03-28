@@ -1,0 +1,68 @@
+// Primitive: Button
+// Basic button styles that can be extended for different variants
+
+@import '../tokens/colors';
+@import '../tokens/typography';
+@import '../tokens/borders';
+@import '../tokens/animations';
+
+.button {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  font-family: $font-family-sans;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-top-right-radius: $border-radius-md;
+  border-bottom-left-radius: $border-radius-md;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  cursor: pointer;
+  transition: background-color $transition-hover,
+              transform $transition-hover,
+              box-shadow $transition-hover;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Button variants
+  &--primary {
+    background-color: $color-text-primary;
+    color: $color-background-primary;
+    
+    &:hover {
+      background-color: darken($color-text-primary, 10%);
+    }
+  }
+  
+  &--secondary {
+    background-color: transparent;
+    color: $color-text-primary;
+    border: 1px solid $color-text-primary;
+    
+    &:hover {
+      background-color: rgba($color-text-primary, 0.1);
+    }
+  }
+  
+  &--text {
+    background-color: transparent;
+    color: $color-text-primary;
+    padding: $spacing-xs $spacing-sm;
+    
+    &:hover {
+      background-color: rgba($color-text-primary, 0.1);
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}
