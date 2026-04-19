@@ -1,19 +1,27 @@
 // Design Tokens: Typography
-// Based on the provided style guide
 
 // Font Family Primitives
 $font-family-serif: 'Dancing Script', cursive;
 $font-family-sans: 'Open Sans', sans-serif;
 
 // Font Size Primitives
-$font-size-xs: 16px;
-$font-size-sm: 18px;
-$font-size-md: 24px;
-$font-size-lg: 32px;
-$font-size-xl: 48px;
+$font-size-2xs: 11px;
+$font-size-xs: 14px;
+$font-size-sm: 16px;
+$font-size-md: 18px;
+$font-size-body: 20px;
+$font-size-lg: 28px;
+$font-size-xl: 42px;
 $font-size-xxl: 56px;
 $font-size-xxxl: 72px;
-$font-size-xxxxl: 84px;
+$font-size-xxxxl: 96px;
+
+// Letter Spacing
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.08em;
+$letter-spacing-wider: 0.15em;
+$letter-spacing-widest: 0.25em;
 
 // Font Weight Primitives
 $font-weight-regular: 400;
@@ -50,14 +58,14 @@ $typography-h3: (
 
 $typography-h4: (
   font-family: $font-family-sans,
-  font-size: $font-size-md,
+  font-size: $font-size-body,
   font-weight: $font-weight-semibold,
   color: $color-white
 );
 
 $typography-b1: (
   font-family: $font-family-sans,
-  font-size: $font-size-lg,
+  font-size: $font-size-body,
   font-weight: $font-weight-regular,
   color: $color-white
 );
@@ -72,21 +80,21 @@ $typography-b2: (
 
 $typography-button-text: (
   font-family: $font-family-sans,
-  font-size: $font-size-sm,
+  font-size: $font-size-xs,
   font-weight: $font-weight-semibold,
   color: $color-white
 );
 
 $typography-button-link: (
   font-family: $font-family-sans,
-  font-size: $font-size-sm,
+  font-size: $font-size-xs,
   font-weight: $font-weight-semibold,
   color: $color-white
 );
 
 $typography-nav-link: (
   font-family: $font-family-sans,
-  font-size: $font-size-sm,
+  font-size: $font-size-2xs,
   font-weight: $font-weight-semibold,
   color: $color-gray
 );

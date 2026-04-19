@@ -1,6 +1,3 @@
-// Component: Hero Section
-// Styles for the main hero section of the interior design website
-
 @import '../tokens/index';
 @import '../primitives/index';
 
@@ -8,191 +5,244 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 600px;
+  min-height: 640px;
   overflow: hidden;
   background-color: $color-background-primary;
-  border-radius: $border-radius-none $border-radius-none $border-radius-none $border-radius-lg;
-  
-  // Hero overlay for better text contrast
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: none;
-    z-index: 1;
-    pointer-events: none;
-  }
-  
-  // Container
-  &__container {
-    position: static;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: $spacing-lg 0 0;
-    z-index: 2;
-    width: 100%;
-    max-width: none;
-  }
-  
+
   // Navigation
   &__nav {
-    width: 100%;
-    padding-top: 24px;
-    padding-left: $spacing-lg;
-    padding-right: $spacing-lg;
-    z-index: 10;
     position: absolute;
     top: 0;
     left: 0;
-    
+    width: 100%;
+    padding: 32px 48px;
+    z-index: 20;
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      padding: 24px 24px;
+      justify-content: center;
+    }
+
     .nav__list {
       display: flex;
-      justify-content: flex-start;
       list-style: none;
-      gap: 16px;
-      width: 100%;
-      
+      gap: 40px;
+
       @media (max-width: 768px) {
-        gap: $spacing-sm;
+        gap: 20px;
         flex-wrap: wrap;
+        justify-content: center;
       }
     }
-    
+
     .nav__link {
       font-family: $font-family-sans;
-      font-size: $font-size-sm;
+      font-size: $font-size-2xs;
       font-weight: $font-weight-semibold;
-      color: $color-text-secondary;
+      letter-spacing: $letter-spacing-wider;
+      text-transform: uppercase;
+      color: rgba($color-white, 0.65);
       text-decoration: none;
-      position: relative;
       transition: color $transition-hover;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: $color-text-primary;
-        transition: width $transition-hover;
-      }
-      
-      &:hover, &--active {
-        color: $color-text-primary;
-        
-        &::after {
-          width: 100%;
-        }
+
+      &:hover {
+        color: $color-white;
       }
     }
   }
-  
-  // Panels
+
+  // Three-panel image stage
   &__panels {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 80px 80px 0 80px;
+    inset: 0;
     display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    gap: $spacing-xl;
-    z-index: 0;
-    
-    @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 2px;
+
+    @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
-      gap: $spacing-md;
     }
   }
-  
-  // Content
-  &__content {
-    z-index: 3;
-    
-    @media (max-width: 1024px) {
-      padding: $spacing-lg;
+
+  &__panel {
+    position: relative;
+    overflow: hidden;
+
+    &--left {
+      border-radius: 0 0 $border-radius-lg 0;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &--center {
+      // no border radius — full bleed center is most impactful
+    }
+
+    &--right {
+      border-radius: 0 0 0 $border-radius-lg;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
-  
+
+  &__panel-inner {
+    position: absolute;
+    inset: 0;
+
+    // Subtle dark vignette so overlay text is always readable
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba($color-black, 0.35) 0%,
+        rgba($color-black, 0.1) 40%,
+        rgba($color-black, 0.55) 100%
+      );
+      z-index: 1;
+    }
+
+    img {
+      transition: transform 8s ease;
+    }
+  }
+
+  // Subtle Ken Burns on load
+  &__panel--center &__panel-inner img {
+    animation: heroKenBurns 12s ease-in-out infinite alternate;
+  }
+
+  // Title overlay — floats centered over all panels
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0;
+    pointer-events: none;
+
+    > * {
+      pointer-events: auto;
+    }
+  }
+
   &__title {
     font-family: $font-family-serif;
-    font-size: $font-size-xxl;
+    font-size: clamp(64px, 10vw, $font-size-xxxxl);
     font-weight: $font-weight-regular;
-    color: $color-text-primary;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    
-    @media (max-width: 768px) {
-      font-size: $font-size-xl;
-    }
+    color: $color-white;
+    line-height: 1.0;
+    text-shadow: 0 2px 40px rgba($color-black, 0.5);
+    margin-bottom: 12px;
+    letter-spacing: $letter-spacing-tight;
   }
-  
+
   &__subtitle {
     font-family: $font-family-sans;
-    font-size: $font-size-lg;
+    font-size: $font-size-2xs;
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    
-    @media (max-width: 768px) {
-      font-size: $font-size-md;
+    letter-spacing: $letter-spacing-widest;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.75);
+    margin-bottom: 40px;
+    text-shadow: 0 1px 12px rgba($color-black, 0.6);
+  }
+
+  &__cta {
+    display: inline-block;
+    font-family: $font-family-sans;
+    font-size: $font-size-2xs;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-wider;
+    text-transform: uppercase;
+    color: $color-white;
+    text-decoration: none;
+    padding: 14px 40px;
+    border: 1px solid rgba($color-white, 0.5);
+    transition: border-color $transition-hover, background-color $transition-hover, color $transition-hover;
+
+    &:hover {
+      border-color: $color-gold;
+      color: $color-gold;
     }
   }
-  
-  // Hero publications section
-  &__publications {
+
+  // Publications bar pinned to bottom
+  &__publications-bar {
     position: absolute;
-    bottom: $spacing-md;
+    bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 3;
-    background: rgba(0, 0, 0, 0.7);
-    
-    &-logos {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: $spacing-lg $spacing-2xl;
-      
-      @media (max-width: 768px) {
-        flex-wrap: wrap;
-        gap: $spacing-lg;
-        justify-content: center;
-      }
-      
-      .publication-logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.8;
-        transition: opacity $transition-hover;
-        min-width: 0; // Allow logo to shrink if needed
-        
-        &:hover {
-          opacity: 1;
-        }
-        
-        img {
-          width: auto;
-          height: 40px;
-          object-fit: contain;
-          max-width: 100%;
-        }
-      }
+    z-index: 15;
+    background: rgba($color-black, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px solid rgba($color-white, 0.08);
+
+    @media (max-width: 768px) {
+      padding: 12px 24px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
   }
-  
-  // Mobile adjustments
-  @media (max-width: 1024px) {
-    &__overlay {
-      display: none;
+
+  &__publications-label {
+    font-family: $font-family-sans;
+    font-size: $font-size-2xs;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-wider;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.35);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  &__publications-logos {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      gap: 16px;
     }
   }
+
+  &__publication-logo {
+    display: flex;
+    align-items: center;
+    opacity: 0.45;
+    transition: opacity $transition-hover;
+    filter: brightness(0) invert(1);
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    img {
+      height: 20px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+@keyframes heroKenBurns {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.06); }
 }

@@ -68,6 +68,7 @@ const About = () => {
             </div>
             <div className="about__text-content">
               <motion.h3 variants={itemVariants} className="about__name">{aboutContent.name}</motion.h3>
+              <motion.div variants={itemVariants} className="about__divider" />
               <motion.div variants={itemVariants} className="about__bio">
                 <p className="about__description">
                   {aboutContent.bio.description}

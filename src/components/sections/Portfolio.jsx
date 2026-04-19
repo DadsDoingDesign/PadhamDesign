@@ -60,22 +60,23 @@ const Portfolio = () => {
               <motion.div
                 key={project.slug}
                 ref={ref}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0 }}
                 animate={controls}
                 className="portfolio__item"
               >
                 <Link href={`/projects/${project.slug}`} className="portfolio__link">
-                  <div className="portfolio__image-wrapper">
+                  <div className="portfolio__image-inner">
                     <Image
                       src={project.images.featured}
                       alt={project.title}
                       fill
                       style={{ objectFit: 'cover' }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
                     />
                   </div>
                   <div className="portfolio__caption">
                     <h3 className="portfolio__project-title">{project.title}</h3>
+                    <p className="portfolio__project-location">{project.location}</p>
                   </div>
                 </Link>
               </motion.div>
