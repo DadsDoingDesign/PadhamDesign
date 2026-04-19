@@ -1,12 +1,7 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import projects from '@/data/projects';
 
-const ProjectNavigation = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  
-  // Find current project index
+const ProjectNavigation = ({ slug }) => {
   const currentIndex = projects.findIndex(project => project.slug === slug);
   
   // Determine next project (loop back to first if at the end)

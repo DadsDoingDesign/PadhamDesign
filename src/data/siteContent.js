@@ -88,7 +88,7 @@ export const aboutContent = {
   values: [
     {
       title: "Client-Centered Approach",
-      description: "We listen carefully to understand your vision, lifestyle, and needs."
+      description: "Carol listens carefully to understand your vision, lifestyle, and needs."
     },
     {
       title: "Attention to Detail",
@@ -96,7 +96,7 @@ export const aboutContent = {
     },
     {
       title: "Sustainable Design",
-      description: "We prioritize eco-friendly materials and practices whenever possible."
+      description: "Carol prioritizes eco-friendly materials and practices whenever possible."
     }
   ]
 };

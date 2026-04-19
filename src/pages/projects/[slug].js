@@ -12,10 +12,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const project = projects.find((p) => p.slug === params.slug) || null;
-  return { props: { project } };
+  return { props: { project, slug: params.slug } };
 }
 
-export default function ProjectDetail({ project }) {
+export default function ProjectDetail({ project, slug }) {
   
   // If the project is not found or the page is still loading, show a loading state
   if (!project) {
@@ -34,7 +34,7 @@ export default function ProjectDetail({ project }) {
       </Head>
       
       <main className="project-detail">
-        <ProjectNavigation />
+        <ProjectNavigation slug={slug} />
         
         <div className="project-detail__content-wrapper">
           <div className="project-detail__carousel-wrapper">
