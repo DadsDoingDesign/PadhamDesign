@@ -190,7 +190,7 @@ export const contactContent = {
   formLabels: {
     name: "Your Name",
     email: "Email Address",
-    message: "How Can I Help Improve Your Space?",
+    message: "Describe Your Project",
     submit: "Submit"
   },
   formPlaceholders: {
@@ -198,7 +198,7 @@ export const contactContent = {
     email: "Enter Email",
     message: "About your project"
   },
-  successMessage: "Thank you for your message. I will get back to you soon.",
+  successMessage: "Thank you. Expect a reply within one business day.",
   address: {
     street: "2150 Folsom Street, Suite 203",
     city: "San Francisco",
@@ -206,7 +206,7 @@ export const contactContent = {
     zip: "94110"
   },
   hours: "Monday - Friday: 9am - 5pm",
-  thankYouMessage: "Thank you for your message. We'll be in touch shortly."
+  thankYouMessage: "Thank you for your message. You will hear back within one business day."
 };
 
 // Footer Content

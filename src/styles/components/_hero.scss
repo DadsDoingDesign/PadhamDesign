@@ -50,7 +50,7 @@
       font-weight: $font-weight-semibold;
       letter-spacing: $ls-caps;
       text-transform: uppercase;
-      color: rgba($c-text, 0.6);
+      color: $c-text-soft;
       text-decoration: none;
       transition: color 0.2s;
 
