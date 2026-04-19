@@ -39,7 +39,7 @@
     font-weight: $font-weight-semibold;
     letter-spacing: $ls-caps-wide;
     text-transform: uppercase;
-    color: $c-dim;
+    color: $c-muted;
   }
 
   &__email, &__phone {
@@ -64,7 +64,7 @@
     font-size: $fs-11;
     letter-spacing: $ls-caps;
     text-transform: uppercase;
-    color: $c-dim;
+    color: $c-muted;
     margin: 0;
   }
 
@@ -78,7 +78,7 @@
     font-weight: $font-weight-semibold;
     letter-spacing: $ls-caps-wide;
     text-transform: uppercase;
-    color: $c-dim;
+    color: $c-muted;
   }
 
   &__input, &__textarea {
