@@ -1,17 +1,13 @@
-// Borders — no decorative radii
-
-$border-radius-none: 0;
-$border-radius-sm:   0;   // flat everywhere
-$border-radius-md:   0;
-$border-radius-lg:   0;
-
-$border-width-thin:   1px;
-$border-width-medium: 2px;
-$border-width-thick:  4px;
-$border-style-solid:  solid;
-$border-button:       1px solid $c-text;
-
-// Flat panel configs
+// Borders — flat
+$border-radius-none:   0;
+$border-radius-sm:     0;
+$border-radius-md:     0;
+$border-radius-lg:     0;
+$border-width-thin:    1px;
+$border-width-medium:  2px;
+$border-width-thick:   4px;
+$border-style-solid:   solid;
+$border-button:        1px solid $c-text;
 $border-radius-panel-left:   0;
 $border-radius-panel-center: 0;
 $border-radius-panel-right:  0;

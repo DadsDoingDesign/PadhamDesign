@@ -5,97 +5,32 @@
   width: 100%;
   height: 100svh;
   min-height: 600px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   background: $c-bg;
+  overflow: hidden;
 
-  // Full-bleed background image
-  &__image {
-    position: absolute;
-    inset: 0;
-  }
-
-  // Gradient scrim — darkens bottom so text is legible, subtle at top
-  &__scrim {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to bottom,
-        rgba($c-bg, 0.28) 0%,
-        rgba($c-bg, 0.0)  35%,
-        rgba($c-bg, 0.0)  55%,
-        rgba($c-bg, 0.72) 100%
-      );
-    z-index: 1;
-  }
-
-  // Centered wordmark block
-  &__body {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 120px; // above press strip
-
-    @media (max-width: 600px) {
-      padding-bottom: 100px;
-    }
-  }
-
-  &__wordmark {
-    font-family: $font-family-serif;
-    font-size: clamp(52px, 9vw, $fs-96);
-    font-weight: $font-weight-regular;
-    color: $c-text;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    margin: 0 0 12px;
-    text-shadow: 0 1px 24px rgba($c-bg, 0.4);
-  }
-
-  &__sub {
-    font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps-wide;
-    text-transform: uppercase;
-    color: rgba($c-text, 0.6);
-    margin: 0 0 32px;
-  }
-
-  &__cta {
-    font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps;
-    text-transform: uppercase;
-    color: $c-text;
-    text-decoration: none;
-    border-bottom: 1px solid rgba($c-text, 0.4);
-    padding-bottom: 3px;
-    transition: border-color 0.25s ease, color 0.25s ease;
-
-    &:hover {
-      border-color: $c-text;
-    }
-  }
-
-  // Minimal nav — top right
-  .hero-nav {
+  // ── Top navigation bar ──────────────────────────────────────────────
+  .hnav {
     position: absolute;
     top: 0;
+    left: 0;
     right: 0;
-    z-index: 10;
-    padding: 32px 48px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 48px;
 
     @media (max-width: 600px) {
       padding: 20px 24px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
+    }
+
+    &__brand {
+      font-family: $font-family-serif;
+      font-size: $fs-20;
+      color: $c-text;
+      letter-spacing: 0.05em;
     }
 
     &__list {
@@ -106,9 +41,7 @@
       padding: 0;
 
       @media (max-width: 600px) {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 18px;
       }
     }
 
@@ -118,38 +51,101 @@
       font-weight: $font-weight-semibold;
       letter-spacing: $ls-caps;
       text-transform: uppercase;
-      color: rgba($c-text, 0.55);
+      color: rgba($c-text, 0.5);
       text-decoration: none;
       transition: color 0.2s;
 
-      &:hover {
-        color: $c-text;
-      }
+      &:hover { color: $c-text; }
     }
   }
 
-  // Press strip — pinned to bottom
-  &__press {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    height: 56px;
-    border-top: 1px solid rgba($c-text, 0.08);
-    background: rgba($c-bg, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 0 48px;
+  // ── Split layout ────────────────────────────────────────────────────
+  &__split {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    height: 100%;
 
-    @media (max-width: 600px) {
-      padding: 0 24px;
-      gap: 20px;
-      overflow-x: auto;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
     }
+  }
+
+  // ── Left panel — type ────────────────────────────────────────────────
+  &__left {
+    position: relative;
+    background: $c-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 96px 52px 48px;
+    border-right: 1px solid $c-border;
+
+    @media (max-width: 768px) {
+      padding: 80px 24px 32px;
+      border-right: none;
+      border-bottom: 1px solid $c-border;
+    }
+  }
+
+  &__left-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__wordmark {
+    font-family: $font-family-serif;
+    font-size: clamp(56px, 8vw, $fs-120);
+    font-weight: $font-weight-regular;
+    color: $c-text;
+    line-height: $line-height-tight;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  &__descriptor {
+    font-family: $font-family-sans;
+    font-size: $fs-11;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $ls-caps-wide;
+    text-transform: uppercase;
+    color: $c-muted;
+    margin: 0;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $font-family-sans;
+    font-size: $fs-11;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $ls-caps;
+    text-transform: uppercase;
+    color: $c-text;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: gap 0.3s ease;
+
+    &::after {
+      content: '→';
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      gap: 16px;
+
+      &::after { transform: translateX(4px); }
+    }
+  }
+
+  // ── Press strip — bottom of left panel ──────────────────────────────
+  &__press {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   &__press-label {
@@ -158,23 +154,42 @@
     font-weight: $font-weight-semibold;
     letter-spacing: $ls-caps-wide;
     text-transform: uppercase;
-    color: rgba($c-text, 0.25);
-    white-space: nowrap;
-    flex-shrink: 0;
+    color: $c-dim;
+    margin: 0;
+  }
+
+  &__press-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
   }
 
   &__press-logo {
-    flex-shrink: 0;
-    opacity: 0.3;
+    opacity: 0.25;
     filter: brightness(0) invert(1);
     transition: opacity 0.2s;
 
-    &:hover { opacity: 0.7; }
+    &:hover { opacity: 0.6; }
 
     img {
-      height: 18px;
+      height: 16px;
       width: auto;
       display: block;
+    }
+  }
+
+  // ── Right panel — image ──────────────────────────────────────────────
+  &__right {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      transition: transform 12s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.04);
     }
   }
 }

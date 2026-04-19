@@ -5,86 +5,82 @@ import { heroContent, navItems } from '@/data/siteContent';
 
 const Hero = () => {
   useEffect(() => {
-    const handleScroll = (e) => {
+    const onClick = (e) => {
       const href = e.currentTarget.getAttribute('href');
       if (!href?.startsWith('#')) return;
       e.preventDefault();
-      const el = document.getElementById(href.slice(1));
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
     };
-    const links = document.querySelectorAll('.hero-nav__link');
-    links.forEach(l => l.addEventListener('click', handleScroll));
-    return () => links.forEach(l => l.removeEventListener('click', handleScroll));
+    const links = document.querySelectorAll('.hnav__link');
+    links.forEach(l => l.addEventListener('click', onClick));
+    return () => links.forEach(l => l.removeEventListener('click', onClick));
   }, []);
 
   return (
     <section className="hero">
-      {/* Nav */}
-      <nav className="hero-nav">
-        <ul className="hero-nav__list">
+      {/* Top nav — spans full width */}
+      <nav className="hnav">
+        <span className="hnav__brand">PD</span>
+        <ul className="hnav__list">
           {navItems.map((item) => (
             <li key={item.label}>
-              <a href={item.href} className="hero-nav__link">{item.label}</a>
+              <a href={item.href} className="hnav__link">{item.label}</a>
             </li>
           ))}
         </ul>
       </nav>
 
-      {/* Full-bleed image */}
-      <div className="hero__image">
-        <Image
-          src={heroContent.panels.center.image}
-          alt={heroContent.panels.center.alt}
-          fill
-          priority
-          style={{ objectFit: 'cover' }}
-        />
-        <div className="hero__scrim" />
-      </div>
+      {/* Split: type panel left + image panel right */}
+      <div className="hero__split">
+        {/* Left — wordmark + CTA */}
+        <div className="hero__left">
+          <motion.div
+            className="hero__left-inner"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h1 className="hero__wordmark">{heroContent.title}</h1>
+            <p className="hero__descriptor">{heroContent.subtitle}</p>
+            <a href={heroContent.ctaLink} className="hero__cta">
+              {heroContent.ctaText}
+            </a>
+          </motion.div>
 
-      {/* Centered wordmark */}
-      <div className="hero__body">
-        <motion.h1
-          className="hero__wordmark"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-        >
-          {heroContent.title}
-        </motion.h1>
-        <motion.p
-          className="hero__sub"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-        >
-          {heroContent.subtitle}
-        </motion.p>
-        <motion.a
-          href={heroContent.ctaLink}
-          className="hero__cta"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          {heroContent.ctaText}
-        </motion.a>
-      </div>
-
-      {/* Publications strip */}
-      <div className="hero__press">
-        <span className="hero__press-label">As seen in</span>
-        {heroContent.publications.map((pub) => (
-          <div key={pub.name} className="hero__press-logo">
-            <Image
-              src={pub.image}
-              alt={pub.alt}
-              width={pub.width}
-              height={pub.height}
-              style={{ objectFit: 'contain' }}
-            />
+          {/* Press logos sit at bottom of left panel */}
+          <div className="hero__press">
+            <p className="hero__press-label">As seen in</p>
+            <div className="hero__press-logos">
+              {heroContent.publications.map((pub) => (
+                <div key={pub.name} className="hero__press-logo">
+                  <Image
+                    src={pub.image}
+                    alt={pub.alt}
+                    width={pub.width}
+                    height={pub.height}
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </div>
+
+        {/* Right — full-bleed image */}
+        <motion.div
+          className="hero__right"
+          initial={{ opacity: 0, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Image
+            src={heroContent.panels.left.image}
+            alt={heroContent.panels.left.alt}
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+          />
+        </motion.div>
       </div>
     </section>
   );

@@ -2,31 +2,26 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { aboutContent } from '@/data/siteContent';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-};
-
 const About = () => (
   <section id="about" className="about">
     <div className="about__inner">
       <motion.header
         className="about__header"
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        variants={fadeUp}
+        transition={{ duration: 0.7 }}
       >
         <h2 className="about__heading">{aboutContent.title}</h2>
       </motion.header>
 
-      <div className="about__grid">
+      <div className="about__layout">
         <motion.div
-          className="about__img-wrap"
+          className="about__portrait"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
           <Image
             src={aboutContent.image}
@@ -40,19 +35,14 @@ const About = () => (
 
         <motion.div
           className="about__text"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+          transition={{ duration: 0.8, delay: 0.15 }}
         >
-          <motion.h3 variants={fadeUp} className="about__name">
-            {aboutContent.name}
-          </motion.h3>
-          <motion.div variants={fadeUp} className="about__rule" />
-          <motion.div variants={fadeUp} className="about__bio">
-            <p className="about__description">{aboutContent.bio.description}</p>
-            <p className="about__experience">{aboutContent.bio.experience}</p>
-          </motion.div>
+          <h3 className="about__name">{aboutContent.name}</h3>
+          <p className="about__bio">{aboutContent.bio.description}</p>
+          <p className="about__bio">{aboutContent.bio.experience}</p>
         </motion.div>
       </div>
     </div>

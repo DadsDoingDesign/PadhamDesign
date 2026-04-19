@@ -1,32 +1,35 @@
 @import '../tokens/index';
 
 .about {
-  background: $c-bg;
+  background: $c-surface;
   padding: $sp-16 $sp-10;
 
   @media (max-width: 600px) { padding: $sp-10 $sp-4; }
 
   &__inner {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
   }
 
   &__header {
-    margin-bottom: $sp-10;
+    margin-bottom: $sp-12;
   }
 
   &__heading {
-    font-family: $font-family-sans;
-    font-size: $fs-38;
+    font-family: $font-family-serif;
+    font-size: $fs-64;
     font-weight: $font-weight-regular;
     color: $c-text;
     margin: 0;
+    line-height: $line-height-tight;
+
+    @media (max-width: 768px) { font-size: $fs-48; }
   }
 
-  &__grid {
+  &__layout {
     display: grid;
     grid-template-columns: 5fr 6fr;
-    gap: $sp-12;
+    gap: $sp-16;
     align-items: start;
 
     @media (max-width: 768px) {
@@ -35,14 +38,14 @@
     }
   }
 
-  &__img-wrap {
+  &__portrait {
     position: relative;
-    overflow: hidden;
     aspect-ratio: 3 / 4;
-    background: $c-surface;
+    overflow: hidden;
+    background: $c-lift;
 
     img { transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
-    &:hover img { transform: scale(1.025); }
+    &:hover img { transform: scale(1.02); }
   }
 
   &__text {
@@ -54,31 +57,18 @@
 
   &__name {
     font-family: $font-family-serif;
-    font-size: clamp(42px, 5vw, $fs-72);
+    font-size: clamp(40px, 5vw, $fs-88);
     font-weight: $font-weight-regular;
     color: $c-text;
-    line-height: 1.05;
-    margin: 0;
-  }
-
-  &__rule {
-    width: 32px;
-    height: 1px;
-    background: $c-border-hi;
+    line-height: $line-height-tight;
+    margin: 0 0 $sp-2;
   }
 
   &__bio {
-    display: flex;
-    flex-direction: column;
-    gap: $sp-4;
-  }
-
-  &__description,
-  &__experience {
     font-family: $font-family-sans;
     font-size: $fs-17;
     line-height: $line-height-loose;
-    color: $c-muted;
+    color: $c-text-soft;
     margin: 0;
   }
 }

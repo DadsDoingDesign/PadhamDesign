@@ -1,13 +1,13 @@
 @import '../tokens/index';
 
 .contact {
-  background: $c-bg;
+  background: $c-surface;
   padding: $sp-16 $sp-10;
 
   @media (max-width: 600px) { padding: $sp-10 $sp-4; }
 
   &__inner {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -20,27 +20,20 @@
     }
   }
 
-  &__info {}
-
   &__heading {
-    font-family: $font-family-sans;
-    font-size: $fs-38;
+    font-family: $font-family-serif;
+    font-size: $fs-64;
     font-weight: $font-weight-regular;
     color: $c-text;
-    margin: 0 0 $sp-8;
+    margin: 0 0 $sp-10;
+    line-height: $line-height-tight;
+
+    @media (max-width: 768px) { font-size: $fs-48; }
   }
 
-  &__details {
-    display: flex;
-    flex-direction: column;
-    gap: $sp-6;
-  }
+  &__details { display: flex; flex-direction: column; gap: $sp-6; }
 
-  &__detail-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+  &__detail-group { display: flex; flex-direction: column; gap: 4px; }
 
   &__label {
     font-family: $font-family-sans;
@@ -51,14 +44,12 @@
     color: $c-dim;
   }
 
-  &__email,
-  &__phone {
+  &__email, &__phone {
     font-family: $font-family-sans;
     font-size: $fs-15;
     color: $c-text-soft;
     text-decoration: none;
     transition: color 0.2s;
-
     &:hover { color: $c-text; }
   }
 
@@ -80,17 +71,9 @@
   }
 
   // Form
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: $sp-6;
-  }
+  &__form { display: flex; flex-direction: column; gap: $sp-6; }
 
-  &__field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
+  &__field { display: flex; flex-direction: column; gap: 6px; }
 
   &__field-label {
     font-family: $font-family-sans;
@@ -101,8 +84,7 @@
     color: $c-dim;
   }
 
-  &__input,
-  &__textarea {
+  &__input, &__textarea {
     background: transparent;
     border: none;
     border-bottom: 1px solid $c-border;
@@ -118,11 +100,7 @@
     &:focus { border-bottom-color: $c-border-hi; }
   }
 
-  &__textarea {
-    resize: none;
-    min-height: 100px;
-    line-height: $line-height-normal;
-  }
+  &__textarea { resize: none; min-height: 100px; line-height: $line-height-normal; }
 
   &__btn {
     align-self: flex-start;
@@ -137,7 +115,7 @@
     border: 1px solid $c-border-hi;
     padding: 12px 32px;
     cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color 0.2s;
 
     &:hover { border-color: $c-text; }
     &:disabled { opacity: 0.35; cursor: not-allowed; }
@@ -147,7 +125,6 @@
     font-family: $font-family-sans;
     font-size: $fs-13;
     margin: 0;
-
     &--error { color: #c0392b; }
     &--success { color: $c-text-soft; letter-spacing: $ls-caps; }
   }

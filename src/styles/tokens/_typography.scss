@@ -1,6 +1,6 @@
 // Typography
 
-$font-family-serif: 'Dancing Script', cursive;   // wordmark only
+$font-family-serif: 'Dancing Script', cursive;
 $font-family-sans:  'Open Sans', sans-serif;
 
 // Scale
@@ -9,95 +9,55 @@ $fs-11:  11px;
 $fs-13:  13px;
 $fs-15:  15px;
 $fs-17:  17px;
-$fs-22:  22px;
-$fs-28:  28px;
-$fs-38:  38px;
-$fs-52:  52px;
-$fs-72:  72px;
-$fs-96:  96px;
+$fs-20:  20px;
+$fs-26:  26px;
+$fs-36:  36px;
+$fs-48:  48px;
+$fs-64:  64px;
+$fs-88:  88px;
+$fs-120: 120px;
 
-// Legacy aliases
-$font-size-2xs: $fs-11;
-$font-size-xs:  $fs-13;
-$font-size-sm:  $fs-15;
-$font-size-md:  $fs-17;
+// Legacy
+$font-size-2xs:  $fs-11;
+$font-size-xs:   $fs-13;
+$font-size-sm:   $fs-15;
+$font-size-md:   $fs-17;
 $font-size-body: $fs-17;
-$font-size-lg:  $fs-22;
-$font-size-xl:  $fs-38;
-$font-size-xxl: $fs-52;
-$font-size-xxxl: $fs-72;
-$font-size-xxxxl: $fs-96;
+$font-size-lg:   $fs-20;
+$font-size-xl:   $fs-36;
+$font-size-xxl:  $fs-48;
+$font-size-xxxl: $fs-64;
+$font-size-xxxxl:$fs-88;
 
 $font-weight-regular:  400;
 $font-weight-semibold: 600;
 $font-weight-bold:     700;
 
-$line-height-tight:  1.15;
+$line-height-tight:  1.1;
 $line-height-normal: 1.6;
 $line-height-loose:  1.85;
 
-// Letter spacing
-$ls-tight:   -0.02em;
-$ls-normal:   0;
-$ls-caps:     0.12em;
-$ls-caps-wide: 0.2em;
+$ls-tight:     -0.02em;
+$ls-normal:     0em;
+$ls-caps:       0.1em;
+$ls-caps-wide:  0.2em;
 
 // Legacy
-$letter-spacing-tight:   $ls-tight;
-$letter-spacing-normal:  $ls-normal;
-$letter-spacing-wide:    $ls-caps;
-$letter-spacing-wider:   $ls-caps;
-$letter-spacing-widest:  $ls-caps-wide;
+$letter-spacing-tight:  $ls-tight;
+$letter-spacing-normal: $ls-normal;
+$letter-spacing-wide:   $ls-caps;
+$letter-spacing-wider:  $ls-caps;
+$letter-spacing-widest: $ls-caps-wide;
 
-// Typography maps (used by @each loops in older components)
-$typography-h2: (
-  font-family: $font-family-sans,
-  font-size: $fs-38,
-  font-weight: $font-weight-regular,
-  color: $c-text
-);
-$typography-h3: (
-  font-family: $font-family-sans,
-  font-size: $fs-17,
-  font-weight: $font-weight-semibold,
-  color: $c-text
-);
-$typography-h4: (
-  font-family: $font-family-sans,
-  font-size: $fs-15,
-  font-weight: $font-weight-semibold,
-  color: $c-text
-);
-$typography-b1: (
-  font-family: $font-family-sans,
-  font-size: $fs-17,
-  font-weight: $font-weight-regular,
-  color: $c-text
-);
-$typography-b2: (
-  font-family: $font-family-sans,
-  font-size: $fs-15,
-  font-weight: $font-weight-regular,
-  color: $c-text
-);
-$typography-button-text: (
-  font-family: $font-family-sans,
-  font-size: $fs-11,
-  font-weight: $font-weight-semibold,
-  color: $c-text
-);
-$typography-button-link: (
-  font-family: $font-family-sans,
-  font-size: $fs-11,
-  font-weight: $font-weight-semibold,
-  color: $c-text
-);
-$typography-nav-link: (
-  font-family: $font-family-sans,
-  font-size: $fs-11,
-  font-weight: $font-weight-semibold,
-  color: $c-muted
-);
+// Maps for legacy @each loops
+$typography-h2: (font-family: $font-family-serif, font-size: $fs-48, font-weight: $font-weight-regular, color: $c-text);
+$typography-h3: (font-family: $font-family-sans, font-size: $fs-17, font-weight: $font-weight-semibold, color: $c-text);
+$typography-h4: (font-family: $font-family-sans, font-size: $fs-15, font-weight: $font-weight-semibold, color: $c-text);
+$typography-b1: (font-family: $font-family-sans, font-size: $fs-17, font-weight: $font-weight-regular, color: $c-text);
+$typography-b2: (font-family: $font-family-sans, font-size: $fs-15, font-weight: $font-weight-regular, color: $c-text);
+$typography-button-text: (font-family: $font-family-sans, font-size: $fs-11, font-weight: $font-weight-semibold, color: $c-text);
+$typography-button-link: (font-family: $font-family-sans, font-size: $fs-11, font-weight: $font-weight-semibold, color: $c-text);
+$typography-nav-link: (font-family: $font-family-sans, font-size: $fs-11, font-weight: $font-weight-semibold, color: $c-muted);
 
 @mixin typography-style($style) {
   font-family: map-get($style, font-family);
@@ -108,10 +68,9 @@ $typography-nav-link: (
   @if map-has-key($style, line-height) { line-height: map-get($style, line-height); }
 }
 
-// Class helpers
-.h1 { font-family: $font-family-serif; font-size: $fs-96; font-weight: $font-weight-regular; color: $c-text; }
-.h2 { font-family: $font-family-sans; font-size: $fs-38; font-weight: $font-weight-regular; color: $c-text; }
-.h3 { font-family: $font-family-sans; font-size: $fs-22; font-weight: $font-weight-semibold; color: $c-text; }
+.h1 { font-family: $font-family-serif; font-size: $fs-88; font-weight: $font-weight-regular; color: $c-text; }
+.h2 { font-family: $font-family-serif; font-size: $fs-48; font-weight: $font-weight-regular; color: $c-text; }
+.h3 { font-family: $font-family-sans; font-size: $fs-20; font-weight: $font-weight-semibold; color: $c-text; }
 .h4 { font-family: $font-family-sans; font-size: $fs-17; font-weight: $font-weight-semibold; color: $c-text; }
 .b1 { font-family: $font-family-sans; font-size: $fs-17; font-weight: $font-weight-regular; color: $c-text; }
 .b2 { font-family: $font-family-sans; font-size: $fs-15; font-weight: $font-weight-regular; color: $c-text; }
