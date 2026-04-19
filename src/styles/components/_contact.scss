@@ -115,7 +115,7 @@
     transition: border-color 0.2s, background 0.2s;
 
     &:hover { border-color: $c-text; background: rgba($c-text, 0.04); }
-    &:disabled { opacity: 0.35; cursor: not-allowed; }
+    &:disabled { color: $c-dim; cursor: not-allowed; }
   }
 
   &__msg {
