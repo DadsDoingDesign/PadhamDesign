@@ -25,7 +25,7 @@ export const getEnvVariable = (key, isRequired = true, defaultValue = '') => {
  * @returns {string} The Web3 API key
  */
 export const getWeb3ApiKey = () => {
-  return getEnvVariable('NEXT_PUBLIC_WEB3_API_KEY', true);
+  return process.env.NEXT_PUBLIC_WEB3_API_KEY || '';
 };
 
 /**

@@ -53,7 +53,7 @@ export const heroContent = {
     },
     {
       name: "CA Home + Design",
-      image: "/images/logos/CAHome+Design.png",
+      image: "/images/logos/CAHome-Design.png",
       alt: "CA Home + Design",
       width: 120,
       height: 40
@@ -166,7 +166,7 @@ export const publicationsContent = {
     {
       id: "cahome",
       name: "California Home + Design",
-      logo: "/images/logos/CAHome+Design.png",
+      logo: "/images/logos/CAHome-Design.png",
       title: "Wine Country Agenda: WALT Wines, Trefethen Now, Doug Aitken Install, Meet At La Calenda",
       description: '"Inside, SF interior designer Carol Padham creates a calming, airy design with a selection of owners Kathryn Walt Hall and Craig Hall’s personal art collection, showcasing the Hall’s love of modern with a custom, 3-dimensional tasting bar with Italian porcelain countertop, under faceted LED globes. The renovated 1,500 square foot tasting room is designed with green features by Jarrod Denton of Signum Architecture."',
       url: "https://www.cahomedesign.com"

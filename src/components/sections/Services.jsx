@@ -15,7 +15,7 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="services__eyebrow">What We Offer</span>
+          <span className="services__eyebrow">Services Offered</span>
           <h2 className="services__heading">{servicesContent.title}</h2>
         </motion.header>
 

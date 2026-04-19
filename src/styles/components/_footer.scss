@@ -36,7 +36,7 @@
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba($c-text, 0.3);
+    color: $c-muted;
     margin: 0;
   }
 
@@ -74,7 +74,7 @@
     font-size: 13px;
     font-weight: 300;
     line-height: 1.65;
-    color: rgba($c-text, 0.3);
+    color: $c-muted;
     margin: 0;
   }
 
@@ -90,7 +90,7 @@
     font-family: $font-family-sans;
     font-size: 11px;
     letter-spacing: 0.1em;
-    color: rgba($c-text, 0.2);
+    color: $c-dim;
     margin: 0;
   }
 }
