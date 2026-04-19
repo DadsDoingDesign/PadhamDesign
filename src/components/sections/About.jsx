@@ -1,88 +1,62 @@
-import { useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { aboutContent } from '@/data/siteContent';
 
-const About = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-  
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+};
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
+const About = () => (
+  <section id="about" className="about">
+    <div className="about__inner">
+      <motion.header
+        className="about__header"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <h2 className="about__heading">{aboutContent.title}</h2>
+      </motion.header>
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  return (
-    <section id="about" className="about">
-      <div className="about__container container">
+      <div className="about__grid">
         <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={controls}
-          className="about__content"
+          className="about__img-wrap"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
-          <motion.h2 variants={itemVariants} className="about__title">{aboutContent.title}</motion.h2>
-          <div className="about__grid">
-            <div className="about__image-wrapper">
-              <Image 
-                src={aboutContent.image} 
-                alt={aboutContent.alt} 
-                fill
-                style={{ 
-                  objectFit: 'cover', 
-                  width: '100%',
-                  height: '100%'
-                }}
-                sizes="(max-width: 768px) 100vw, 45vw"
-                priority
-              />
-            </div>
-            <div className="about__text-content">
-              <motion.h3 variants={itemVariants} className="about__name">{aboutContent.name}</motion.h3>
-              <motion.div variants={itemVariants} className="about__divider" />
-              <motion.div variants={itemVariants} className="about__bio">
-                <p className="about__description">
-                  {aboutContent.bio.description}
-                </p>
-                <p className="about__experience">
-                  {aboutContent.bio.experience}
-                </p>
-              </motion.div>
-            </div>
-          </div>
+          <Image
+            src={aboutContent.image}
+            alt={aboutContent.alt}
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 768px) 100vw, 45vw"
+            priority
+          />
+        </motion.div>
+
+        <motion.div
+          className="about__text"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+        >
+          <motion.h3 variants={fadeUp} className="about__name">
+            {aboutContent.name}
+          </motion.h3>
+          <motion.div variants={fadeUp} className="about__rule" />
+          <motion.div variants={fadeUp} className="about__bio">
+            <p className="about__description">{aboutContent.bio.description}</p>
+            <p className="about__experience">{aboutContent.bio.experience}</p>
+          </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;

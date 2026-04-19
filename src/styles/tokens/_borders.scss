@@ -1,24 +1,17 @@
-// Design Tokens: Borders
-// Border styles, radii, and other border-related properties
+// Borders — no decorative radii
 
-// Border Radius Primitives
 $border-radius-none: 0;
-$border-radius-sm: 4px;
-$border-radius-md: 8px;
-$border-radius-lg: 80px;  // Based on the mockup's rounded panels
+$border-radius-sm:   0;   // flat everywhere
+$border-radius-md:   0;
+$border-radius-lg:   0;
 
-// Border Width Primitives
-$border-width-thin: 1px;
+$border-width-thin:   1px;
 $border-width-medium: 2px;
-$border-width-thick: 4px;
+$border-width-thick:  4px;
+$border-style-solid:  solid;
+$border-button:       1px solid $c-text;
 
-// Border Style Primitives
-$border-style-solid: solid;
-
-// Semantic Border Tokens
-$border-button: $border-width-thin $border-style-solid var(--color-white);
-
-// Custom Panel Border Radius Configurations
-$border-radius-panel-left: $border-radius-none $border-radius-lg $border-radius-none $border-radius-lg;
-$border-radius-panel-center: $border-radius-lg $border-radius-lg $border-radius-none $border-radius-none;
-$border-radius-panel-right: $border-radius-lg $border-radius-none $border-radius-lg $border-radius-none;
+// Flat panel configs
+$border-radius-panel-left:   0;
+$border-radius-panel-center: 0;
+$border-radius-panel-right:  0;

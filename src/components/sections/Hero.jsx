@@ -1,126 +1,90 @@
 import { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { heroContent, navItems } from '@/data/siteContent';
 
 const Hero = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
   useEffect(() => {
-    if (inView) controls.start('visible');
-  }, [controls, inView]);
-
-  useEffect(() => {
-    const handleSmoothScroll = (e) => {
+    const handleScroll = (e) => {
       const href = e.currentTarget.getAttribute('href');
-      if (!href || !href.startsWith('#')) return;
+      if (!href?.startsWith('#')) return;
       e.preventDefault();
-      const targetEl = document.getElementById(href.replace('#', ''));
-      if (targetEl) {
-        const offset = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({ top: offset, behavior: 'smooth' });
-      }
+      const el = document.getElementById(href.slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
-    const navLinks = document.querySelectorAll('.nav__link');
-    navLinks.forEach(link => link.addEventListener('click', handleSmoothScroll));
-    return () => navLinks.forEach(link => link.removeEventListener('click', handleSmoothScroll));
+    const links = document.querySelectorAll('.hero-nav__link');
+    links.forEach(l => l.addEventListener('click', handleScroll));
+    return () => links.forEach(l => l.removeEventListener('click', handleScroll));
   }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.25, delayChildren: 0.4 } },
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
-  };
 
   return (
     <section className="hero">
-      <nav className="hero__nav">
-        <ul className="nav__list">
-          {navItems.map((item, index) => (
-            <li key={index} className="nav__item">
-              <a href={item.href} className="nav__link">{item.label}</a>
+      {/* Nav */}
+      <nav className="hero-nav">
+        <ul className="hero-nav__list">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <a href={item.href} className="hero-nav__link">{item.label}</a>
             </li>
           ))}
         </ul>
       </nav>
 
-      <div className="hero__panels">
-        <div className="hero__panel hero__panel--left">
-          <div className="hero__panel-inner">
-            <Image
-              src={heroContent.panels.left.image}
-              alt={heroContent.panels.left.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
-          </div>
-        </div>
-        <div className="hero__panel hero__panel--center">
-          <div className="hero__panel-inner">
-            <Image
-              src={heroContent.panels.center.image}
-              alt={heroContent.panels.center.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
-          </div>
-        </div>
-        <div className="hero__panel hero__panel--right">
-          <div className="hero__panel-inner">
-            <Image
-              src={heroContent.panels.right.image}
-              alt={heroContent.panels.right.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
-          </div>
-        </div>
+      {/* Full-bleed image */}
+      <div className="hero__image">
+        <Image
+          src={heroContent.panels.center.image}
+          alt={heroContent.panels.center.alt}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
+        <div className="hero__scrim" />
       </div>
 
-      <motion.div
-        ref={ref}
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
-        className="hero__overlay"
-      >
-        <motion.h1 variants={itemVariants} className="hero__title">
+      {/* Centered wordmark */}
+      <div className="hero__body">
+        <motion.h1
+          className="hero__wordmark"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+        >
           {heroContent.title}
         </motion.h1>
-        <motion.p variants={itemVariants} className="hero__subtitle">
+        <motion.p
+          className="hero__sub"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+        >
           {heroContent.subtitle}
         </motion.p>
-        <motion.div variants={itemVariants}>
-          <a href={heroContent.ctaLink} className="hero__cta">
-            {heroContent.ctaText}
-          </a>
-        </motion.div>
-      </motion.div>
+        <motion.a
+          href={heroContent.ctaLink}
+          className="hero__cta"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          {heroContent.ctaText}
+        </motion.a>
+      </div>
 
-      <div className="hero__publications-bar">
-        <span className="hero__publications-label">As seen in</span>
-        <div className="hero__publications-logos">
-          {heroContent.publications.map((pub, index) => (
-            <div key={index} className="hero__publication-logo">
-              <Image
-                src={pub.image}
-                alt={pub.alt}
-                width={pub.width}
-                height={pub.height}
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-          ))}
-        </div>
+      {/* Publications strip */}
+      <div className="hero__press">
+        <span className="hero__press-label">As seen in</span>
+        {heroContent.publications.map((pub) => (
+          <div key={pub.name} className="hero__press-logo">
+            <Image
+              src={pub.image}
+              alt={pub.alt}
+              width={pub.width}
+              height={pub.height}
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

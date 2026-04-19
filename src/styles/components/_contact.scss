@@ -1,176 +1,154 @@
 @import '../tokens/index';
 
 .contact {
-  background-color: $color-background-secondary;
-  color: $color-text-primary;
-  padding: $spacing-2xl $spacing-section-horizontal;
+  background: $c-bg;
+  padding: $sp-16 $sp-10;
 
-  &__container {
+  @media (max-width: 600px) { padding: $sp-10 $sp-4; }
+
+  &__inner {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: $spacing-2xl;
+    gap: $sp-16;
     align-items: start;
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      gap: $spacing-xl;
+      gap: $sp-10;
     }
   }
 
-  // Left column: title + contact info
-  &__info {
-    padding-top: $spacing-sm;
-  }
+  &__info {}
 
-  &__title {
-    @each $property, $value in $typography-h2 {
-      #{$property}: $value;
-    }
-    margin-bottom: $spacing-xl;
+  &__heading {
+    font-family: $font-family-sans;
+    font-size: $fs-38;
+    font-weight: $font-weight-regular;
+    color: $c-text;
+    margin: 0 0 $sp-8;
   }
 
   &__details {
     display: flex;
     flex-direction: column;
-    gap: $spacing-md;
-    margin-bottom: $spacing-xl;
+    gap: $sp-6;
   }
 
-  &__contact-item {
+  &__detail-group {
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
 
-  &__contact-label {
+  &__label {
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
+    font-size: $fs-10;
     font-weight: $font-weight-semibold;
-    letter-spacing: $letter-spacing-wider;
+    letter-spacing: $ls-caps-wide;
     text-transform: uppercase;
-    color: $color-accent;
+    color: $c-dim;
   }
 
   &__email,
   &__phone {
     font-family: $font-family-sans;
-    font-size: $font-size-md;
-    color: rgba($color-white, 0.75);
+    font-size: $fs-15;
+    color: $c-text-soft;
     text-decoration: none;
-    transition: color $transition-hover;
+    transition: color 0.2s;
 
-    &:hover {
-      color: $color-white;
-    }
+    &:hover { color: $c-text; }
   }
 
   &__address {
     font-family: $font-family-sans;
-    font-size: $font-size-md;
-    color: rgba($color-white, 0.5);
-    line-height: 1.7;
+    font-size: $fs-15;
+    line-height: $line-height-normal;
+    color: $c-muted;
     margin: 0;
   }
 
   &__hours {
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
-    letter-spacing: $letter-spacing-wide;
+    font-size: $fs-11;
+    letter-spacing: $ls-caps;
     text-transform: uppercase;
-    color: rgba($color-white, 0.35);
+    color: $c-dim;
     margin: 0;
   }
 
-  // Right column: form
+  // Form
   &__form {
     display: flex;
     flex-direction: column;
-    gap: $spacing-lg;
+    gap: $sp-6;
   }
 
-  &__form-group {
+  &__field {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 
-  &__label {
+  &__field-label {
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
+    font-size: $fs-10;
     font-weight: $font-weight-semibold;
-    letter-spacing: $letter-spacing-wider;
+    letter-spacing: $ls-caps-wide;
     text-transform: uppercase;
-    color: rgba($color-white, 0.45);
+    color: $c-dim;
   }
 
   &__input,
   &__textarea {
-    padding: 14px 0;
     background: transparent;
-    color: $color-text-primary;
     border: none;
-    border-bottom: 1px solid rgba($color-white, 0.2);
-    border-radius: 0;
+    border-bottom: 1px solid $c-border;
+    padding: $sp-1 0;
     font-family: $font-family-sans;
-    font-size: $font-size-md;
-    transition: border-color 0.3s ease;
+    font-size: $fs-15;
+    color: $c-text;
     width: 100%;
+    transition: border-color 0.2s;
+    outline: none;
 
-    &:focus {
-      outline: none;
-      border-bottom-color: $color-accent;
-    }
-
-    &::placeholder {
-      color: rgba($color-white, 0.2);
-    }
+    &::placeholder { color: $c-dim; }
+    &:focus { border-bottom-color: $c-border-hi; }
   }
 
   &__textarea {
     resize: none;
-    min-height: 120px;
+    min-height: 100px;
+    line-height: $line-height-normal;
   }
 
-  &__submit {
+  &__btn {
     align-self: flex-start;
+    margin-top: $sp-2;
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
+    font-size: $fs-11;
     font-weight: $font-weight-semibold;
-    letter-spacing: $letter-spacing-wider;
+    letter-spacing: $ls-caps;
     text-transform: uppercase;
-    color: $color-white;
+    color: $c-text;
     background: transparent;
-    border: 1px solid rgba($color-white, 0.3);
-    padding: 14px 40px;
+    border: 1px solid $c-border-hi;
+    padding: 12px 32px;
     cursor: pointer;
-    transition: border-color $transition-hover, color $transition-hover;
+    transition: border-color 0.2s, color 0.2s;
 
-    &:hover {
-      border-color: $color-accent;
-      color: $color-accent;
-    }
-
-    &:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
+    &:hover { border-color: $c-text; }
+    &:disabled { opacity: 0.35; cursor: not-allowed; }
   }
 
-  &__error,
-  &__success {
+  &__msg {
     font-family: $font-family-sans;
-    font-size: $font-size-xs;
-    padding: $spacing-sm 0;
-  }
+    font-size: $fs-13;
+    margin: 0;
 
-  &__error {
-    color: #e05252;
-  }
-
-  &__success {
-    color: $color-accent;
-    letter-spacing: $letter-spacing-wide;
+    &--error { color: #c0392b; }
+    &--success { color: $c-text-soft; letter-spacing: $ls-caps; }
   }
 }

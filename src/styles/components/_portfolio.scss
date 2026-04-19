@@ -1,172 +1,93 @@
 @import '../tokens/index';
 
 .portfolio {
-  padding: $spacing-2xl $spacing-section-horizontal;
-  background-color: $color-background-secondary;
+  background: $c-bg;
+  padding: $sp-16 $sp-10;
 
-  &__header {
-    max-width: 1200px;
-    margin: 0 auto $spacing-xl;
-  }
+  @media (max-width: 600px) { padding: $sp-10 $sp-4; }
 
-  &__title {
-    @each $property, $value in $typography-h2 {
-      #{$property}: $value;
-    }
-  }
-
-  // Editorial asymmetric grid
-  // Item 1: left 2/3, tall
-  // Item 2: right 1/3, shorter (aligns top)
-  // Items 3–4: equal halves, mid height
-  // Item 5: full width, panoramic
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    gap: 3px;
+  &__inner {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  &__header {
+    margin-bottom: $sp-10;
+  }
+
+  &__heading {
+    font-family: $font-family-sans;
+    font-size: $fs-38;
+    font-weight: $font-weight-regular;
+    color: $c-text;
+    margin: 0;
+  }
+
+  // Masonry-feel: first item full-width, rest in 2-col
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $sp-4;
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      gap: $spacing-sm;
+      gap: $sp-8;
     }
   }
 
-  &__item {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
+  // First item spans both columns at full width
+  &__item:first-child {
+    grid-column: 1 / -1;
 
-    &:nth-child(1) {
-      grid-column: 1 / 5;
-      height: 68vh;
-      min-height: 480px;
-      border-radius: 0 0 0 $border-radius-lg;
+    .portfolio__img-wrap {
+      aspect-ratio: 16 / 7;
 
-      @media (max-width: 768px) {
-        grid-column: 1;
-        height: 60vw;
-        min-height: 280px;
-        border-radius: 0 0 0 $border-radius-lg;
-      }
-    }
-
-    &:nth-child(2) {
-      grid-column: 5 / 7;
-      height: 68vh;
-      min-height: 480px;
-      border-radius: 0 0 $border-radius-lg 0;
-
-      @media (max-width: 768px) {
-        grid-column: 1;
-        height: 60vw;
-        min-height: 280px;
-        border-radius: 0 0 $border-radius-lg 0;
-      }
-    }
-
-    &:nth-child(3) {
-      grid-column: 1 / 3;
-      height: 48vh;
-      min-height: 320px;
-      border-radius: 0 $border-radius-lg 0 0;
-
-      @media (max-width: 768px) {
-        grid-column: 1;
-        height: 60vw;
-        min-height: 260px;
-        border-radius: 0;
-      }
-    }
-
-    &:nth-child(4) {
-      grid-column: 3 / 5;
-      height: 48vh;
-      min-height: 320px;
-
-      @media (max-width: 768px) {
-        grid-column: 1;
-        height: 60vw;
-        min-height: 260px;
-      }
-    }
-
-    &:nth-child(5) {
-      grid-column: 5 / 7;
-      height: 48vh;
-      min-height: 320px;
-      border-radius: 0 $border-radius-lg 0 0;
-
-      @media (max-width: 768px) {
-        grid-column: 1;
-        height: 60vw;
-        min-height: 260px;
-        border-radius: 0 $border-radius-lg 0 0;
-      }
-    }
-
-    &:hover .portfolio__image-inner {
-      transform: scale(1.04);
-    }
-
-    &:hover .portfolio__caption {
-      opacity: 1;
+      @media (max-width: 600px) { aspect-ratio: 4 / 3; }
     }
   }
 
   &__link {
     display: block;
-    width: 100%;
-    height: 100%;
-    color: $color-text-primary;
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
-  }
+    color: $c-text;
 
-  &__image-inner {
-    position: absolute;
-    inset: 0;
-    transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    &:hover .portfolio__img-wrap img {
+      transform: scale(1.025);
     }
   }
 
-  // Caption: slides up from bottom on hover
-  &__caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: $spacing-lg $spacing-md $spacing-md;
-    background: linear-gradient(to top, rgba($color-black, 0.85) 0%, transparent 100%);
-    opacity: 0.85;
-    transition: opacity 0.4s ease;
-    z-index: 2;
+  &__img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: $c-surface;
+
+    img {
+      transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
   }
 
-  &__project-title {
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: $sp-2 0 0;
+    border-top: 1px solid $c-border;
+    margin-top: $sp-1;
+  }
+
+  &__title {
     font-family: $font-family-sans;
-    font-size: $font-size-xs;
+    font-size: $fs-13;
     font-weight: $font-weight-semibold;
-    letter-spacing: $letter-spacing-wide;
-    text-transform: uppercase;
-    color: $color-white;
-    margin: 0 0 4px;
+    color: $c-text;
   }
 
-  &__project-location {
+  &__location {
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
-    font-weight: $font-weight-regular;
-    letter-spacing: $letter-spacing-wide;
-    color: rgba($color-white, 0.55);
-    margin: 0;
+    font-size: $fs-11;
+    color: $c-muted;
+    letter-spacing: $ls-caps;
+    text-transform: uppercase;
   }
 }

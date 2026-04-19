@@ -1,12 +1,13 @@
 @import '../tokens/index';
 
 .footer {
-  background-color: $color-background-primary;
-  color: $color-text-primary;
-  padding: $spacing-2xl $spacing-section-horizontal $spacing-xl;
-  border-top: 1px solid $color-border;
+  background: $c-surface;
+  border-top: 1px solid $c-border;
+  padding: $sp-10 $sp-10 $sp-6;
 
-  &__container {
+  @media (max-width: 600px) { padding: $sp-8 $sp-4 $sp-4; }
+
+  &__inner {
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -14,107 +15,102 @@
   &__top {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: $spacing-2xl;
-    margin-bottom: $spacing-2xl;
+    gap: $sp-12;
+    padding-bottom: $sp-8;
+    border-bottom: 1px solid $c-border;
+    margin-bottom: $sp-6;
 
     @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      gap: $sp-8;
+    }
+
+    @media (max-width: 480px) {
       grid-template-columns: 1fr;
-      gap: $spacing-xl;
+      gap: $sp-6;
     }
   }
 
-  &__brand {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  &__brand {}
 
-  &__name {
+  &__wordmark {
     font-family: $font-family-serif;
-    font-size: $font-size-xl;
+    font-size: $fs-28;
     font-weight: $font-weight-regular;
-    color: $color-text-primary;
-    margin: 0;
-    line-height: 1.1;
+    color: $c-text;
+    margin: 0 0 4px;
+    line-height: 1;
   }
 
   &__tagline {
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
+    font-size: $fs-10;
     font-weight: $font-weight-semibold;
-    letter-spacing: $letter-spacing-widest;
+    letter-spacing: $ls-caps-wide;
     text-transform: uppercase;
-    color: rgba($color-white, 0.3);
+    color: $c-muted;
     margin: 0;
   }
 
   &__nav-list {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: $sp-2;
   }
 
   &__nav-link {
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
+    font-size: $fs-11;
     font-weight: $font-weight-semibold;
-    letter-spacing: $letter-spacing-wider;
+    letter-spacing: $ls-caps;
     text-transform: uppercase;
-    color: rgba($color-white, 0.35);
+    color: $c-muted;
     text-decoration: none;
-    transition: color $transition-hover;
+    transition: color 0.2s;
 
-    &:hover {
-      color: $color-white;
-    }
+    &:hover { color: $c-text; }
   }
 
   &__contact {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: 10px;
   }
 
   &__contact-link {
     font-family: $font-family-sans;
-    font-size: $font-size-xs;
-    color: rgba($color-white, 0.4);
+    font-size: $fs-13;
+    color: $c-muted;
     text-decoration: none;
-    transition: color $transition-hover;
+    transition: color 0.2s;
 
-    &:hover {
-      color: $color-white;
-    }
+    &:hover { color: $c-text; }
   }
 
   &__address {
     font-family: $font-family-sans;
-    font-size: $font-size-xs;
-    color: rgba($color-white, 0.3);
-    line-height: 1.7;
+    font-size: $fs-13;
+    line-height: $line-height-normal;
+    color: $c-dim;
     margin: 0;
   }
 
   &__bottom {
-    padding-top: $spacing-lg;
-    border-top: 1px solid $color-border;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 768px) {
-      flex-direction: column;
-      gap: $spacing-sm;
-      text-align: center;
-    }
+    @media (max-width: 600px) { flex-direction: column; gap: $sp-2; }
   }
 
-  &__copyright {
+  &__copy {
     font-family: $font-family-sans;
-    font-size: $font-size-2xs;
-    letter-spacing: $letter-spacing-wide;
-    color: rgba($color-white, 0.2);
+    font-size: $fs-11;
+    letter-spacing: $ls-caps;
+    color: $c-dim;
     margin: 0;
   }
 }

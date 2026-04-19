@@ -1,32 +1,40 @@
-// Design Tokens: Spacing
-// Consistent spacing values for margins, padding, and layout
+// Spacing — 8px base grid
 
-// Spacing Primitives
-$spacing-xs: 0.5rem;  // 8px
-$spacing-sm: 1rem;    // 16px
-$spacing-md: 2rem;    // 32px
-$spacing-lg: 3rem;    // 48px
-$spacing-xl: 4rem;    // 64px
-$spacing-2xl: 6rem;   // 96px
-$spacing-3xl: 8rem;   // 128px
-$spacing-4xl: 10rem;  // 160px
-$spacing-5xl: 12rem;  // 192px
-$spacing-6xl: 14rem;  // 224px
-$spacing-7xl: 16rem;  // 256px
-$spacing-8xl: 18rem;  // 288px
-$spacing-9xl: 20rem;  // 320px
-$spacing-10xl: 22rem; // 352px
+$sp-1:  8px;
+$sp-2:  16px;
+$sp-3:  24px;
+$sp-4:  32px;
+$sp-6:  48px;
+$sp-8:  64px;
+$sp-10: 80px;
+$sp-12: 96px;
+$sp-16: 128px;
+$sp-20: 160px;
 
-// Semantic Spacing
-$spacing-section-vertical: $spacing-2xl;
-$spacing-section-horizontal: $spacing-lg;
-$spacing-component-vertical: $spacing-md;
-$spacing-component-horizontal: $spacing-md;
-$spacing-element-vertical: $spacing-sm;
-$spacing-element-horizontal: $spacing-sm;
-$spacing-inset: $spacing-sm;
+// Legacy aliases
+$spacing-xs:  $sp-1;
+$spacing-sm:  $sp-2;
+$spacing-md:  $sp-4;
+$spacing-lg:  $sp-6;
+$spacing-xl:  $sp-8;
+$spacing-2xl: $sp-12;
+$spacing-3xl: $sp-16;
+$spacing-4xl: $sp-20;
+$spacing-5xl: $sp-20;
+$spacing-6xl: $sp-20;
+$spacing-7xl: $sp-20;
+$spacing-8xl: $sp-20;
+$spacing-9xl: $sp-20;
+$spacing-10xl: $sp-20;
 
-// Layout Specific
+$spacing-section-vertical:    $sp-16;
+$spacing-section-horizontal:  $sp-10;
+$spacing-component-vertical:  $sp-4;
+$spacing-component-horizontal:$sp-4;
+$spacing-element-vertical:    $sp-2;
+$spacing-element-horizontal:  $sp-2;
+$spacing-inset:                $sp-2;
+
 $container-max-width: 1200px;
-$container-padding: $spacing-md;
-$grid-gap: $spacing-md;
+$container-padding:   $sp-10;
+$grid-gap:            $sp-4;

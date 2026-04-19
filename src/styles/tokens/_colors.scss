@@ -1,27 +1,33 @@
-// Design Tokens: Colors
+// Colors — monochromatic dark palette
 
-// Color Primitives
-$color-white: #F2F2F2;
-$color-gray: #626262;
-$color-gray-light: #8A8A8A;
-$color-black: #101010;
-$color-dark-gray: #191919;
-$color-gold: #C9A96E;
-$color-gold-muted: rgba(#C9A96E, 0.4);
+$c-bg:        #0C0C0C;
+$c-surface:   #141414;
+$c-lift:      #1C1C1C;
+$c-border:    #232323;
+$c-border-hi: #303030;
+$c-muted:     #5A5A5A;
+$c-dim:       #3A3A3A;
+$c-text:      #E8E8E8;
+$c-text-soft: #909090;
 
-// Semantic Color Tokens
-$color-text-primary: $color-white;
-$color-text-secondary: $color-gray;
-$color-text-muted: $color-gray-light;
-$color-background-primary: $color-black;
-$color-background-secondary: $color-dark-gray;
-$color-background-dark: $color-black;
-$color-border: rgba($color-white, 0.12);
-$color-border-strong: rgba($color-white, 0.25);
-$color-accent: $color-gold;
-$color-text-highlight: $color-white;
-
-// UI State Colors
-$color-hover: rgba($color-white, 0.06);
-$color-focus: rgba($color-white, 0.15);
-$color-active: rgba($color-white, 0.2);
+// Legacy aliases kept for any components still referencing them
+$color-white:               $c-text;
+$color-gray:                $c-muted;
+$color-gray-light:          $c-text-soft;
+$color-black:               $c-bg;
+$color-dark-gray:           $c-surface;
+$color-gold:                $c-text;
+$color-gold-muted:          rgba($c-text, 0.15);
+$color-text-primary:        $c-text;
+$color-text-secondary:      $c-muted;
+$color-text-muted:          $c-text-soft;
+$color-background-primary:  $c-bg;
+$color-background-secondary:$c-surface;
+$color-background-dark:     $c-bg;
+$color-border:              $c-border;
+$color-border-strong:       $c-border-hi;
+$color-accent:              $c-text;
+$color-text-highlight:      $c-text;
+$color-hover:               rgba($c-text, 0.04);
+$color-focus:               rgba($c-text, 0.1);
+$color-active:              rgba($c-text, 0.16);
