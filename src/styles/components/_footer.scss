@@ -1,0 +1,105 @@
+@import '../tokens/index';
+@import '../primitives/index';
+
+.footer {
+  background-color: $color-background-secondary;
+  color: $color-text-primary;
+  padding: $spacing-2xl $spacing-section-horizontal $spacing-lg;
+  border-top: 1px solid rgba($color-gray, 0.2);
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__name {
+    font-family: $font-family-serif;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-regular;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  &__tagline {
+    font-family: $font-family-sans;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+
+  &__nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__nav-link {
+    font-family: $font-family-sans;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $transition-hover;
+
+    &:hover {
+      color: $color-text-primary;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__contact-link {
+    font-family: $font-family-sans;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $transition-hover;
+
+    &:hover {
+      color: $color-text-primary;
+    }
+  }
+
+  &__address {
+    font-family: $font-family-sans;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    line-height: $line-height-normal;
+    margin: 0;
+  }
+
+  &__bottom {
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($color-gray, 0.2);
+  }
+
+  &__copyright {
+    font-family: $font-family-sans;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+}

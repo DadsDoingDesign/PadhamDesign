@@ -85,16 +85,6 @@ export const aboutContent = {
     description: "Her design process is client-focused, starting with the client's vision and involving them closely in every step. Carol's designs are known for their clean lines and thoughtful integration with both architecture and environment, ensuring each space is as functional as it is stylish.",
     experience: "Over 25 years of experience in interior design that combines beauty and practicality. Working extensively in the Bay Area, Carol has collaborated with leading architectural firms on a variety of hospitality and residential projects."
   },
-  subtitle: "Creating Spaces That Inspire",
-  description: `
-    Padham Design is a full-service interior design studio specializing in residential and commercial spaces. 
-    Founded by Christine Padham in 2010, our studio has been transforming ordinary spaces into extraordinary 
-    experiences for over a decade.
-    
-    Our approach combines timeless design principles with innovative solutions tailored to each client's 
-    unique needs and aspirations. We believe that well-designed spaces have the power to enhance lives 
-    and create lasting impressions.
-  `,
   values: [
     {
       title: "Client-Centered Approach",
@@ -108,18 +98,7 @@ export const aboutContent = {
       title: "Sustainable Design",
       description: "We prioritize eco-friendly materials and practices whenever possible."
     }
-  ],
-  founderImage: "/images/founder.jpg",
-  founderName: "Christine Padham",
-  founderTitle: "Principal Designer & Founder",
-  founderBio: `
-    With over 15 years of experience in interior design, Christine brings a wealth of knowledge 
-    and creativity to every project. Her work has been featured in numerous publications, and 
-    she is known for her ability to blend functionality with aesthetic beauty.
-    
-    Christine holds a degree in Interior Architecture from California College of the Arts and 
-    is a certified member of the American Society of Interior Designers (ASID).
-  `
+  ]
 };
 
 // Services Section Content
@@ -277,44 +256,39 @@ export const projectsData = [
     slug: "carmel-beach-hotel",
     featuredImage: "/images/interiors/Interior1.jpg",
     location: "Carmel-by-the-Sea, CA",
-    year: "2023",
     category: "Hospitality",
-    description: "A luxurious beachfront hotel featuring modern coastal design elements with a focus on natural materials and ocean views."
+    description: "A contemporary Northern California beach look informed by Carmel's proximity to the ocean. Classic design that transcends trends, providing warmth and a relaxing coastal atmosphere."
   },
   {
     title: "Walt Tasting Room",
     slug: "walt-tasting-room",
     featuredImage: "/images/interiors/Middle.png",
-    location: "Carmel-by-the-Sea, CA",
-    year: "2023",
+    location: "Napa, CA",
     category: "Hospitality",
-    description: "A luxurious beachfront hotel featuring modern coastal design elements with a focus on natural materials and ocean views."
+    description: "A wine tasting counter unlike any other, with faceted angles inspired by the 'W' in Walt Wines. Deep blue and gold derived from the wine label carry throughout the 1890s building interiors."
   },
   {
-    title: "Bardessono Inn",
+    title: "Bardessono Inn & Spa",
     slug: "bardessono-inn",
     featuredImage: "/images/interiors/Right.png",
-    location: "Carmel-by-the-Sea, CA",
-    year: "2023",
+    location: "Yountville, CA",
     category: "Hospitality",
-    description: "A luxurious beachfront hotel featuring modern coastal design elements with a focus on natural materials and ocean views."
+    description: "California's first Platinum LEED-certified hotel. Cutting-edge sustainable design with the warmth of Napa Valley's architecture and wine culture."
   },
   {
-    title: "Huntington Hotel Nob Hill Spa",
-    slug: "huntington-hotel-nob-hill-spa",
+    title: "Huntington Hotel & Nob Hill Spa",
+    slug: "huntington-hotel",
     featuredImage: "/images/interiors/Interior1.jpg",
-    location: "Carmel-by-the-Sea, CA",
-    year: "2023",
+    location: "San Francisco, CA",
     category: "Hospitality",
-    description: "A luxurious beachfront hotel featuring modern coastal design elements with a focus on natural materials and ocean views."
+    description: "A design concept drawn from San Francisco's cultural diversity — Italianate, Victorian, and Asian influences woven through furnishings, colors, and art across this historic 1924 landmark."
   },
   {
     title: "L'Auberge Carmel",
     slug: "l-auberge-carmel",
     featuredImage: "/images/interiors/Middle.png",
     location: "Carmel-by-the-Sea, CA",
-    year: "2023",
     category: "Hospitality",
-    description: "A luxurious beachfront hotel featuring modern coastal design elements with a focus on natural materials and ocean views."
+    description: "Timeless effortless luxury that honors the hotel's existing character. A seamless integration of classic and contemporary styles, resulting in calming, elegant, worldly interiors."
   }
 ];
