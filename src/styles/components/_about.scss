@@ -1,7 +1,7 @@
 @import '../tokens/index';
 
 .about {
-  background: $c-surface;
+  background: $c-bg;
   padding: $sp-16 $sp-10;
 
   @media (max-width: 600px) { padding: $sp-10 $sp-4; }
@@ -11,19 +11,15 @@
     margin: 0 auto;
   }
 
-  &__header {
-    margin-bottom: $sp-12;
-  }
+  &__header { margin-bottom: $sp-12; }
 
   &__heading {
-    font-family: $font-family-serif;
-    font-size: $fs-64;
-    font-weight: $font-weight-regular;
+    font-family: $font-family-display;
+    font-size: clamp(48px, 7vw, $fs-88);
+    font-weight: 300;
     color: $c-text;
     margin: 0;
     line-height: $line-height-tight;
-
-    @media (max-width: 768px) { font-size: $fs-48; }
   }
 
   &__layout {
@@ -42,7 +38,7 @@
     position: relative;
     aspect-ratio: 3 / 4;
     overflow: hidden;
-    background: $c-lift;
+    background: $c-surface;
 
     img { transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
     &:hover img { transform: scale(1.02); }
@@ -51,17 +47,18 @@
   &__text {
     display: flex;
     flex-direction: column;
-    gap: $sp-6;
+    gap: $sp-4;
     padding-top: $sp-2;
   }
 
+  // Name in Dancing Script — personal, warm
   &__name {
     font-family: $font-family-serif;
-    font-size: clamp(40px, 5vw, $fs-88);
+    font-size: clamp(42px, 5vw, $fs-88);
     font-weight: $font-weight-regular;
     color: $c-text;
-    line-height: $line-height-tight;
-    margin: 0 0 $sp-2;
+    line-height: 1.0;
+    margin: 0 0 $sp-1;
   }
 
   &__bio {
@@ -69,6 +66,43 @@
     font-size: $fs-17;
     line-height: $line-height-loose;
     color: $c-text-soft;
+    margin: 0;
+  }
+
+  // Values strip below bio
+  &__values {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: $sp-6;
+    margin-top: $sp-4;
+    padding-top: $sp-6;
+    border-top: 1px solid $c-border;
+
+    @media (max-width: 900px) { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 600px) { grid-template-columns: 1fr; gap: $sp-4; }
+  }
+
+  &__value {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__value-title {
+    font-family: $font-family-sans;
+    font-size: $fs-11;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $ls-caps;
+    text-transform: uppercase;
+    color: $c-text;
+    margin: 0;
+  }
+
+  &__value-desc {
+    font-family: $font-family-sans;
+    font-size: $fs-13;
+    line-height: $line-height-normal;
+    color: $c-muted;
     margin: 0;
   }
 }

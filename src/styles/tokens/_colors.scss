@@ -1,33 +1,34 @@
-// Warm dark palette — genuine rebrand
+// Ivory editorial palette — light mode
 
-$c-bg:        #110E0B;   // very dark warm brown/black
-$c-surface:   #1C1812;   // slightly lifted surface
-$c-lift:      #262019;   // card/hover lift
-$c-border:    #2E2820;   // subtle divider
-$c-border-hi: #3D3428;   // stronger divider
-$c-muted:     #7A6A58;   // warm stone mid-tone
-$c-dim:       #4E4438;   // quiet/disabled text
-$c-text:      #EDE5DA;   // warm cream / parchment
-$c-text-soft: #B8A898;   // softer warm text
+$c-bg:        #F8F5F1;   // warm ivory / parchment
+$c-surface:   #EFEAE3;   // slightly deeper ivory
+$c-lift:      #E4DDD4;   // card hover lift
+$c-invert:    #141210;   // dark — publications section + project-detail
+$c-border:    #DDD6CB;   // subtle warm border
+$c-border-hi: #C4B9A8;   // stronger border
+$c-text:      #141210;   // near-black
+$c-text-soft: #3D3328;   // soft dark
+$c-muted:     #6B6058;   // muted mid-tone
+$c-dim:       #9E9488;   // quiet / secondary text
 
-// Legacy aliases
-$color-white:                $c-text;
+// Legacy aliases — project-detail.scss uses hardcoded dark values where needed
+$color-white:                #F8F5F1;
 $color-gray:                 $c-muted;
-$color-gray-light:           $c-text-soft;
-$color-black:                $c-bg;
-$color-dark-gray:            $c-surface;
-$color-gold:                 $c-text;
-$color-gold-muted:           rgba($c-text, 0.12);
+$color-gray-light:           $c-dim;
+$color-black:                $c-invert;
+$color-dark-gray:            $c-invert;
+$color-gold:                 $c-muted;
+$color-gold-muted:           rgba($c-text, 0.06);
 $color-text-primary:         $c-text;
 $color-text-secondary:       $c-muted;
-$color-text-muted:           $c-text-soft;
+$color-text-muted:           $c-dim;
 $color-background-primary:   $c-bg;
 $color-background-secondary: $c-surface;
-$color-background-dark:      $c-bg;
+$color-background-dark:      $c-invert;
 $color-border:               $c-border;
 $color-border-strong:        $c-border-hi;
-$color-accent:               $c-text;
+$color-accent:               $c-muted;
 $color-text-highlight:       $c-text;
 $color-hover:                rgba($c-text, 0.04);
 $color-focus:                rgba($c-text, 0.08);
-$color-active:               rgba($c-text, 0.14);
+$color-active:               rgba($c-text, 0.12);

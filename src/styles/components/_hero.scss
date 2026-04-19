@@ -10,7 +10,7 @@
   background: $c-bg;
   overflow: hidden;
 
-  // ── Top navigation bar ──────────────────────────────────────────────
+  // ── Navigation ──────────────────────────────────────────────────────
   .hnav {
     position: absolute;
     top: 0;
@@ -20,17 +20,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 48px;
+    padding: 28px 52px;
 
-    @media (max-width: 600px) {
-      padding: 20px 24px;
-    }
+    @media (max-width: 600px) { padding: 20px 24px; }
 
     &__brand {
-      font-family: $font-family-serif;
-      font-size: $fs-20;
+      font-family: $font-family-sans;
+      font-size: $fs-11;
+      font-weight: $font-weight-semibold;
+      letter-spacing: $ls-caps-wide;
+      text-transform: uppercase;
       color: $c-text;
-      letter-spacing: 0.05em;
     }
 
     &__list {
@@ -41,9 +41,7 @@
       margin: 0;
       padding: 0;
 
-      @media (max-width: 600px) {
-        gap: 10px 18px;
-      }
+      @media (max-width: 600px) { gap: 10px 18px; }
     }
 
     &__link {
@@ -52,7 +50,7 @@
       font-weight: $font-weight-semibold;
       letter-spacing: $ls-caps;
       text-transform: uppercase;
-      color: rgba($c-text, 0.5);
+      color: rgba($c-text, 0.4);
       text-decoration: none;
       transition: color 0.2s;
 
@@ -60,7 +58,7 @@
     }
   }
 
-  // ── Split layout ────────────────────────────────────────────────────
+  // ── Split layout ─────────────────────────────────────────────────────
   &__split {
     display: grid;
     grid-template-columns: 42% 58%;
@@ -72,18 +70,18 @@
     }
   }
 
-  // ── Left panel — type ────────────────────────────────────────────────
+  // ── Left panel ───────────────────────────────────────────────────────
   &__left {
     position: relative;
     background: $c-bg;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 96px 52px 48px;
+    padding: 100px 52px 52px;
     border-right: 1px solid $c-border;
 
     @media (max-width: 768px) {
-      padding: 80px 24px 32px;
+      padding: 80px 24px 36px;
       border-right: none;
       border-bottom: 1px solid $c-border;
     }
@@ -92,16 +90,15 @@
   &__left-inner {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 
   &__wordmark {
     font-family: $font-family-serif;
-    font-size: clamp(56px, 8vw, $fs-120);
+    font-size: clamp(54px, 7.5vw, 118px);
     font-weight: $font-weight-regular;
     color: $c-text;
-    line-height: $line-height-tight;
-    letter-spacing: -0.01em;
+    line-height: 1.0;
     margin: 0;
   }
 
@@ -126,8 +123,11 @@
     text-transform: uppercase;
     color: $c-text;
     text-decoration: none;
-    margin-top: 8px;
-    transition: gap 0.3s ease;
+    margin-top: 20px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid $c-border-hi;
+    width: fit-content;
+    transition: border-color 0.2s, gap 0.3s ease;
 
     &::after {
       content: '→';
@@ -137,16 +137,16 @@
 
     &:hover {
       gap: 16px;
-
+      border-bottom-color: $c-text;
       &::after { transform: translateX(4px); }
     }
   }
 
-  // ── Press strip — bottom of left panel ──────────────────────────────
+  // ── Press strip ───────────────────────────────────────────────────────
   &__press {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
 
   &__press-label {
@@ -167,30 +167,27 @@
   }
 
   &__press-logo {
-    opacity: 0.25;
-    filter: brightness(0) invert(1);
+    opacity: 0.3;
+    filter: brightness(0);
     transition: opacity 0.2s;
 
     &:hover { opacity: 0.6; }
 
     img {
-      height: 16px;
+      height: 14px;
       width: auto;
       display: block;
     }
   }
 
-  // ── Right panel — image ──────────────────────────────────────────────
+  // ── Right panel ───────────────────────────────────────────────────────
   &__right {
     position: relative;
     overflow: hidden;
+    background: $c-lift;
 
-    img {
-      transition: transform 12s ease;
-    }
+    img { transition: transform 12s ease; }
 
-    &:hover img {
-      transform: scale(1.04);
-    }
+    &:hover img { transform: scale(1.04); }
   }
 }

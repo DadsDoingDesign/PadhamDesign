@@ -1,63 +1,46 @@
 @import '../tokens/index';
 
 .portfolio {
-  background: $c-surface;
-  padding: $sp-16 $sp-10;
+  background: $c-bg;
+  padding: $sp-16 0;
 
-  @media (max-width: 600px) { padding: $sp-10 $sp-4; }
+  @media (max-width: 600px) { padding: $sp-10 0; }
 
-  &__inner {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+  &__inner { max-width: 1280px; margin: 0 auto; }
 
   &__header {
-    margin-bottom: $sp-12;
+    padding: 0 $sp-10 $sp-12;
+    @media (max-width: 600px) { padding: 0 $sp-4 $sp-8; }
   }
 
   &__heading {
-    font-family: $font-family-serif;
-    font-size: $fs-64;
-    font-weight: $font-weight-regular;
+    font-family: $font-family-display;
+    font-size: clamp(48px, 7vw, $fs-88);
+    font-weight: 300;
     color: $c-text;
     margin: 0;
     line-height: $line-height-tight;
-
-    @media (max-width: 768px) { font-size: $fs-48; }
   }
 
-  &__rows {
-    display: flex;
-    flex-direction: column;
-  }
+  &__rows { display: flex; flex-direction: column; }
 
   // Each project row
   &__row {
     border-top: 1px solid $c-border;
-
     &:last-child { border-bottom: 1px solid $c-border; }
-
-    // Alternate: odd rows → image left, even rows → image right
-    &:nth-child(even) .portfolio__row-link {
-      flex-direction: row-reverse;
-    }
   }
 
   &__row-link {
     display: flex;
     align-items: stretch;
-    gap: 0;
     text-decoration: none;
     color: $c-text;
-    min-height: 380px;
+    min-height: 400px;
+    transition: background 0.3s;
 
-    &:hover .portfolio__img-wrap img {
-      transform: scale(1.04);
-    }
-
-    &:hover .portfolio__title {
-      opacity: 0.6;
-    }
+    &:hover { background: $c-surface; }
+    &:hover .portfolio__img-wrap img { transform: scale(1.04); }
+    &:hover .portfolio__arrow { transform: translateX(6px); }
 
     @media (max-width: 768px) {
       flex-direction: column !important;
@@ -65,23 +48,14 @@
     }
   }
 
-  // Index number
-  &__index {
-    font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps;
-    color: $c-dim;
-    padding: 32px 24px 0 0;
-    flex-shrink: 0;
-    width: 48px;
-    align-self: flex-start;
+  // Even rows flip image to right
+  &__row:nth-child(even) &__row-link {
+    flex-direction: row-reverse;
   }
 
-  // Image block — takes majority of row
   &__img-wrap {
     position: relative;
-    flex: 0 0 56%;
+    flex: 0 0 58%;
     overflow: hidden;
     background: $c-lift;
 
@@ -90,34 +64,38 @@
     @media (max-width: 768px) {
       flex: none;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 4 / 3;
     }
   }
 
-  // Info block
   &__meta {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 40px 48px;
-    gap: 8px;
+    justify-content: space-between;
+    padding: 44px 52px;
 
-    @media (max-width: 768px) {
-      padding: 20px 0;
-    }
+    @media (max-width: 1024px) { padding: 36px 36px; }
+    @media (max-width: 768px) { padding: 24px; }
+  }
+
+  &__meta-top { display: flex; flex-direction: column; gap: 14px; }
+
+  &__index {
+    font-family: $font-family-sans;
+    font-size: $fs-10;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $ls-caps-wide;
+    color: $c-dim;
   }
 
   &__title {
-    font-family: $font-family-serif;
-    font-size: $fs-36;
-    font-weight: $font-weight-regular;
+    font-family: $font-family-display;
+    font-size: clamp(26px, 3.2vw, $fs-48);
+    font-weight: 300;
     color: $c-text;
+    line-height: 1.15;
     margin: 0;
-    line-height: $line-height-tight;
-    transition: opacity 0.3s;
-
-    @media (max-width: 768px) { font-size: $fs-26; }
   }
 
   &__location {
@@ -128,5 +106,26 @@
     text-transform: uppercase;
     color: $c-muted;
     margin: 0;
+  }
+
+  &__meta-bottom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__view {
+    font-family: $font-family-sans;
+    font-size: $fs-11;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $ls-caps;
+    text-transform: uppercase;
+    color: $c-dim;
+  }
+
+  &__arrow {
+    font-size: 13px;
+    color: $c-dim;
+    transition: transform 0.3s ease;
   }
 }

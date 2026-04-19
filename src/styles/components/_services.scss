@@ -1,7 +1,7 @@
 @import '../tokens/index';
 
 .services {
-  background: $c-bg;
+  background: $c-surface;
   padding: $sp-16 $sp-10;
 
   @media (max-width: 600px) { padding: $sp-10 $sp-4; }
@@ -11,61 +11,41 @@
     margin: 0 auto;
   }
 
-  &__header {
-    margin-bottom: $sp-12;
-  }
+  &__header { margin-bottom: $sp-10; }
 
   &__heading {
-    font-family: $font-family-serif;
-    font-size: $fs-64;
-    font-weight: $font-weight-regular;
+    font-family: $font-family-display;
+    font-size: clamp(48px, 7vw, $fs-88);
+    font-weight: 300;
     color: $c-text;
     margin: 0;
     line-height: $line-height-tight;
-
-    @media (max-width: 768px) { font-size: $fs-48; }
   }
 
-  // 3-col on desktop, 1-col on mobile
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+  // Typographic table — elegant, no images
+  &__list { display: flex; flex-direction: column; }
 
-    @media (max-width: 900px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 500px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  // Each service card
   &__item {
-    background: $c-surface;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $sp-8;
+    align-items: start;
+    padding: $sp-6 0;
+    border-top: 1px solid $c-border;
 
-    &:hover &-img img { transform: scale(1.04); }
+    &:last-child { border-bottom: 1px solid $c-border; }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: $sp-2;
+      padding: $sp-4 0;
+    }
   }
 
-  &__item-img {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    flex-shrink: 0;
-
-    img { transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
-  }
-
-  &__item-body {
-    padding: 28px 28px 36px;
+  &__item-label {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
+    align-items: baseline;
+    gap: 18px;
   }
 
   &__item-num {
@@ -74,14 +54,17 @@
     font-weight: $font-weight-semibold;
     letter-spacing: $ls-caps-wide;
     color: $c-dim;
+    min-width: 22px;
+    flex-shrink: 0;
   }
 
   &__item-name {
-    font-family: $font-family-sans;
-    font-size: $fs-17;
-    font-weight: $font-weight-semibold;
+    font-family: $font-family-display;
+    font-size: clamp(22px, 2.6vw, $fs-36);
+    font-weight: 400;
     color: $c-text;
     margin: 0;
+    line-height: 1.2;
   }
 
   &__item-desc {
@@ -90,5 +73,8 @@
     line-height: $line-height-loose;
     color: $c-muted;
     margin: 0;
+    padding-top: 6px;
+
+    @media (max-width: 768px) { padding-top: 0; }
   }
 }

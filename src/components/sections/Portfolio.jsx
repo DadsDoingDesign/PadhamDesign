@@ -27,24 +27,28 @@ const Portfolio = () => (
             transition={{ duration: 0.6, delay: 0.05 }}
           >
             <Link href={`/projects/${project.slug}`} className="portfolio__row-link">
-              {/* Index number */}
-              <span className="portfolio__index">{String(i + 1).padStart(2, '0')}</span>
-
-              {/* Image */}
+              {/* Full-bleed image */}
               <div className="portfolio__img-wrap">
                 <Image
                   src={project.images.featured}
                   alt={project.title}
                   fill
                   style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 768px) 100vw, 55vw"
+                  sizes="(max-width: 768px) 100vw, 58vw"
                 />
               </div>
 
-              {/* Meta */}
+              {/* Meta panel */}
               <div className="portfolio__meta">
-                <h3 className="portfolio__title">{project.title}</h3>
-                <p className="portfolio__location">{project.location}</p>
+                <div className="portfolio__meta-top">
+                  <span className="portfolio__index">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="portfolio__title">{project.title}</h3>
+                  <p className="portfolio__location">{project.location}</p>
+                </div>
+                <div className="portfolio__meta-bottom">
+                  <span className="portfolio__view">View Project</span>
+                  <span className="portfolio__arrow">→</span>
+                </div>
               </div>
             </Link>
           </motion.div>

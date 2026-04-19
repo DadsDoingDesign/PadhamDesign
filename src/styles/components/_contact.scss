@@ -21,14 +21,12 @@
   }
 
   &__heading {
-    font-family: $font-family-serif;
-    font-size: $fs-64;
-    font-weight: $font-weight-regular;
+    font-family: $font-family-display;
+    font-size: clamp(48px, 6vw, $fs-88);
+    font-weight: 300;
     color: $c-text;
     margin: 0 0 $sp-10;
     line-height: $line-height-tight;
-
-    @media (max-width: 768px) { font-size: $fs-48; }
   }
 
   &__details { display: flex; flex-direction: column; gap: $sp-6; }
@@ -70,7 +68,6 @@
     margin: 0;
   }
 
-  // Form
   &__form { display: flex; flex-direction: column; gap: $sp-6; }
 
   &__field { display: flex; flex-direction: column; gap: 6px; }
@@ -97,7 +94,7 @@
     outline: none;
 
     &::placeholder { color: $c-dim; }
-    &:focus { border-bottom-color: $c-border-hi; }
+    &:focus { border-bottom-color: $c-text; }
   }
 
   &__textarea { resize: none; min-height: 100px; line-height: $line-height-normal; }
@@ -115,9 +112,9 @@
     border: 1px solid $c-border-hi;
     padding: 12px 32px;
     cursor: pointer;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.2s;
 
-    &:hover { border-color: $c-text; }
+    &:hover { border-color: $c-text; background: rgba($c-text, 0.04); }
     &:disabled { opacity: 0.35; cursor: not-allowed; }
   }
 
@@ -125,7 +122,7 @@
     font-family: $font-family-sans;
     font-size: $fs-13;
     margin: 0;
-    &--error { color: #c0392b; }
-    &--success { color: $c-text-soft; letter-spacing: $ls-caps; }
+    &--error { color: #b33020; }
+    &--success { color: $c-muted; letter-spacing: $ls-caps; }
   }
 }

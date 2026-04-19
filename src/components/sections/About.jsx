@@ -43,6 +43,15 @@ const About = () => (
           <h3 className="about__name">{aboutContent.name}</h3>
           <p className="about__bio">{aboutContent.bio.description}</p>
           <p className="about__bio">{aboutContent.bio.experience}</p>
+
+          <div className="about__values">
+            {aboutContent.values.map((value) => (
+              <div key={value.title} className="about__value">
+                <p className="about__value-title">{value.title}</p>
+                <p className="about__value-desc">{value.description}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </div>

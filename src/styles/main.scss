@@ -53,7 +53,7 @@ blockquote { margin: 0; padding: 0; }
   border: 0;
 }
 
-::selection { background: rgba($c-text, 0.15); color: $c-text; }
+::selection { background: rgba($c-text, 0.1); color: $c-bg; }
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: $c-bg; }
-::-webkit-scrollbar-thumb { background: $c-border-hi; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: $c-border-hi; border-radius: 0; }
