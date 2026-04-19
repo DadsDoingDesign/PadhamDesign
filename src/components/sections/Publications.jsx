@@ -29,7 +29,7 @@ const Publications = () => (
           >
             <div className="pubs__logo-wrap">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={pub.logo} alt={pub.id} className="pubs__logo" />
+              <img src={pub.logo} alt={pub.name} className="pubs__logo" />
             </div>
             <blockquote className="pubs__quote">{pub.description}</blockquote>
             <p className="pubs__title">{pub.title}</p>

@@ -18,11 +18,11 @@ export default function Home() {
         <meta property="og:title" content="Padham Design | Custom Interiors" />
         <meta property="og:description" content="Carol Padham brings over 25 years of interior design expertise to hospitality and residential spaces across the Bay Area and Northern California." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/images/interiors/Interior1.jpg" />
+        <meta property="og:image" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://padhamdesign.com'}/images/interiors/Interior1.jpg`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Padham Design | Custom Interiors" />
         <meta name="twitter:description" content="Carol Padham brings over 25 years of interior design expertise to hospitality and residential spaces across the Bay Area and Northern California." />
-        <meta name="twitter:image" content="/images/interiors/Interior1.jpg" />
+        <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://padhamdesign.com'}/images/interiors/Interior1.jpg`} />
       </Head>
       <main>
         <Hero />

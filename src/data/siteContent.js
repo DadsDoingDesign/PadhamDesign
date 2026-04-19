@@ -149,6 +149,7 @@ export const publicationsContent = {
   publications: [
     {
       id: "vogue",
+      name: "Vogue",
       logo: "/images/logos/Vogue.png",
       title: "Why Carmel-by-the-Sea Is the West Coast Destination of the Moment",
       description: '"Interior designers Carol Padham and Phyllis Martin-Vegue worked with an ocean-inspired palette to create custom furnishings for the guest rooms, which also feature Victoria + Albert bath fixtures."',
@@ -156,6 +157,7 @@ export const publicationsContent = {
     },
     {
       id: "hotels",
+      name: "Hotels Magazine",
       logo: "/images/logos/HotelsMag.png",
       title: "Briefs: Carmel Beach Hotel’s upcoming opening",
       description: '"The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel’s lighting."',
@@ -163,6 +165,7 @@ export const publicationsContent = {
     },
     {
       id: "cahome",
+      name: "California Home + Design",
       logo: "/images/logos/CAHome+Design.png",
       title: "Wine Country Agenda: WALT Wines, Trefethen Now, Doug Aitken Install, Meet At La Calenda",
       description: '"Inside, SF interior designer Carol Padham creates a calming, airy design with a selection of owners Kathryn Walt Hall and Craig Hall’s personal art collection, showcasing the Hall’s love of modern with a custom, 3-dimensional tasting bar with Italian porcelain countertop, under faceted LED globes. The renovated 1,500 square foot tasting room is designed with green features by Jarrod Denton of Signum Architecture."',
@@ -170,6 +173,7 @@ export const publicationsContent = {
     },
     {
       id: "cmag",
+      name: "C Magazine",
       logo: "/images/logos/CMag.png",
       title: "Three Charming Guest Houses For Summer",
       description: '"The hotel’s designers, Carol Padham and Phyllis Martin-Vegue, sought inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees, and warm tones of Carmel stone, all of which play out throughout the decor. The custom walnut-grained mill-work includes the minibar and headboards running the length of the rooms, each outfitted with woven-back chairs and cafe tables."',
