@@ -9,12 +9,17 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": ["interior design", "portfolio", "design"],
+  "keywords": [
+    "interior design",
+    "portfolio",
+    "design"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "framer-motion": "^11.0.3",
     "next": "^14.1.0",
+    "playwright": "^1.59.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.5.3",
