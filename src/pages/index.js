@@ -6,6 +6,8 @@ import About from '@/components/sections/About';
 import Publications from '@/components/sections/Publications';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/sections/Footer';
+import CustomCursor from '@/components/common/CustomCursor';
+import ScrollProgress from '@/components/common/ScrollProgress';
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
         <meta name="twitter:description" content="Carol Padham brings over 25 years of interior design expertise to hospitality and residential spaces across the Bay Area and Northern California." />
         <meta name="twitter:image" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://padhamdesign.com'}/images/interiors/Interior1.jpg`} />
       </Head>
+      <CustomCursor />
+      <ScrollProgress />
       <main>
         <Hero />
         <Portfolio />

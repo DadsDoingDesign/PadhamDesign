@@ -1,33 +1,34 @@
-// Ivory editorial palette — light mode
+// Dark luxury palette — warm near-black with cream text and gold accent
 
-$c-bg:        #F8F5F1;   // warm ivory / parchment
-$c-surface:   #EFEAE3;   // slightly deeper ivory
-$c-lift:      #E4DDD4;   // card hover lift
-$c-invert:    #141210;   // dark — publications section + project-detail
-$c-border:    #DDD6CB;   // subtle warm border
-$c-border-hi: #C4B9A8;   // stronger border
-$c-text:      #141210;   // near-black
-$c-text-soft: #3D3328;   // soft dark
-$c-muted:     #6B6058;   // muted mid-tone
-$c-dim:       #9E9488;   // quiet / secondary text
+$c-bg:        #0C0A08;
+$c-surface:   #141210;
+$c-lift:      #1C1916;
+$c-text:      #F0E8DC;
+$c-text-soft: #C8BBAA;
+$c-muted:     #8A7D6E;
+$c-dim:       #5A5048;
+$c-accent:    #C4975A;
+$c-border:    rgba(#F0E8DC, 0.08);
+$c-border-hi: rgba(#F0E8DC, 0.22);
+$c-invert:    #F8F5F1;
 
-// Legacy aliases — project-detail.scss uses hardcoded dark values where needed
-$color-white:                #F8F5F1;
+// Legacy aliases
+$color-white:                $c-text;
 $color-gray:                 $c-muted;
 $color-gray-light:           $c-dim;
-$color-black:                $c-invert;
-$color-dark-gray:            $c-invert;
-$color-gold:                 $c-muted;
-$color-gold-muted:           rgba($c-text, 0.06);
+$color-black:                $c-bg;
+$color-dark-gray:            $c-surface;
+$color-gold:                 $c-accent;
+$color-gold-muted:           rgba($c-accent, 0.15);
 $color-text-primary:         $c-text;
-$color-text-secondary:       $c-muted;
-$color-text-muted:           $c-dim;
+$color-text-secondary:       $c-text-soft;
+$color-text-muted:           $c-muted;
 $color-background-primary:   $c-bg;
 $color-background-secondary: $c-surface;
-$color-background-dark:      $c-invert;
+$color-background-dark:      $c-bg;
 $color-border:               $c-border;
 $color-border-strong:        $c-border-hi;
-$color-accent:               $c-muted;
+$color-accent:               $c-accent;
 $color-text-highlight:       $c-text;
 $color-hover:                rgba($c-text, 0.04);
 $color-focus:                rgba($c-text, 0.08);

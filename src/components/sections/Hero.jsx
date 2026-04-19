@@ -1,9 +1,13 @@
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { heroContent, navItems } from '@/data/siteContent';
 
-const Hero = () => {
+export default function Hero() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+
   useEffect(() => {
     const onClick = (e) => {
       const href = e.currentTarget.getAttribute('href');
@@ -17,38 +21,95 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero">
-      {/* Top nav — spans full width */}
+    <section className="hero" ref={containerRef}>
       <nav className="hnav">
-        <span className="hnav__brand">PD</span>
+        <motion.span
+          className="hnav__brand"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
+        >
+          PD
+        </motion.span>
         <ul className="hnav__list">
-          {navItems.map((item) => (
-            <li key={item.label}>
+          {navItems.map((item, i) => (
+            <motion.li
+              key={item.label}
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+            >
               <a href={item.href} className="hnav__link">{item.label}</a>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </nav>
 
-      {/* Split: type panel left + image panel right */}
       <div className="hero__split">
-        {/* Left — wordmark + CTA */}
+        {/* Left — typography */}
         <div className="hero__left">
+          <div className="hero__left-inner">
+            <motion.p
+              className="hero__eyebrow"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Interior Design · San Francisco
+            </motion.p>
+
+            <h1 className="hero__wordmark" aria-label={heroContent.title}>
+              <div className="hero__wordmark-row">
+                <div className="hero__wordmark-clip">
+                  <motion.span
+                    initial={{ y: '105%' }}
+                    animate={{ y: '0%' }}
+                    transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+                  >
+                    Padham
+                  </motion.span>
+                </div>
+              </div>
+              <div className="hero__wordmark-row">
+                <div className="hero__wordmark-clip">
+                  <motion.span
+                    initial={{ y: '105%' }}
+                    animate={{ y: '0%' }}
+                    transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
+                  >
+                    Design
+                  </motion.span>
+                </div>
+              </div>
+            </h1>
+
+            <motion.div
+              className="hero__divider"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.65 }}
+            />
+
+            <motion.div
+              className="hero__sub-group"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
+            >
+              <p className="hero__descriptor">{heroContent.subtitle}</p>
+              <a href={heroContent.ctaLink} className="hero__cta">
+                {heroContent.ctaText}
+                <span className="hero__cta-arrow" aria-hidden="true">→</span>
+              </a>
+            </motion.div>
+          </div>
+
           <motion.div
-            className="hero__left-inner"
+            className="hero__press"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.0, delay: 1.4 }}
           >
-            <h1 className="hero__wordmark">{heroContent.title}</h1>
-            <p className="hero__descriptor">{heroContent.subtitle}</p>
-            <a href={heroContent.ctaLink} className="hero__cta">
-              {heroContent.ctaText}
-            </a>
-          </motion.div>
-
-          {/* Press logos sit at bottom of left panel */}
-          <div className="hero__press">
             <p className="hero__press-label">As seen in</p>
             <div className="hero__press-logos">
               {heroContent.publications.map((pub) => (
@@ -63,27 +124,29 @@ const Hero = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Right — full-bleed image */}
-        <motion.div
-          className="hero__right"
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <Image
-            src={heroContent.panels.left.image}
-            alt={heroContent.panels.left.alt}
-            fill
-            priority
-            style={{ objectFit: 'cover' }}
-          />
-        </motion.div>
+        {/* Right — image with parallax */}
+        <div className="hero__right" data-cursor="view">
+          <motion.div
+            className="hero__right-inner"
+            style={{ y: imageY }}
+            initial={{ clipPath: 'inset(0 0 100% 0)', scale: 1.06 }}
+            animate={{ clipPath: 'inset(0 0 0% 0)', scale: 1 }}
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+          >
+            <Image
+              src={heroContent.panels.left.image}
+              alt={heroContent.panels.left.alt}
+              fill
+              priority
+              style={{ objectFit: 'cover' }}
+            />
+          </motion.div>
+          <div className="hero__right-overlay" aria-hidden="true" />
+        </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

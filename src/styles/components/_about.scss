@@ -2,36 +2,45 @@
 
 .about {
   background: $c-bg;
-  padding: $sp-16 $sp-10;
+  padding: 140px 80px;
+  overflow: hidden;
 
-  @media (max-width: 600px) { padding: $sp-10 $sp-4; }
+  @media (max-width: 768px) { padding: 80px 28px; }
 
-  &__inner {
-    max-width: 1280px;
-    margin: 0 auto;
+  &__inner { max-width: 1320px; margin: 0 auto; }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 80px;
   }
 
-  &__header { margin-bottom: $sp-12; }
+  &__eyebrow {
+    font-family: $font-family-sans;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: $c-accent;
+  }
 
   &__heading {
     font-family: $font-family-display;
-    font-size: clamp(48px, 7vw, $fs-88);
+    font-size: clamp(52px, 8vw, 110px);
     font-weight: 300;
     color: $c-text;
     margin: 0;
-    line-height: $line-height-tight;
+    line-height: 0.88;
   }
 
   &__layout {
     display: grid;
     grid-template-columns: 5fr 6fr;
-    gap: $sp-16;
+    gap: 100px;
     align-items: start;
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: $sp-8;
-    }
+    @media (max-width: 900px) { grid-template-columns: 1fr; gap: 48px; }
   }
 
   &__portrait {
@@ -39,60 +48,58 @@
     aspect-ratio: 3 / 4;
     overflow: hidden;
     background: $c-surface;
+  }
 
-    img { transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); }
-    &:hover img { transform: scale(1.02); }
+  &__portrait-inner {
+    position: absolute;
+    inset: -10%;
+    will-change: transform;
   }
 
   &__text {
     display: flex;
     flex-direction: column;
-    gap: $sp-4;
-    padding-top: $sp-2;
+    gap: 24px;
+    padding-top: 12px;
   }
 
-  // Name in Dancing Script — personal, warm
   &__name {
     font-family: $font-family-serif;
-    font-size: clamp(42px, 5vw, $fs-88);
-    font-weight: $font-weight-regular;
+    font-size: clamp(44px, 5.5vw, 82px);
+    font-weight: 400;
     color: $c-text;
     line-height: 1.0;
-    margin: 0 0 $sp-1;
+    margin: 0 0 4px;
   }
 
   &__bio {
     font-family: $font-family-sans;
-    font-size: $fs-17;
-    line-height: $line-height-loose;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.9;
     color: $c-text-soft;
     margin: 0;
   }
 
-  // Values strip below bio
   &__values {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: $sp-6;
-    margin-top: $sp-4;
-    padding-top: $sp-6;
+    gap: 24px 32px;
+    margin-top: 8px;
+    padding-top: 40px;
     border-top: 1px solid $c-border;
 
     @media (max-width: 900px) { grid-template-columns: 1fr 1fr; }
-    @media (max-width: 600px) { grid-template-columns: 1fr; gap: $sp-4; }
+    @media (max-width: 600px) { grid-template-columns: 1fr; }
   }
 
-  &__value {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  &__value { display: flex; flex-direction: column; gap: 8px; }
 
   &__value-title {
     font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: $c-text;
     margin: 0;
@@ -100,8 +107,9 @@
 
   &__value-desc {
     font-family: $font-family-sans;
-    font-size: $fs-13;
-    line-height: $line-height-normal;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.75;
     color: $c-muted;
     margin: 0;
   }

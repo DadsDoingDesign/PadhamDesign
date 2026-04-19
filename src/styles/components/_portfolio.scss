@@ -1,131 +1,171 @@
 @import '../tokens/index';
 
 .portfolio {
+  position: relative;
   background: $c-bg;
-  padding: $sp-16 0;
+  padding: 140px 0;
+  overflow: hidden;
 
-  @media (max-width: 600px) { padding: $sp-10 0; }
+  @media (max-width: 600px) { padding: 80px 0; }
 
-  &__inner { max-width: 1280px; margin: 0 auto; }
+  // Background image — occupies right 50% of section
+  &__bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__bg-image {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__bg-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, $c-bg 0%, rgba($c-bg, 0.55) 40%, rgba($c-bg, 0.08) 100%);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 80px;
+
+    @media (max-width: 768px) { padding: 0 28px; }
+  }
 
   &__header {
-    padding: 0 $sp-10 $sp-12;
-    @media (max-width: 600px) { padding: 0 $sp-4 $sp-8; }
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 72px;
+  }
+
+  &__eyebrow {
+    font-family: $font-family-sans;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: $c-accent;
   }
 
   &__heading {
     font-family: $font-family-display;
-    font-size: clamp(48px, 7vw, $fs-88);
+    font-size: clamp(52px, 8vw, 110px);
     font-weight: 300;
     color: $c-text;
     margin: 0;
-    line-height: $line-height-tight;
+    line-height: 0.88;
   }
 
-  &__rows { display: flex; flex-direction: column; }
-
-  // Each project row
-  &__row {
+  &__list {
+    list-style: none;
+    margin: 0; padding: 0;
     border-top: 1px solid $c-border;
-    &:last-child { border-bottom: 1px solid $c-border; }
   }
 
-  &__row-link {
+  &__item {
+    border-bottom: 1px solid $c-border;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: $c-accent;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &--active::before { transform: scaleY(1); }
+  }
+
+  &__link {
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    gap: 32px;
+    padding: 40px 0 40px 20px;
     text-decoration: none;
     color: $c-text;
-    min-height: 400px;
-    transition: background 0.3s;
 
-    &:hover { background: $c-surface; }
-    &:hover .portfolio__img-wrap img { transform: scale(1.04); }
-    &:hover .portfolio__arrow { transform: translateX(6px); }
-
-    @media (max-width: 768px) {
-      flex-direction: column !important;
-      min-height: auto;
-    }
+    @media (max-width: 600px) { gap: 16px; padding: 28px 0 28px 16px; }
   }
 
-  // Even rows flip image to right
-  &__row:nth-child(even) &__row-link {
-    flex-direction: row-reverse;
+  &__num {
+    font-family: $font-family-sans;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba($c-text, 0.25);
+    min-width: 30px;
+    flex-shrink: 0;
+    transition: color 0.3s;
+
+    .portfolio__item--active & { color: $c-accent; }
   }
 
-  &__img-wrap {
-    position: relative;
-    flex: 0 0 58%;
-    overflow: hidden;
-    background: $c-lift;
-
-    img { transition: transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1); }
-
-    @media (max-width: 768px) {
-      flex: none;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-    }
-  }
-
-  &__meta {
+  &__text {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 44px 52px;
-
-    @media (max-width: 1024px) { padding: 36px 36px; }
-    @media (max-width: 768px) { padding: 24px; }
-  }
-
-  &__meta-top { display: flex; flex-direction: column; gap: 14px; }
-
-  &__index {
-    font-family: $font-family-sans;
-    font-size: $fs-10;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps-wide;
-    color: $c-muted;
+    gap: 7px;
   }
 
   &__title {
     font-family: $font-family-display;
-    font-size: clamp(26px, 3.2vw, $fs-48);
+    font-size: clamp(26px, 3.2vw, 52px);
     font-weight: 300;
     color: $c-text;
-    line-height: 1.15;
     margin: 0;
+    line-height: 1.1;
+    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .portfolio__item--active & { letter-spacing: 0.01em; }
   }
 
   &__location {
     font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: $c-muted;
     margin: 0;
   }
 
-  &__meta-bottom {
+  &__cta {
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-
-  &__view {
     font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: $c-muted;
+    color: rgba($c-text, 0.3);
+    flex-shrink: 0;
+    transition: color 0.3s, gap 0.4s ease;
+
+    .portfolio__item--active & {
+      color: $c-accent;
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) { display: none; }
   }
 
   &__arrow {
-    font-size: 13px;
-    color: $c-muted;
-    transition: transform 0.3s ease;
+    display: inline-block;
+    transition: transform 0.4s ease;
+
+    .portfolio__item--active & { transform: translateX(4px); }
   }
 }

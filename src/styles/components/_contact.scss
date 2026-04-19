@@ -2,49 +2,47 @@
 
 .contact {
   background: $c-surface;
-  padding: $sp-16 $sp-10;
+  padding: 140px 80px;
 
-  @media (max-width: 600px) { padding: $sp-10 $sp-4; }
+  @media (max-width: 768px) { padding: 80px 28px; }
 
   &__inner {
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $sp-16;
+    grid-template-columns: 5fr 6fr;
+    gap: 120px;
     align-items: start;
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: $sp-10;
-    }
+    @media (max-width: 900px) { grid-template-columns: 1fr; gap: 60px; }
   }
 
   &__heading {
     font-family: $font-family-display;
-    font-size: clamp(48px, 6vw, $fs-88);
+    font-size: clamp(52px, 7vw, 100px);
     font-weight: 300;
     color: $c-text;
-    margin: 0 0 $sp-10;
-    line-height: $line-height-tight;
+    margin: 0 0 56px;
+    line-height: 0.88;
   }
 
-  &__details { display: flex; flex-direction: column; gap: $sp-6; }
+  &__details { display: flex; flex-direction: column; gap: 32px; }
 
-  &__detail-group { display: flex; flex-direction: column; gap: 4px; }
+  &__detail-group { display: flex; flex-direction: column; gap: 6px; }
 
   &__label {
     font-family: $font-family-sans;
-    font-size: $fs-10;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps-wide;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: $c-muted;
   }
 
   &__email, &__phone {
     font-family: $font-family-sans;
-    font-size: $fs-15;
+    font-size: 16px;
+    font-weight: 300;
     color: $c-text-soft;
     text-decoration: none;
     transition: color 0.2s;
@@ -53,30 +51,32 @@
 
   &__address {
     font-family: $font-family-sans;
-    font-size: $fs-15;
-    line-height: $line-height-normal;
-    color: $c-muted;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: $c-text-soft;
     margin: 0;
   }
 
   &__hours {
     font-family: $font-family-sans;
-    font-size: $fs-11;
-    letter-spacing: $ls-caps;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: $c-muted;
     margin: 0;
   }
 
-  &__form { display: flex; flex-direction: column; gap: $sp-6; }
+  &__form { display: flex; flex-direction: column; gap: 36px; }
 
-  &__field { display: flex; flex-direction: column; gap: 6px; }
+  &__field { display: flex; flex-direction: column; gap: 8px; }
 
   &__field-label {
     font-family: $font-family-sans;
-    font-size: $fs-10;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps-wide;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: $c-muted;
   }
@@ -85,44 +85,44 @@
     background: transparent;
     border: none;
     border-bottom: 1px solid $c-border;
-    padding: $sp-1 0;
+    padding: 10px 0;
     font-family: $font-family-sans;
-    font-size: $fs-15;
+    font-size: 15px;
+    font-weight: 300;
     color: $c-text;
     width: 100%;
-    transition: border-color 0.2s;
+    transition: border-color 0.25s;
     outline: none;
 
-    &::placeholder { color: $c-dim; }
-    &:focus { border-bottom-color: $c-text; }
+    &::placeholder { color: rgba($c-text, 0.2); }
+    &:focus { border-bottom-color: $c-accent; }
   }
 
-  &__textarea { resize: none; min-height: 100px; line-height: $line-height-normal; }
+  &__textarea { resize: none; min-height: 100px; line-height: 1.75; }
 
   &__btn {
     align-self: flex-start;
-    margin-top: $sp-2;
+    margin-top: 8px;
     font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: $c-text;
-    background: transparent;
-    border: 1px solid $c-border-hi;
-    padding: 12px 32px;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
+    color: $c-bg;
+    background: $c-text;
+    border: 1px solid $c-text;
+    padding: 14px 42px;
+    transition: background 0.25s, border-color 0.25s;
 
-    &:hover { border-color: $c-text; background: rgba($c-text, 0.04); }
-    &:disabled { color: $c-dim; cursor: not-allowed; }
+    &:hover { background: $c-accent; border-color: $c-accent; }
+    &:disabled { opacity: 0.35; }
   }
 
   &__msg {
     font-family: $font-family-sans;
-    font-size: $fs-13;
+    font-size: 13px;
     margin: 0;
-    &--error { color: #b33020; }
-    &--success { color: $c-muted; letter-spacing: $ls-caps; }
+    &--error { color: #d4604e; }
+    &--success { color: $c-accent; letter-spacing: 0.1em; }
   }
 }

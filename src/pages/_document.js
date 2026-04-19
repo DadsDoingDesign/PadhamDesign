@@ -6,7 +6,10 @@ export default function Document() {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Dancing+Script:wght@400;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

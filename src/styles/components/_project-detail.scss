@@ -1,9 +1,9 @@
-// Project detail pages use a dark theme with hardcoded values
-// to stay isolated from the main site's light palette tokens.
+// Project detail pages — hardcoded to match new dark palette tokens exactly
+// Isolated to prevent any future token changes from affecting these pages.
 
-$_pd-bg:     #141210;
-$_pd-bg-hi:  #1C1812;
-$_pd-text:   #EDE5DA;
+$_pd-bg:     #0C0A08;
+$_pd-bg-hi:  #141210;
+$_pd-text:   #F0E8DC;
 
 .project-detail {
   min-height: 100vh;
@@ -68,7 +68,7 @@ $_pd-text:   #EDE5DA;
     @each $property, $value in $typography-b2 {
       #{$property}: $value;
     }
-    color: rgba($_pd-text, 0.72);  // override token-driven color for dark bg
+    color: rgba($_pd-text, 0.72);
     margin-bottom: $spacing-lg;
     width: 100%;
   }
@@ -89,11 +89,10 @@ $_pd-text:   #EDE5DA;
   }
 }
 
-// Project Navigation Styles
+// Project Navigation
 .project-nav {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   z-index: 10;
   padding: $spacing-sm $spacing-md;
@@ -131,12 +130,10 @@ $_pd-text:   #EDE5DA;
     }
   }
 
-  &__next-icon {
-    font-size: $font-size-lg;
-  }
+  &__next-icon { font-size: $font-size-lg; }
 }
 
-// Project Carousel Styles
+// Project Carousel
 .project-carousel {
   position: relative;
   width: 100%;
@@ -153,17 +150,14 @@ $_pd-text:   #EDE5DA;
 
   &__main-image {
     position: absolute;
-    top: 0;
-    left: 10%;
-    width: 80%;
-    height: 100%;
+    top: 0; left: 10%;
+    width: 80%; height: 100%;
     z-index: 1;
   }
 
   &__preview {
     position: absolute;
-    height: 80%;
-    width: 10%;
+    height: 80%; width: 10%;
     top: 10%;
     z-index: 2;
     cursor: pointer;
@@ -180,7 +174,7 @@ $_pd-text:   #EDE5DA;
         position: absolute;
         top: 0; right: 0;
         width: 50%; height: 100%;
-        background: linear-gradient(to right, transparent, rgba(20,18,16,0.85));
+        background: linear-gradient(to right, transparent, rgba($_pd-bg, 0.85));
         pointer-events: none;
       }
     }
@@ -192,7 +186,7 @@ $_pd-text:   #EDE5DA;
         position: absolute;
         top: 0; left: 0;
         width: 50%; height: 100%;
-        background: linear-gradient(to left, transparent, rgba(20,18,16,0.85));
+        background: linear-gradient(to left, transparent, rgba($_pd-bg, 0.85));
         pointer-events: none;
       }
     }
@@ -202,7 +196,6 @@ $_pd-text:   #EDE5DA;
     display: flex;
     justify-content: center;
     gap: $spacing-xs;
-    margin-top: 0;
     padding: 16px 0;
     position: relative;
     z-index: 3;
@@ -210,8 +203,7 @@ $_pd-text:   #EDE5DA;
   }
 
   &__dot {
-    width: 12px;
-    height: 12px;
+    width: 12px; height: 12px;
     border-radius: 0;
     background-color: rgba($_pd-text, 0.25);
     border: none;

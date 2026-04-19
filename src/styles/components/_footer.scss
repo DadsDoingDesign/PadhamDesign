@@ -3,53 +3,53 @@
 .footer {
   background: $c-bg;
   border-top: 1px solid $c-border;
-  padding: $sp-10 $sp-10 $sp-6;
+  padding: 80px 80px 48px;
 
-  @media (max-width: 600px) { padding: $sp-8 $sp-4 $sp-4; }
+  @media (max-width: 768px) { padding: 60px 28px 36px; }
 
-  &__inner { max-width: 1280px; margin: 0 auto; }
+  &__inner { max-width: 1320px; margin: 0 auto; }
 
   &__top {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: $sp-12;
-    padding-bottom: $sp-8;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+    padding-bottom: 56px;
     border-bottom: 1px solid $c-border;
-    margin-bottom: $sp-6;
+    margin-bottom: 32px;
 
-    @media (max-width: 768px) { grid-template-columns: 1fr 1fr; gap: $sp-6; }
+    @media (max-width: 768px) { grid-template-columns: 1fr 1fr; gap: 40px; }
     @media (max-width: 480px) { grid-template-columns: 1fr; }
   }
 
   &__wordmark {
     font-family: $font-family-serif;
-    font-size: $fs-36;
-    font-weight: $font-weight-regular;
+    font-size: 38px;
+    font-weight: 400;
     color: $c-text;
-    margin: 0 0 4px;
+    margin: 0 0 8px;
     line-height: 1;
   }
 
   &__tagline {
     font-family: $font-family-sans;
-    font-size: $fs-10;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps-wide;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: $c-dim;
+    color: rgba($c-text, 0.3);
     margin: 0;
   }
 
   &__nav-list {
     list-style: none; margin: 0; padding: 0;
-    display: flex; flex-direction: column; gap: $sp-2;
+    display: flex; flex-direction: column; gap: 14px;
   }
 
   &__nav-link {
     font-family: $font-family-sans;
-    font-size: $fs-11;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $ls-caps;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: $c-muted;
     text-decoration: none;
@@ -57,11 +57,12 @@
     &:hover { color: $c-text; }
   }
 
-  &__contact { display: flex; flex-direction: column; gap: 10px; }
+  &__contact { display: flex; flex-direction: column; gap: 8px; }
 
   &__contact-link {
     font-family: $font-family-sans;
-    font-size: $fs-13;
+    font-size: 13px;
+    font-weight: 300;
     color: $c-muted;
     text-decoration: none;
     transition: color 0.2s;
@@ -70,9 +71,10 @@
 
   &__address {
     font-family: $font-family-sans;
-    font-size: $fs-13;
-    line-height: $line-height-normal;
-    color: $c-dim;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba($c-text, 0.3);
     margin: 0;
   }
 
@@ -80,14 +82,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 600px) { flex-direction: column; gap: $sp-2; }
+
+    @media (max-width: 600px) { flex-direction: column; gap: 10px; align-items: flex-start; }
   }
 
   &__copy {
     font-family: $font-family-sans;
-    font-size: $fs-11;
-    letter-spacing: $ls-caps;
-    color: $c-dim;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba($c-text, 0.2);
     margin: 0;
   }
 }
