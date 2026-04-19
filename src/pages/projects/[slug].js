@@ -1,17 +1,21 @@
-import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
 import projects from '@/data/projects';
 import ProjectCarousel from '@/components/common/ProjectCarousel';
 import ProjectNavigation from '@/components/common/ProjectNavigation';
 
-export default function ProjectDetail() {
-  const router = useRouter();
-  const { slug } = router.query;
-  
-  // Find the project with the matching slug
-  const project = projects.find(p => p.slug === slug);
+export async function getStaticPaths() {
+  return {
+    paths: projects.map((p) => ({ params: { slug: p.slug } })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const project = projects.find((p) => p.slug === params.slug) || null;
+  return { props: { project } };
+}
+
+export default function ProjectDetail({ project }) {
   
   // If the project is not found or the page is still loading, show a loading state
   if (!project) {
