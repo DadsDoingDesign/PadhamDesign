@@ -46,6 +46,7 @@ export default function Services() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      key={service.id}
                       className="services__body"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
