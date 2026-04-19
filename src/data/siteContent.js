@@ -151,7 +151,7 @@ export const publicationsContent = {
       id: "vogue",
       logo: "/images/logos/Vogue.png",
       title: "Why Carmel-by-the-Sea Is the West Coast Destination of the Moment",
-      description: '"Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms, which also feature Victoria + Albert bath fixtures."',
+      description: '"Interior designers Carol Padham and Phyllis Martin-Vegue worked with an ocean-inspired palette to create custom furnishings for the guest rooms, which also feature Victoria + Albert bath fixtures."',
       url: "https://www.vogue.com"
     },
     {

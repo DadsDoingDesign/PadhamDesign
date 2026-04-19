@@ -13,7 +13,12 @@ const ProjectCarousel = ({ images }) => {
     }
   }, [images]);
 
-  // Get previous and next indices with wrapping
+  // If images aren't loaded yet, show a loading state
+  if (!imagesLoaded || !images || images.length === 0) {
+    return <div className="project-carousel__loading">Loading images...</div>;
+  }
+
+  // Get previous and next indices with wrapping (safe: images is non-empty here)
   const getPrevIndex = (index) => (index === 0 ? images.length - 1 : index - 1);
   const getNextIndex = (index) => (index === images.length - 1 ? 0 : index + 1);
 
@@ -33,11 +38,6 @@ const ProjectCarousel = ({ images }) => {
   const handleNextClick = () => {
     setCurrentIndex(nextIndex);
   };
-
-  // If images aren't loaded yet, show a loading state
-  if (!imagesLoaded || !images || images.length === 0) {
-    return <div className="project-carousel__loading">Loading images...</div>;
-  }
 
   return (
     <div className="project-carousel">
