@@ -1,49 +1,17 @@
 @import '../tokens/index';
 
 .portfolio {
-  position: relative;
   background: $c-bg;
-  padding: 140px 0;
-  overflow: hidden;
 
-  @media (max-width: 600px) { padding: 80px 0; }
-
-  // Background image — occupies right 50% of section
-  &__bg {
-    position: absolute;
-    top: 0; right: 0;
-    width: 50%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  &__bg-image {
-    position: absolute;
-    inset: 0;
-  }
-
-  &__bg-scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, $c-bg 0%, rgba($c-bg, 0.55) 40%, rgba($c-bg, 0.08) 100%);
-  }
-
-  &__inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 80px;
-
-    @media (max-width: 768px) { padding: 0 28px; }
+  &__header-area {
+    padding: 140px 80px 72px;
+    @media (max-width: 768px) { padding: 80px 28px 48px; }
   }
 
   &__header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 72px;
   }
 
   &__eyebrow {
@@ -64,108 +32,115 @@
     line-height: 0.88;
   }
 
-  &__list {
-    list-style: none;
-    margin: 0; padding: 0;
-    border-top: 1px solid $c-border;
+  // Magazine grid — 2 columns, first card is featured full-width
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+
+    @media (max-width: 600px) { grid-template-columns: 1fr; }
   }
 
-  &__item {
-    border-bottom: 1px solid $c-border;
+  &__card {
     position: relative;
+    overflow: hidden;
 
-    &::before {
-      content: '';
+    &--featured {
+      grid-column: 1 / -1;
+
+      .portfolio__card-media { aspect-ratio: 16 / 7; }
+    }
+
+    &-link {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: $c-text;
+    }
+
+    &-media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+
+      img {
+        transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    &:hover .portfolio__card-media img {
+      transform: scale(1.06);
+    }
+
+    &-overlay {
       position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: $c-accent;
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba($c-bg, 0.88) 0%,
+        rgba($c-bg, 0.35) 45%,
+        transparent 72%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 36px 40px;
+
+      @media (max-width: 600px) { padding: 24px; }
     }
 
-    &--active::before { transform: scaleY(1); }
-  }
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-  &__link {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    padding: 40px 0 40px 20px;
-    text-decoration: none;
-    color: $c-text;
-
-    @media (max-width: 600px) { gap: 16px; padding: 28px 0 28px 16px; }
-  }
-
-  &__num {
-    font-family: $font-family-sans;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    color: rgba($c-text, 0.25);
-    min-width: 30px;
-    flex-shrink: 0;
-    transition: color 0.3s;
-
-    .portfolio__item--active & { color: $c-accent; }
-  }
-
-  &__text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-
-  &__title {
-    font-family: $font-family-display;
-    font-size: clamp(26px, 3.2vw, 52px);
-    font-weight: 300;
-    color: $c-text;
-    margin: 0;
-    line-height: 1.1;
-    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-
-    .portfolio__item--active & { letter-spacing: 0.01em; }
-  }
-
-  &__location {
-    font-family: $font-family-sans;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: $c-muted;
-    margin: 0;
-  }
-
-  &__cta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: $font-family-sans;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba($c-text, 0.3);
-    flex-shrink: 0;
-    transition: color 0.3s, gap 0.4s ease;
-
-    .portfolio__item--active & {
+    &-num {
+      font-family: $font-family-sans;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
       color: $c-accent;
-      gap: 14px;
     }
 
-    @media (max-width: 600px) { display: none; }
-  }
+    &-title {
+      font-family: $font-family-display;
+      font-size: clamp(22px, 3vw, 52px);
+      font-weight: 300;
+      color: $c-text;
+      margin: 0;
+      line-height: 1.05;
+      transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-  &__arrow {
-    display: inline-block;
-    transition: transform 0.4s ease;
+    &:hover &-title { letter-spacing: 0.01em; }
 
-    .portfolio__item--active & { transform: translateX(4px); }
+    &-location {
+      font-family: $font-family-sans;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: $c-muted;
+      margin: 0;
+    }
+
+    &-cta {
+      margin-top: 16px;
+      font-family: $font-family-sans;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: $c-accent;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover &-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

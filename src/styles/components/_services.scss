@@ -75,7 +75,7 @@
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.15em;
-    color: rgba($c-text, 0.28);
+    color: $c-muted;
     min-width: 28px;
     flex-shrink: 0;
     transition: color 0.3s;
@@ -98,7 +98,7 @@
     position: relative;
     width: 16px; height: 16px;
     flex-shrink: 0;
-    color: rgba($c-text, 0.4);
+    color: $c-muted;
   }
 
   &__icon-bar {
