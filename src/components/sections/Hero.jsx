@@ -133,7 +133,7 @@ export default function Hero() {
             <div key={pub.name} className="hero__press-logo">
               <Image
                 src={pub.image}
-                alt={pub.alt}
+                alt=""
                 width={pub.width}
                 height={pub.height}
                 style={{ objectFit: 'contain' }}
