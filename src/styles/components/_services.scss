@@ -2,13 +2,20 @@
 
 .services {
   background: $c-surface;
-  padding: 140px 80px;
+  overflow: hidden;
 
-  @media (max-width: 768px) { padding: 80px 28px; }
+  &__layout {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    min-height: 100vh;
 
-  &__inner {
-    max-width: 1000px;
-    margin: 0 auto;
+    @media (max-width: 900px) { grid-template-columns: 1fr; }
+  }
+
+  &__left {
+    padding: 120px 80px 120px;
+
+    @media (max-width: 768px) { padding: 80px 28px 80px; }
   }
 
   &__header {
@@ -36,12 +43,21 @@
     line-height: 0.88;
   }
 
-  &__list { border-top: 1px solid $c-border; }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $c-border;
+  }
 
   &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 32px 0 32px 20px;
     border-bottom: 1px solid $c-border;
     position: relative;
-    overflow: hidden;
+    cursor: default;
+    transition: background 0.35s;
 
     &::before {
       content: '';
@@ -54,20 +70,14 @@
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    &--open::before { transform: scaleY(1); }
-  }
+    &--active {
+      background: rgba($c-text, 0.016);
 
-  &__toggle {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    padding: 36px 0 36px 20px;
-    background: none;
-    border: none;
-    text-align: left;
+      &::before { transform: scaleY(1); }
 
-    @media (max-width: 600px) { padding: 24px 0 24px 16px; gap: 16px; }
+      .services__num   { color: $c-accent; }
+      .services__title { letter-spacing: 0.005em; }
+    }
   }
 
   &__num {
@@ -78,66 +88,46 @@
     color: $c-muted;
     min-width: 28px;
     flex-shrink: 0;
+    margin-top: 6px;
     transition: color 0.3s;
+  }
 
-    .services__item--open & { color: $c-accent; }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   &__title {
     font-family: $font-family-display;
-    font-size: clamp(24px, 3vw, 42px);
+    font-size: clamp(22px, 2.6vw, 38px);
     font-weight: 300;
     color: $c-text;
     margin: 0;
     line-height: 1.1;
-    flex: 1;
-    text-align: left;
-  }
-
-  &__icon {
-    position: relative;
-    width: 16px; height: 16px;
-    flex-shrink: 0;
-    color: $c-muted;
-  }
-
-  &__icon-bar {
-    position: absolute;
-    background: currentColor;
-
-    &:first-child {
-      top: 50%; left: 0; right: 0;
-      height: 1px;
-      transform: translateY(-50%);
-    }
-
-    &--v {
-      left: 50%; top: 0; bottom: 0;
-      width: 1px;
-      transform: translateX(-50%);
-      transition: transform 0.35s ease, opacity 0.35s ease;
-    }
-
-    &--hidden {
-      transform: translateX(-50%) scaleY(0);
-      opacity: 0;
-    }
-  }
-
-  &__body {
-    overflow: hidden;
+    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &__desc {
     font-family: $font-family-sans;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 1.9;
+    line-height: 1.85;
     color: $c-text-soft;
-    padding: 4px 0 40px 72px;
     margin: 0;
-    max-width: 680px;
+    max-width: 500px;
+  }
 
-    @media (max-width: 600px) { font-size: 15px; padding: 4px 0 28px 44px; }
+  // ── Right image panel ──────────────────────────────────────────────────
+  &__panel {
+    position: relative;
+    background: $c-bg;
+
+    @media (max-width: 900px) { display: none; }
+  }
+
+  &__panel-image {
+    position: absolute;
+    inset: 0;
   }
 }

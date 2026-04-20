@@ -8,6 +8,23 @@
   background: $c-bg;
   overflow: hidden;
 
+  // ── Full-bleed background image ───────────────────────────────────────
+  &__bg {
+    position: absolute;
+    inset: -18% 0;
+    will-change: transform;
+  }
+
+  // Dual gradient: left-to-right for text readability + bottom vignette
+  &__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(to right, rgba($c-bg, 0.84) 0%, rgba($c-bg, 0.38) 52%, rgba($c-bg, 0.06) 100%),
+      linear-gradient(to top,   rgba($c-bg, 0.90) 0%, rgba($c-bg, 0.25) 38%, transparent 65%);
+  }
+
   // ── Navigation ────────────────────────────────────────────────────────
   .hnav {
     position: absolute;
@@ -52,37 +69,16 @@
     }
   }
 
-  // ── Split layout ──────────────────────────────────────────────────────
-  &__split {
-    display: grid;
-    grid-template-columns: 44% 56%;
-    height: 100%;
+  // ── Wordmark block — positioned bottom-left ───────────────────────────
+  &__content {
+    position: absolute;
+    bottom: 72px;
+    left: 64px;
+    z-index: 10;
+    max-width: 800px;
 
-    @media (max-width: 900px) {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 42vw;
-    }
-  }
-
-  // ── Left panel ────────────────────────────────────────────────────────
-  &__left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 128px 64px 60px;
-    border-right: 1px solid $c-border;
-
-    @media (max-width: 900px) {
-      padding: 100px 28px 40px;
-      border-right: none;
-      border-bottom: 1px solid $c-border;
-    }
-  }
-
-  &__left-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
+    @media (max-width: 900px)  { left: 28px; right: 28px; bottom: 100px; }
+    @media (max-width: 600px)  { bottom: 80px; }
   }
 
   &__eyebrow {
@@ -92,42 +88,33 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: $c-accent;
-    margin: 0;
+    margin: 0 0 22px;
   }
 
-  // Wordmark — line-by-line clip reveal
+  // Clip-path reveal wordmark — each line uses clipPath inset animation
   &__wordmark {
     display: flex;
     flex-direction: column;
-    gap: 0;
     margin: 0;
-    line-height: 0.9;
   }
 
-  &__wordmark-row {
-    overflow: hidden;
-    padding-bottom: 0.06em;
-  }
-
-  &__wordmark-clip {
-    overflow: hidden;
-
-    span {
-      display: block;
-      font-family: $font-family-display;
-      font-size: clamp(58px, 9.5vw, 140px);
-      font-weight: 300;
-      color: $c-text;
-      letter-spacing: -0.02em;
-      line-height: 0.92;
-    }
+  &__wordmark-line {
+    display: block;
+    font-family: $font-family-display;
+    font-size: clamp(72px, 12vw, 188px);
+    font-weight: 300;
+    color: $c-text;
+    letter-spacing: -0.025em;
+    line-height: 0.88;
+    padding-bottom: 0.04em;
   }
 
   &__divider {
-    width: 100%;
+    width: min(440px, 65vw);
     height: 1px;
     background: $c-border-hi;
     transform-origin: left center;
+    margin: 28px 0 24px;
   }
 
   &__sub-group {
@@ -175,11 +162,18 @@
     .hero__cta:hover & { transform: translateX(5px); }
   }
 
-  // ── Press strip ───────────────────────────────────────────────────────
+  // ── Press strip — bottom right ────────────────────────────────────────
   &__press {
+    position: absolute;
+    bottom: 48px;
+    right: 64px;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    align-items: flex-end;
+
+    @media (max-width: 900px) { display: none; }
   }
 
   &__press-label {
@@ -195,42 +189,18 @@
   &__press-logos {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px 32px;
+    gap: 14px 24px;
     align-items: center;
+    justify-content: flex-end;
   }
 
   &__press-logo {
-    opacity: 0.35;
+    opacity: 0.38;
     filter: brightness(0) invert(1);
     transition: opacity 0.25s;
 
     &:hover { opacity: 0.65; }
 
-    img { height: 14px; width: auto; display: block; }
-  }
-
-  // ── Right panel ───────────────────────────────────────────────────────
-  &__right {
-    position: relative;
-    overflow: hidden;
-    background: $c-surface;
-
-    @media (max-width: 900px) {
-      min-height: 42vw;
-    }
-  }
-
-  &__right-inner {
-    position: absolute;
-    inset: -12% 0;
-    will-change: transform;
-  }
-
-  &__right-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba($c-bg, 0.18) 0%, transparent 35%);
-    pointer-events: none;
-    z-index: 1;
+    img { height: 13px; width: auto; display: block; }
   }
 }

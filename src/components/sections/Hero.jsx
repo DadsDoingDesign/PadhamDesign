@@ -6,7 +6,8 @@ import { heroContent, navItems } from '@/data/siteContent';
 export default function Hero() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '22%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
 
   useEffect(() => {
     const onClick = (e) => {
@@ -22,12 +23,34 @@ export default function Hero() {
 
   return (
     <section className="hero" ref={containerRef}>
+      {/* Full-bleed parallax image */}
+      <motion.div
+        className="hero__bg"
+        style={{ y: imageY }}
+        initial={{ opacity: 0, scale: 1.07 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <Image
+          src={heroContent.panels.left.image}
+          alt={heroContent.panels.left.alt}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+          sizes="100vw"
+        />
+      </motion.div>
+
+      {/* Gradient scrims */}
+      <div className="hero__scrim" aria-hidden="true" />
+
+      {/* Floating nav */}
       <nav className="hnav">
         <motion.span
           className="hnav__brand"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
+          transition={{ duration: 0.7, delay: 1.3 }}
         >
           PD
         </motion.span>
@@ -35,9 +58,9 @@ export default function Hero() {
           {navItems.map((item, i) => (
             <motion.li
               key={item.label}
-              initial={{ opacity: 0, y: -6 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, delay: 1.3 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
             >
               <a href={item.href} className="hnav__link">{item.label}</a>
             </motion.li>
@@ -45,108 +68,80 @@ export default function Hero() {
         </ul>
       </nav>
 
-      <div className="hero__split">
-        {/* Left — typography */}
-        <div className="hero__left">
-          <div className="hero__left-inner">
-            <motion.p
-              className="hero__eyebrow"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Interior Design · San Francisco
-            </motion.p>
+      {/* Wordmark — bottom-left */}
+      <motion.div className="hero__content" style={{ y: contentY }}>
+        <motion.p
+          className="hero__eyebrow"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+        >
+          Interior Design · San Francisco
+        </motion.p>
 
-            <h1 className="hero__wordmark" aria-label={heroContent.title}>
-              <div className="hero__wordmark-row">
-                <div className="hero__wordmark-clip">
-                  <motion.span
-                    initial={{ y: '105%' }}
-                    animate={{ y: '0%' }}
-                    transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-                  >
-                    Padham
-                  </motion.span>
-                </div>
-              </div>
-              <div className="hero__wordmark-row">
-                <div className="hero__wordmark-clip">
-                  <motion.span
-                    initial={{ y: '105%' }}
-                    animate={{ y: '0%' }}
-                    transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
-                  >
-                    Design
-                  </motion.span>
-                </div>
-              </div>
-            </h1>
-
-            <motion.div
-              className="hero__divider"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.65 }}
-            />
-
-            <motion.div
-              className="hero__sub-group"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
-            >
-              <p className="hero__descriptor">{heroContent.subtitle}</p>
-              <a href={heroContent.ctaLink} className="hero__cta">
-                {heroContent.ctaText}
-                <span className="hero__cta-arrow" aria-hidden="true">→</span>
-              </a>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="hero__press"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.0, delay: 1.4 }}
+        <h1 className="hero__wordmark" aria-label={heroContent.title}>
+          <motion.span
+            className="hero__wordmark-line"
+            initial={{ clipPath: 'inset(0 0 100% 0)' }}
+            animate={{ clipPath: 'inset(0 0 0% 0)' }}
+            transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           >
-            <p className="hero__press-label">As seen in</p>
-            <div className="hero__press-logos">
-              {heroContent.publications.map((pub) => (
-                <div key={pub.name} className="hero__press-logo">
-                  <Image
-                    src={pub.image}
-                    alt={pub.alt}
-                    width={pub.width}
-                    height={pub.height}
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-              ))}
+            Padham
+          </motion.span>
+          <motion.span
+            className="hero__wordmark-line"
+            initial={{ clipPath: 'inset(0 0 100% 0)' }}
+            animate={{ clipPath: 'inset(0 0 0% 0)' }}
+            transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.76 }}
+          >
+            Design
+          </motion.span>
+        </h1>
+
+        <motion.div
+          className="hero__divider"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 1.15 }}
+        />
+
+        <motion.div
+          className="hero__sub-group"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 1.3 }}
+        >
+          <p className="hero__descriptor">{heroContent.subtitle}</p>
+          <a href={heroContent.ctaLink} className="hero__cta">
+            {heroContent.ctaText}
+            <span className="hero__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </motion.div>
+      </motion.div>
+
+      {/* Press — bottom right */}
+      <motion.div
+        className="hero__press"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 1.7 }}
+        aria-hidden="true"
+      >
+        <p className="hero__press-label">As seen in</p>
+        <div className="hero__press-logos">
+          {heroContent.publications.map((pub) => (
+            <div key={pub.name} className="hero__press-logo">
+              <Image
+                src={pub.image}
+                alt={pub.alt}
+                width={pub.width}
+                height={pub.height}
+                style={{ objectFit: 'contain' }}
+              />
             </div>
-          </motion.div>
+          ))}
         </div>
-
-        {/* Right — image with parallax */}
-        <div className="hero__right" data-cursor="view">
-          <motion.div
-            className="hero__right-inner"
-            style={{ y: imageY }}
-            initial={{ clipPath: 'inset(0 0 100% 0)', scale: 1.06 }}
-            animate={{ clipPath: 'inset(0 0 0% 0)', scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-          >
-            <Image
-              src={heroContent.panels.left.image}
-              alt={heroContent.panels.left.alt}
-              fill
-              priority
-              style={{ objectFit: 'cover' }}
-            />
-          </motion.div>
-          <div className="hero__right-overlay" aria-hidden="true" />
-        </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
