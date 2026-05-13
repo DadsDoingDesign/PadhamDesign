@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>10 · Bento Concept — Padham Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono&display=swap" rel="stylesheet">
+<style>
+  /* Bento — modern modular grid. Charcoal background with copper accent.
+     One screen feels like a dashboard of the practice. */
+  :root{
+    --bg:#0B0B0B; --tile:#161616; --tile-2:#1C1C1C; --ink:#F5F1EA; --mute:#888279;
+    --line:rgba(255,255,255,.08); --copper:#C9876B; --r:24px;
+    --serif:'Instrument Serif',serif; --sans:'Geist',sans-serif; --mono:'Geist Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1440px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+  h1{font-size:clamp(56px,7vw,120px);line-height:.95}
+  h2{font-size:clamp(36px,4.4vw,64px);line-height:1.04}
+  h3{font-size:30px}
+  .mono{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+  em{font-style:italic;color:var(--copper)}
+
+  /* Nav */
+  .nav{padding:20px 0;position:sticky;top:0;background:rgba(11,11,11,.86);backdrop-filter:blur(12px);z-index:50}
+  .nav__inner{display:flex;justify-content:space-between;align-items:center;gap:18px}
+  .brand{font-family:var(--serif);font-size:22px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--copper)}
+  .nav__list{display:flex;gap:6px;list-style:none;background:var(--tile);padding:6px;border-radius:999px;border:1px solid var(--line)}
+  .nav__list a{font-size:13px;color:var(--mute);padding:8px 16px;border-radius:999px;transition:.2s}
+  .nav__list a:hover{background:var(--tile-2);color:var(--ink)}
+  .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 18px;background:var(--copper);color:#1a0c08;border-radius:999px;font-size:13px;font-weight:500;transition:.2s;border:none;cursor:pointer}
+  .btn:hover{background:#deb59f}
+  .btn-ghost{background:var(--tile);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--tile-2)}
+
+  /* BENTO HERO GRID */
+  .bento{padding:24px 0 80px}
+  .bento__grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:140px;gap:16px}
+  .tile{background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:.3s;display:flex;flex-direction:column;justify-content:space-between}
+  .tile:hover{border-color:rgba(255,255,255,.18)}
+  .tile--img{padding:0}
+  .tile--img img{width:100%;height:100%;object-fit:cover;transition:.8s ease}
+  .tile--img:hover img{transform:scale(1.04)}
+  .tile__overlay{position:absolute;left:24px;right:24px;bottom:20px;color:#fff;display:flex;justify-content:space-between;align-items:flex-end;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+  .tile__overlay h4{font-family:var(--serif);font-size:22px}
+  .tile__overlay span{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
+  .tile__label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+  .tile__label.copper{color:var(--copper)}
+
+  /* tile spans */
+  .t-headline{grid-column:span 7;grid-row:span 3;background:var(--tile-2)}
+  .t-headline h1 em{color:var(--copper)}
+  .t-headline .cta-row{display:flex;gap:10px;margin-top:24px}
+  .t-stats{grid-column:span 5;grid-row:span 1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;padding:0;background:transparent;border:none}
+  .t-stats .stat{background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+  .t-stats .stat .n{font-family:var(--serif);font-size:48px;line-height:1}
+  .t-img-1{grid-column:span 5;grid-row:span 2}
+  .t-press{grid-column:span 4;grid-row:span 2}
+  .t-press .logos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  .t-press .logos img{height:18px;opacity:.6;filter:brightness(0) invert(1)}
+  .t-quote{grid-column:span 4;grid-row:span 2;background:linear-gradient(135deg,#221814,var(--tile-2))}
+  .t-quote .q{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.3;margin-top:auto}
+  .t-quote .by{margin-top:16px}
+  .t-cta{grid-column:span 4;grid-row:span 2;background:var(--copper);color:#1a0c08;display:flex;flex-direction:column;justify-content:space-between}
+  .t-cta h3{color:#1a0c08;font-family:var(--serif);font-size:36px}
+  .t-cta .arrow{font-size:32px}
+  .t-cta .tile__label{color:#5a3324}
+
+  /* SECTIONS */
+  section{padding:120px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:20px}
+  .sec-head .lbl{display:flex;align-items:baseline;gap:14px}
+  .sec-head .num{font-family:var(--serif);font-style:italic;color:var(--copper);font-size:18px}
+  .sec-head h2{font-size:48px}
+
+  /* Portfolio bento */
+  .pf{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:16px}
+  .pf .tile--img{border-radius:var(--r);overflow:hidden}
+  .p-a{grid-column:span 7;grid-row:span 2}
+  .p-b{grid-column:span 5;grid-row:span 2}
+  .p-c{grid-column:span 4;grid-row:span 2}
+  .p-d{grid-column:span 4;grid-row:span 2}
+  .p-e{grid-column:span 4;grid-row:span 2}
+
+  /* Services as compact cards */
+  .svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .svc-card{background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:28px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s;cursor:pointer}
+  .svc-card:hover{background:var(--tile-2);transform:translateY(-4px)}
+  .svc-card .badge{display:inline-flex;width:36px;height:36px;border-radius:50%;background:rgba(201,135,107,.15);color:var(--copper);align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;font-weight:600}
+  .svc-card h4{font-family:var(--serif);font-size:22px;margin-top:24px;font-weight:400}
+  .svc-card p{color:var(--mute);font-size:13px;margin-top:10px}
+  .svc-card .arrow{margin-top:14px;color:var(--copper);font-size:18px}
+
+  /* About */
+  .about{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:16px}
+  .about-img{grid-column:span 5;grid-row:span 3}
+  .about-copy{grid-column:span 7;grid-row:span 2;background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+  .about-copy h3{font-size:36px;font-weight:400}
+  .about-copy p{color:var(--mute);font-size:15px;margin-top:18px;max-width:520px;line-height:1.75}
+  .about-name{grid-column:span 4;grid-row:span 1;background:var(--copper);color:#1a0c08;border-radius:var(--r);padding:24px;display:flex;flex-direction:column;justify-content:center;font-family:var(--serif)}
+  .about-name .by{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:#5a3324;text-transform:uppercase;font-weight:500}
+  .about-name h4{font-size:32px;margin-top:6px;font-weight:400}
+  .about-years{grid-column:span 3;grid-row:span 1;background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;justify-content:center}
+  .about-years .num{font-family:var(--serif);font-size:48px;line-height:1}
+
+  /* Press grid */
+  .press-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .press-card{background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:32px;transition:.3s;display:flex;flex-direction:column;gap:18px}
+  .press-card:hover{background:var(--tile-2)}
+  .press-card .top{display:flex;justify-content:space-between;align-items:center}
+  .press-card img{height:22px;filter:brightness(0) invert(1);opacity:.75}
+  .press-card .arr{color:var(--copper);font-size:18px}
+  .press-card h4{font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.2}
+  .press-card blockquote{color:var(--mute);font-style:italic;font-size:14px;line-height:1.65}
+
+  /* Contact bento */
+  .ct{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:auto;gap:16px}
+  .ct-form{grid-column:span 7;background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:40px}
+  .ct-form h3{font-size:40px;margin-bottom:24px}
+  .ct-form h3 em{color:var(--copper)}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+  .field input,.field textarea{width:100%;background:var(--tile-2);border:1px solid var(--line);color:var(--ink);padding:14px 16px;border-radius:12px;font-family:inherit;font-size:15px;outline:none;transition:.2s}
+  .field input:focus,.field textarea:focus{border-color:var(--copper)}
+  .ct-side{grid-column:span 5;display:grid;grid-template-rows:1fr 1fr;gap:16px}
+  .ct-card{background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:32px}
+  .ct-card .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper)}
+  .ct-card h4{font-family:var(--serif);font-size:22px;margin-top:14px;font-weight:400}
+  .ct-card p{color:var(--mute);font-size:14px;margin-top:10px;line-height:1.7}
+
+  footer{padding:36px 0;border-top:1px solid var(--line);color:var(--mute);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+  footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+
+  @media(max-width:900px){
+    .bento__grid,.pf,.about,.ct{grid-template-columns:1fr;grid-auto-rows:auto}
+    .bento__grid > *,.pf > *,.about > *,.ct > *{grid-column:span 1 !important;grid-row:span 1 !important;min-height:220px}
+    .t-stats{grid-template-columns:1fr 1fr 1fr}
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .press-grid{grid-template-columns:1fr}
+    .nav__list{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav__inner">
+    <div class="brand"><span class="dot"></span>Padham <em>Design</em></div>
+    <ul class="nav__list">
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn" href="#contact">Start →</a>
+  </div>
+</header>
+
+<section class="bento">
+  <div class="container">
+    <div class="bento__grid">
+
+      <div class="tile t-headline">
+        <div><span class="tile__label copper">/// PADHAM DESIGN · SF · EST. 1998</span>
+        <h1 style="margin-top:24px">Custom interiors,<br/>built around <em>the way you live</em>.</h1></div>
+        <div>
+          <p style="color:var(--mute);max-width:540px;margin-top:16px">A client-focused San Francisco studio across hospitality and residential, working alongside leading architects for 25+ years.</p>
+          <div class="cta-row"><a class="btn" href="#contact">Start a project →</a><a class="btn btn-ghost" href="#portfolio">View work</a></div>
+        </div>
+      </div>
+
+      <div class="t-stats">
+        <div class="stat"><span class="tile__label">Years</span><div class="n">25<em>+</em></div></div>
+        <div class="stat"><span class="tile__label">Projects</span><div class="n">40<em>+</em></div></div>
+        <div class="stat"><span class="tile__label">Press</span><div class="n">5</div></div>
+      </div>
+
+      <div class="tile tile--img t-img-1">
+        <img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%202.png" alt=""/>
+        <div class="tile__overlay"><div><span>Featured · 2023</span><h4>Carmel Beach Hotel</h4></div></div>
+      </div>
+
+      <div class="tile t-press">
+        <span class="tile__label copper">// Featured in</span>
+        <div class="logos">
+          <img src="/images/logos/Vogue.png" alt=""/>
+          <img src="/images/logos/HotelsMag.png" alt=""/>
+          <img src="/images/logos/CAHome+Design.png" alt=""/>
+          <img src="/images/logos/CMag.png" alt=""/>
+        </div>
+      </div>
+
+      <div class="tile t-quote">
+        <span class="tile__label copper">// On the studio</span>
+        <div class="q">"Clean lines and thoughtful integration with both architecture and environment — as functional as it is stylish."</div>
+        <div class="by tile__label">— Padham Design philosophy</div>
+      </div>
+
+      <a class="tile t-cta" href="#contact">
+        <span class="tile__label">// Begin</span>
+        <h3>Start a<br/>project →</h3>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="sec-head"><div class="lbl"><span class="num">§01</span><h2>Portfolio</h2></div><span class="mono">Selected · 2020 — 2023</span></div>
+    <div class="pf">
+      <a class="tile tile--img p-a" href="#"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%201.png" alt=""/><div class="tile__overlay"><div><span>Hospitality · 2023</span><h4>Carmel Beach Hotel &amp; Spa</h4></div><span>→</span></div></a>
+      <a class="tile tile--img p-b" href="#"><img src="/images/projects/Walt%20Tasting%20Room%201.png" alt=""/><div class="tile__overlay"><div><span>Tasting Room · 2022</span><h4>WALT Wines</h4></div><span>→</span></div></a>
+      <a class="tile tile--img p-c" href="#"><img src="/images/projects/L%27Auberge%20Carmel%201.png" alt=""/><div class="tile__overlay"><div><span>Carmel · 2021</span><h4>L'Auberge Carmel</h4></div><span>→</span></div></a>
+      <a class="tile tile--img p-d" href="#"><img src="/images/projects/Bardessono%20Inn%20%26%20Spa%201.png" alt=""/><div class="tile__overlay"><div><span>Inn &amp; Spa · 2021</span><h4>Bardessono</h4></div><span>→</span></div></a>
+      <a class="tile tile--img p-e" href="#"><img src="/images/projects/Huntington%20Hotel%2C%20Nob%20Hill%20Spa%201.png" alt=""/><div class="tile__overlay"><div><span>SF · 2020</span><h4>Huntington · Nob Hill</h4></div><span>→</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="sec-head"><div class="lbl"><span class="num">§02</span><h2>Services</h2></div><span class="mono">One studio, every decision</span></div>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="badge">01</div><div><h4>Concept Design</h4><p>Individualizing style &amp; setting design goals to support your lifestyle.</p></div><span class="arrow">→</span></div>
+      <div class="svc-card"><div class="badge">02</div><div><h4>Space Planning</h4><p>Layouts with furnishings planned to simplify daily life.</p></div><span class="arrow">→</span></div>
+      <div class="svc-card"><div class="badge">03</div><div><h4>Fixtures &amp; Finishing</h4><p>Furniture, lighting and hardware within your style.</p></div><span class="arrow">→</span></div>
+      <div class="svc-card"><div class="badge">04</div><div><h4>Material Selection</h4><p>Flooring, tile, stone, wallcoverings, paint.</p></div><span class="arrow">→</span></div>
+      <div class="svc-card"><div class="badge">05</div><div><h4>Project Consultation</h4><p>With your established architects, contractors &amp; designers.</p></div><span class="arrow">→</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="sec-head"><div class="lbl"><span class="num">§03</span><h2>About</h2></div><span class="mono">Carol Padham · Principal</span></div>
+    <div class="about">
+      <div class="tile tile--img about-img"><img src="/images/about/AboutProfile.png" alt="Carol Padham"/></div>
+      <div class="about-copy">
+        <span class="mono">// Profile</span>
+        <h3>Begin with the <em>client</em>.</h3>
+        <p>Her design process is client-focused, starting with the client's vision and involving them closely in every step. Carol's designs are known for clean lines and thoughtful integration with both architecture and environment, ensuring each space is as functional as it is stylish.</p>
+        <p>Over 25 years of experience combining beauty and practicality. Working extensively in the Bay Area, Carol has collaborated with leading architectural firms on hospitality and residential projects.</p>
+      </div>
+      <div class="about-name"><span class="by">/// Principal</span><h4>Carol Padham</h4></div>
+      <div class="about-years"><span class="mono" style="color:var(--copper)">/// Practice</span><div class="num" style="margin-top:8px">25+</div><span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:4px">years</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="press">
+  <div class="container">
+    <div class="sec-head"><div class="lbl"><span class="num">§04</span><h2>Press</h2></div><span class="mono">Selected coverage</span></div>
+    <div class="press-grid">
+      <a class="press-card" href="#"><div class="top"><img src="/images/logos/Vogue.png" alt=""/><span class="arr">→</span></div><h4>Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</h4><blockquote>"An ocean-inspired palette, custom furnishings for the guest rooms…"</blockquote></a>
+      <a class="press-card" href="#"><div class="top"><img src="/images/logos/HotelsMag.png" alt=""/><span class="arr">→</span></div><h4>Carmel Beach Hotel's upcoming opening</h4><blockquote>"Interiors designed by Carol Padham and Phyllis Martin-Vegue…"</blockquote></a>
+      <a class="press-card" href="#"><div class="top"><img src="/images/logos/CAHome+Design.png" alt=""/><span class="arr">→</span></div><h4>Wine Country Agenda: WALT Wines</h4><blockquote>"A calming, airy design — a custom, 3-dimensional tasting bar with Italian porcelain countertop."</blockquote></a>
+      <a class="press-card" href="#"><div class="top"><img src="/images/logos/CMag.png" alt=""/><span class="arr">→</span></div><h4>Three Charming Guest Houses For Summer</h4><blockquote>"Inspiration from the pristine white beach, blue-grey ocean, cypress and Carmel stone."</blockquote></a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="sec-head"><div class="lbl"><span class="num">§05</span><h2>Begin</h2></div><span class="mono">Response within 2 days</span></div>
+    <div class="ct">
+      <div class="ct-form">
+        <h3>How can I <em>help</em> improve your space?</h3>
+        <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;color:var(--copper);font-family:var(--serif);font-style:italic;font-size:28px&quot;>Thank you — I will be in touch shortly.</p>'">
+          <div class="field"><label>Your Name</label><input placeholder="Enter Name"/></div>
+          <div class="field"><label>Email</label><input placeholder="Enter Email"/></div>
+          <div class="field"><label>About your project</label><textarea rows="3" placeholder="Tell me a little about the space"></textarea></div>
+          <button class="btn" type="submit" style="margin-top:8px">Send →</button>
+        </form>
+      </div>
+      <div class="ct-side">
+        <div class="ct-card"><span class="lbl">/// Studio</span><h4>San Francisco</h4><p>2150 Folsom Street, Suite 203<br/>San Francisco, CA 94110<br/>Mon – Fri · 9–5</p></div>
+        <div class="ct-card"><span class="lbl">/// Direct</span><h4>cpadham@padhamdesign.com</h4><p>510 · 406 · 3621<br/>Instagram · Pinterest · LinkedIn</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><div>© Padham Design 2026 · All rights reserved</div><div>v.10 · Bento Concept</div></div></footer>
+
+</body></html>

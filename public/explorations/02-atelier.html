@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>02 · Atelier — Padham Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#101010; --bg-2:#1A1A1A; --ink:#F2F2F2; --mute:#7A7A7A; --line:#262626;
+    --serif:'Libre Baskerville',serif; --sans:'Open Sans',sans-serif; --r:80px;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1400px;margin:0 auto;padding:0 40px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+  .btn{display:inline-block;padding:14px 32px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;transition:.25s}
+  .btn:hover{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+
+  /* Nav — vertical / minimal */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:24px 0;background:transparent}
+  .nav__inner{display:flex;justify-content:space-between;align-items:center}
+  .brand{font-family:var(--serif);font-size:18px;letter-spacing:.04em}
+  .brand em{font-style:italic;color:#C5A572}
+  .nav__list{display:flex;gap:36px;list-style:none}
+  .nav__list a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);transition:.2s}
+  .nav__list a:hover{color:var(--ink)}
+
+  /* Portfolio-first hero */
+  .lead{padding:120px 0 80px}
+  .lead__row{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;height:640px}
+  .lp{position:relative;overflow:hidden}
+  .lp img{width:100%;height:100%;object-fit:cover}
+  .lp--big{border-radius:0 var(--r) var(--r) 0;height:640px}
+  .lp--mid{border-radius:var(--r);height:560px;align-self:end}
+  .lp--small{border-radius:var(--r) 0 0 var(--r);height:640px}
+  .lp__overlay{position:absolute;left:24px;bottom:24px;right:24px;color:#fff;display:flex;justify-content:space-between;align-items:flex-end}
+  .lp__overlay h4{font-family:var(--serif);font-size:22px;font-weight:400}
+  .lp__overlay span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+
+  .titlebar{padding:80px 0 60px;border-bottom:1px solid var(--line)}
+  .titlebar__inner{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:end}
+  .titlebar h1{font-size:clamp(56px,7vw,108px);line-height:.95}
+  .titlebar h1 em{font-style:italic;color:#C5A572}
+  .titlebar__right{color:var(--mute);font-size:14px;line-height:1.9}
+  .titlebar__right .meta-row{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--line)}
+  .titlebar__right .meta-row:first-child{border-top:none}
+  .titlebar__right strong{color:var(--ink);font-weight:600}
+
+  /* Press strip */
+  .press{padding:50px 0;border-bottom:1px solid var(--line)}
+  .press__row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .press__row img{height:22px;opacity:.55;filter:brightness(0) invert(1)}
+
+  section{padding:140px 0}
+  .sec__head{margin-bottom:64px}
+  .sec__head h2{font-size:clamp(40px,4.4vw,64px)}
+  .sec__head .between{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+  .sec__head p{max-width:480px;color:var(--mute);font-size:15px}
+
+  /* Services as a numbered table */
+  .svc-table{border-top:1px solid var(--line)}
+  .svc-row{display:grid;grid-template-columns:60px 240px 1fr 80px;gap:32px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line);transition:.3s}
+  .svc-row:hover{background:linear-gradient(to right,transparent,rgba(197,165,114,.04),transparent)}
+  .svc-num{font-family:var(--serif);font-style:italic;color:#C5A572;font-size:18px}
+  .svc-title{font-family:var(--serif);font-size:26px}
+  .svc-desc{color:var(--mute);font-size:14px;max-width:520px}
+  .svc-arrow{font-size:18px;color:var(--mute);text-align:right}
+
+  /* About */
+  .about{background:var(--bg-2)}
+  .about__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about__media{position:relative}
+  .about__media img{width:100%;border-radius:var(--r) var(--r) 0 var(--r)}
+  .about__name{font-family:var(--serif);font-style:italic;font-size:28px;margin-top:24px}
+  .about p{color:var(--mute);font-size:16px;margin-top:20px;max-width:540px;line-height:1.8}
+  .about__sig{font-family:var(--serif);font-style:italic;font-size:38px;color:#C5A572;margin-top:32px}
+
+  /* Press editorial */
+  .ed{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+  .ed__feat{grid-column:span 7;position:relative;border-radius:var(--r) 0 var(--r) 0;overflow:hidden;min-height:540px;background:#222}
+  .ed__feat img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .ed__feat-text{position:absolute;left:36px;right:36px;bottom:36px;color:#fff}
+  .ed__feat-text img.logo{height:22px;filter:brightness(0) invert(1);margin-bottom:16px;opacity:.85}
+  .ed__feat-text h3{font-size:32px}
+  .ed__list{grid-column:span 5;display:flex;flex-direction:column;gap:24px}
+  .ed-item{border:1px solid var(--line);border-radius:24px;padding:28px}
+  .ed-item img{height:20px;filter:brightness(0) invert(1);opacity:.7;margin-bottom:12px}
+  .ed-item h4{font-family:var(--serif);font-size:18px;font-weight:400}
+  .ed-item p{color:var(--mute);font-size:13px;margin-top:10px;font-style:italic;line-height:1.7}
+
+  /* Contact panel */
+  .contact{position:relative;overflow:hidden;background:var(--bg-2);border-radius:var(--r) var(--r) 0 0;padding:120px 0}
+  .contact__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px}
+  .contact h2{font-size:clamp(40px,5vw,72px)}
+  .field{margin-bottom:24px}
+  .field label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+  .field input,.field textarea{width:100%;background:transparent;color:var(--ink);border:none;border-bottom:1px solid var(--line);padding:12px 0;font-size:15px;outline:none;font-family:inherit}
+  .info{display:flex;flex-direction:column;gap:20px;font-size:14px;color:var(--mute);line-height:1.8}
+  .info strong{color:var(--ink);display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:6px}
+
+  footer{padding:48px 0;color:var(--mute);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+  footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+
+  @media(max-width:900px){
+    .lead__row{grid-template-columns:1fr;height:auto}
+    .lp,.lp--big,.lp--mid,.lp--small{height:auto;border-radius:24px;aspect-ratio:4/5}
+    .titlebar__inner,.about__grid,.contact__grid{grid-template-columns:1fr}
+    .ed__feat,.ed__list{grid-column:span 12}
+    .svc-row{grid-template-columns:1fr;gap:8px}
+    .nav__list{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav__inner">
+    <div class="brand">P<em>·</em>D <span style="margin-left:14px;color:var(--mute);font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase">Padham Design</span></div>
+    <ul class="nav__list">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn" href="#contact">Begin</a>
+  </div>
+</header>
+
+<section class="lead">
+  <div class="container">
+    <div class="lead__row">
+      <div class="lp lp--big">
+        <img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%201.png" alt="" />
+        <div class="lp__overlay"><h4>Carmel Beach Hotel</h4><span>Hospitality · 2023</span></div>
+      </div>
+      <div class="lp lp--mid">
+        <img src="/images/projects/Walt%20Tasting%20Room%201.png" alt="" />
+        <div class="lp__overlay"><h4>WALT Wines</h4><span>Tasting Room</span></div>
+      </div>
+      <div class="lp lp--small">
+        <img src="/images/projects/L%27Auberge%20Carmel%201.png" alt="" />
+        <div class="lp__overlay"><h4>L'Auberge</h4><span>Carmel-by-the-Sea</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="titlebar">
+  <div class="container titlebar__inner">
+    <h1>Padham <em>Design</em><br/>Custom Interiors.</h1>
+    <div class="titlebar__right">
+      <div class="meta-row"><span>Studio</span><strong>San Francisco</strong></div>
+      <div class="meta-row"><span>Founded</span><strong>1998</strong></div>
+      <div class="meta-row"><span>Practice</span><strong>Hospitality · Residential</strong></div>
+      <div class="meta-row"><span>Principal</span><strong>Carol Padham</strong></div>
+    </div>
+  </div>
+</section>
+
+<div class="press">
+  <div class="container press__row">
+    <span class="eyebrow">As featured in</span>
+    <img src="/images/logos/Vogue.png" alt="Vogue" />
+    <img src="/images/logos/HotelsMag.png" alt="Hotels" />
+    <img src="/images/logos/CAHome+Design.png" alt="CA Home + Design" />
+    <img src="/images/logos/CMag.png" alt="C Magazine" />
+    <img src="/images/logos/WinAdvisor.png" alt="Wine Advisor" />
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="sec__head"><div class="between"><h2>Services</h2><p>A single studio carrying the project from first sketch to final styling — collaborating with your architect, contractor and team.</p></div></div>
+    <div class="svc-table">
+      <a class="svc-row" href="#"><div class="svc-num">01</div><div class="svc-title">Concept Design</div><div class="svc-desc">Individualizing style &amp; setting design goals to support your lifestyle.</div><div class="svc-arrow">→</div></a>
+      <a class="svc-row" href="#"><div class="svc-num">02</div><div class="svc-title">Space Planning</div><div class="svc-desc">Laying out furnishings to simplify daily life.</div><div class="svc-arrow">→</div></a>
+      <a class="svc-row" href="#"><div class="svc-num">03</div><div class="svc-title">Fixtures &amp; Finishing</div><div class="svc-desc">Furniture, lighting, hardware specified within your style.</div><div class="svc-arrow">→</div></a>
+      <a class="svc-row" href="#"><div class="svc-num">04</div><div class="svc-title">Material Selection</div><div class="svc-desc">Flooring, tile, stone, wallcoverings, and paint colors.</div><div class="svc-arrow">→</div></a>
+      <a class="svc-row" href="#"><div class="svc-num">05</div><div class="svc-title">Project Consultation</div><div class="svc-desc">With your established team of architects, contractors &amp; designers.</div><div class="svc-arrow">→</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__media">
+        <img src="/images/about/AboutProfile.png" alt="Carol Padham" />
+      </div>
+      <div>
+        <span class="eyebrow">About</span>
+        <div class="about__name">Carol Padham, Principal</div>
+        <p>Her design process is client-focused, starting with the client's vision and involving them closely in every step. Her work is known for clean lines and thoughtful integration with both architecture and environment.</p>
+        <p>Over 25 years of experience combining beauty and practicality. Working extensively in the Bay Area, Carol has collaborated with leading architectural firms on hospitality and residential projects.</p>
+        <div class="about__sig">— Carol</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="press">
+  <div class="container">
+    <div class="sec__head"><div class="between"><h2>Publications</h2><p>Selected press coverage from Vogue, Hotels, CA Home + Design and C Magazine.</p></div></div>
+    <div class="ed">
+      <a class="ed__feat" href="#">
+        <img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%202.png" alt="" />
+        <div class="ed__feat-text"><img class="logo" src="/images/logos/Vogue.png" alt="Vogue"/><h3>Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</h3></div>
+      </a>
+      <div class="ed__list">
+        <div class="ed-item"><img src="/images/logos/HotelsMag.png" alt=""/><h4>Carmel Beach Hotel's upcoming opening</h4><p>"The interiors have been designed by Carol Padham and Phyllis Martin-Vegue…"</p></div>
+        <div class="ed-item"><img src="/images/logos/CAHome+Design.png" alt=""/><h4>Wine Country Agenda: WALT Wines</h4><p>"SF designer Carol Padham creates a calming, airy design… a custom, 3-dimensional tasting bar with Italian porcelain countertop."</p></div>
+        <div class="ed-item"><img src="/images/logos/CMag.png" alt=""/><h4>Three Charming Guest Houses For Summer</h4><p>"Inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees, and warm tones of Carmel stone."</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__grid">
+      <div>
+        <span class="eyebrow">Begin</span>
+        <h2 style="margin-top:14px">How can I help improve your space?</h2>
+        <form style="margin-top:48px" onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;color:#C5A572&quot;>Thank you — I will be in touch shortly.</p>'">
+          <div class="field"><label>Name</label><input placeholder="Enter name"/></div>
+          <div class="field"><label>Email</label><input placeholder="Enter email"/></div>
+          <div class="field"><label>About your project</label><textarea rows="3" placeholder="Tell me a little about the space"></textarea></div>
+          <button class="btn" style="margin-top:18px">Submit</button>
+        </form>
+      </div>
+      <div class="info">
+        <div><strong>Studio</strong>2150 Folsom Street, Suite 203<br/>San Francisco, CA 94110</div>
+        <div><strong>Contact</strong>cpadham@padhamdesign.com<br/>510 · 406 · 3621</div>
+        <div><strong>Hours</strong>Monday – Friday · 9–5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><div>© Padham Design</div><div>Instagram · Pinterest · LinkedIn</div></div></footer>
+
+</body></html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>07 · Heritage — Padham Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* Classic interior design aesthetic — ivory, Didone-feel serif (Cormorant), brass accent.
+     Inspired by Architectural Digest / Studio McGee / 1stDibs. */
+  :root{
+    --bg:#F5F1E8; --bg-2:#EDE6D6; --ink:#2C2A26; --mute:#6F6A60; --line:#D8CFBC;
+    --gold:#9C7B3F;
+    --serif:'Cormorant Garamond',serif; --sans:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:300;letter-spacing:.005em;color:var(--ink)}
+  h1{font-size:clamp(56px,7.5vw,108px);line-height:1}
+  h2{font-size:clamp(40px,4.6vw,68px);line-height:1.1}
+  h3{font-size:30px;line-height:1.2}
+  .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .divider{display:inline-block;width:48px;height:1px;background:var(--gold);margin:0 12px;vertical-align:middle}
+
+  /* Nav */
+  .topbar{padding:14px 0;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+  .topbar__row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+  .nav{padding:32px 0;text-align:center;position:relative;border-bottom:1px solid var(--line)}
+  .nav__brand{font-family:var(--serif);font-size:38px;letter-spacing:.16em;line-height:1}
+  .nav__brand small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+  .nav__list{display:flex;justify-content:center;gap:48px;list-style:none;margin-top:24px}
+  .nav__list a{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-weight:500}
+  .nav__list a:hover{color:var(--gold)}
+
+  /* HERO — symmetric */
+  .hero{padding:96px 0 64px;text-align:center;position:relative}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero__sub{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:24px;margin-top:24px;max-width:680px;margin-left:auto;margin-right:auto}
+  .hero__cta{margin-top:48px}
+  .btn{display:inline-block;background:var(--ink);color:var(--bg);padding:18px 36px;font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;transition:.25s;font-family:var(--sans)}
+  .btn:hover{background:var(--gold);color:var(--bg)}
+  .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  /* Hero feature image — large, framed */
+  .feature{padding:48px 0 80px}
+  .feature__frame{position:relative;padding:24px;border:1px solid var(--line);background:#FAF7EE}
+  .feature__frame::before{content:'';position:absolute;inset:8px;border:1px solid var(--gold);opacity:.4;pointer-events:none}
+  .feature__frame img{width:100%;height:600px;object-fit:cover;display:block}
+  .feature__cap{text-align:center;margin-top:24px;font-family:var(--serif);font-style:italic;color:var(--mute);font-size:18px}
+  .feature__cap b{font-style:normal;font-weight:500;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-family:var(--sans);font-size:11px;margin-right:8px}
+
+  /* Press */
+  .press{padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .press__row{display:flex;align-items:center;justify-content:center;gap:64px;flex-wrap:wrap}
+  .press img{height:24px;opacity:.55;filter:grayscale(1) brightness(.4)}
+  .press__lbl{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--mute);width:100%;text-align:center;margin-bottom:24px}
+
+  section{padding:140px 0}
+  .sec__head{text-align:center;margin-bottom:80px}
+  .sec__head h2 em{font-style:italic;color:var(--gold)}
+  .sec__head p{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:20px;max-width:560px;margin:24px auto 0}
+
+  /* Portfolio — three column classic gallery */
+  .pf{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .pf__card{text-align:center}
+  .pf__frame{padding:14px;background:#FAF7EE;border:1px solid var(--line);position:relative;transition:.3s}
+  .pf__frame::before{content:'';position:absolute;inset:6px;border:1px solid var(--gold);opacity:0;transition:.3s}
+  .pf__card:hover .pf__frame::before{opacity:.5}
+  .pf__frame img{width:100%;height:460px;object-fit:cover}
+  .pf__card h3{margin-top:32px;font-style:italic;font-weight:400}
+  .pf__card .meta{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-top:8px;font-family:var(--sans);font-weight:500}
+  .pf__card p{font-family:var(--serif);color:var(--mute);font-size:16px;margin-top:14px;max-width:420px;margin-left:auto;margin-right:auto;font-style:italic}
+
+  /* Services — classic centered list */
+  .svc{background:var(--bg-2)}
+  .svc__list{max-width:880px;margin:0 auto;text-align:center}
+  .svc-row{padding:48px 0;border-bottom:1px solid var(--line)}
+  .svc-row:last-child{border-bottom:none}
+  .svc-row .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:24px;display:block;margin-bottom:8px}
+  .svc-row h4{font-family:var(--serif);font-style:italic;font-weight:400;font-size:36px}
+  .svc-row p{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:18px;margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto}
+
+  /* About — portrait with drop cap */
+  .about{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+  .about__img{padding:14px;background:#FAF7EE;border:1px solid var(--line);position:relative}
+  .about__img::before{content:'';position:absolute;inset:6px;border:1px solid var(--gold);opacity:.4;pointer-events:none}
+  .about__img img{aspect-ratio:4/5;width:100%;object-fit:cover}
+  .about__name{font-family:var(--serif);font-style:italic;font-size:28px;color:var(--gold);margin-bottom:24px}
+  .about p{font-family:var(--serif);font-size:20px;color:var(--ink);line-height:1.75;margin-top:18px;max-width:560px}
+  .about p:first-of-type::first-letter{font-family:var(--serif);font-size:84px;line-height:.85;float:left;padding:8px 16px 0 0;color:var(--gold)}
+  .about__sig{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:36px;margin-top:32px}
+
+  /* Press editorial */
+  .pubs{background:var(--bg-2)}
+  .pub-list{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .pub{background:#FAF7EE;border:1px solid var(--line);padding:40px;text-align:center;position:relative}
+  .pub::before{content:'';position:absolute;inset:8px;border:1px solid var(--gold);opacity:.18;pointer-events:none}
+  .pub img{height:22px;margin:0 auto 20px;opacity:.7;filter:grayscale(1) brightness(.3)}
+  .pub h4{font-family:var(--serif);font-style:italic;font-weight:400;font-size:24px;line-height:1.25}
+  .pub blockquote{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:17px;margin-top:20px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto}
+  .pub blockquote::before{content:'“';font-size:48px;color:var(--gold);display:block;line-height:.5;margin-top:10px}
+
+  /* Contact */
+  .ct{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+  .ct__intro h2 em{font-style:italic;color:var(--gold)}
+  .ct__intro p{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:20px;margin-top:18px;max-width:420px}
+  .ct__info{font-family:var(--serif);color:var(--ink);font-size:18px;line-height:1.9;margin-top:32px}
+  .ct__info b{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:16px}
+  .ct__info b:first-child{margin-top:0}
+  .field{margin-bottom:18px}
+  .field label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500;display:block;margin-bottom:6px}
+  .field input,.field textarea{width:100%;background:#FAF7EE;border:1px solid var(--line);color:var(--ink);padding:14px 16px;font-family:inherit;font-size:15px;outline:none;border-radius:0}
+  .field input:focus,.field textarea:focus{border-color:var(--gold)}
+
+  footer{padding:48px 0;text-align:center;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;color:var(--mute);font-size:14px}
+  footer .ornament{font-family:var(--serif);color:var(--gold);font-size:24px;margin-bottom:14px}
+
+  @media(max-width:900px){
+    .pf,.about,.ct,.pub-list{grid-template-columns:1fr}
+    .nav__list{flex-wrap:wrap;gap:18px}
+    .feature__frame img{height:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar__row">
+    <div>Est. 1998 · San Francisco</div>
+    <div>By appointment · 510 · 406 · 3621</div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav__brand">Padham Design<small>Custom Interiors</small></div>
+  <ul class="nav__list">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#press">Press</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow"><span class="divider"></span>Established Practice<span class="divider"></span></span>
+    <h1 style="margin-top:24px">Interiors of <em>quiet</em><br/>consequence.</h1>
+    <p class="hero__sub">A client-focused San Francisco studio designing residential and hospitality interiors with clean lines and thoughtful integration with site and architecture.</p>
+    <div class="hero__cta"><a class="btn" href="#contact">Start a Project</a> &nbsp; <a class="btn btn--ghost" href="#portfolio">View Portfolio</a></div>
+  </div>
+</section>
+
+<div class="feature">
+  <div class="container">
+    <div class="feature__frame"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%202.png" alt=""/></div>
+    <div class="feature__cap"><b>FEATURED</b>Carmel Beach Hotel &amp; Spa · Carmel-by-the-Sea, 2023</div>
+  </div>
+</div>
+
+<div class="press">
+  <div class="container">
+    <div class="press__row">
+      <div class="press__lbl">— As featured in —</div>
+      <img src="/images/logos/Vogue.png" alt=""/>
+      <img src="/images/logos/HotelsMag.png" alt=""/>
+      <img src="/images/logos/CAHome+Design.png" alt=""/>
+      <img src="/images/logos/CMag.png" alt=""/>
+      <img src="/images/logos/WinAdvisor.png" alt=""/>
+    </div>
+  </div>
+</div>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="sec__head"><span class="eyebrow"><span class="divider"></span>Portfolio<span class="divider"></span></span><h2 style="margin-top:24px">Selected <em>Works</em></h2><p>Hospitality and residential commissions across the Bay Area and California coast.</p></div>
+    <div class="pf">
+      <a class="pf__card" href="#"><div class="pf__frame"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%201.png" alt=""/></div><h3>Carmel Beach Hotel</h3><div class="meta">Hospitality · 2023</div><p>Ocean-inspired palette with custom millwork and Carmel stone.</p></a>
+      <a class="pf__card" href="#"><div class="pf__frame"><img src="/images/projects/Walt%20Tasting%20Room%201.png" alt=""/></div><h3>WALT Wines Tasting Room</h3><div class="meta">Tasting Room · 2022</div><p>A calming, airy 1,500 sq ft space with a custom 3-dimensional bar.</p></a>
+      <a class="pf__card" href="#"><div class="pf__frame"><img src="/images/projects/L%27Auberge%20Carmel%201.png" alt=""/></div><h3>L'Auberge Carmel</h3><div class="meta">Hospitality · 2021</div><p>A boutique inn where every guest house reads as a private home.</p></a>
+      <a class="pf__card" href="#"><div class="pf__frame"><img src="/images/projects/Bardessono%20Inn%20%26%20Spa%201.png" alt=""/></div><h3>Bardessono Inn &amp; Spa</h3><div class="meta">Inn &amp; Spa · 2021</div><p>Interiors that disappear into the Yountville landscape.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="services">
+  <div class="container">
+    <div class="sec__head"><span class="eyebrow"><span class="divider"></span>Capabilities<span class="divider"></span></span><h2 style="margin-top:24px">Our <em>Services</em></h2></div>
+    <div class="svc__list">
+      <div class="svc-row"><span class="n">I.</span><h4>Concept Design</h4><p>Individualizing style &amp; setting design goals to support your lifestyle.</p></div>
+      <div class="svc-row"><span class="n">II.</span><h4>Space Planning</h4><p>A layout of your space with furnishings planned to simplify daily life.</p></div>
+      <div class="svc-row"><span class="n">III.</span><h4>Fixtures &amp; Finishing</h4><p>Furniture, light fixtures and hardware specified within your style.</p></div>
+      <div class="svc-row"><span class="n">IV.</span><h4>Material Selection</h4><p>Flooring, tile, stone, wallcoverings and paint colors — chosen with intent.</p></div>
+      <div class="svc-row"><span class="n">V.</span><h4>Project Consultation</h4><p>With your established team of architects, contractors &amp; designers.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="sec__head"><span class="eyebrow"><span class="divider"></span>About<span class="divider"></span></span><h2 style="margin-top:24px"><em>Meet</em> the Designer</h2></div>
+    <div class="about">
+      <div class="about__img"><img src="/images/about/AboutProfile.png" alt="Carol Padham"/></div>
+      <div>
+        <div class="about__name">Carol Padham, Principal</div>
+        <p>Her design process is client-focused, starting with the client's vision and involving them closely in every step. Carol's designs are known for their clean lines and thoughtful integration with both architecture and environment, ensuring each space is as functional as it is stylish.</p>
+        <p>Over 25 years of experience combining beauty and practicality. Working extensively in the Bay Area, Carol has collaborated with leading architectural firms on hospitality and residential projects.</p>
+        <div class="about__sig">— Carol</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pubs" id="press">
+  <div class="container">
+    <div class="sec__head"><span class="eyebrow"><span class="divider"></span>Press<span class="divider"></span></span><h2 style="margin-top:24px"><em>Publications</em></h2></div>
+    <div class="pub-list">
+      <div class="pub"><img src="/images/logos/Vogue.png" alt=""/><h4>Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</h4><blockquote>Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms.</blockquote></div>
+      <div class="pub"><img src="/images/logos/HotelsMag.png" alt=""/><h4>Carmel Beach Hotel's upcoming opening</h4><blockquote>The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel's lighting.</blockquote></div>
+      <div class="pub"><img src="/images/logos/CAHome+Design.png" alt=""/><h4>Wine Country Agenda: WALT Wines</h4><blockquote>SF interior designer Carol Padham creates a calming, airy design with a custom 3-dimensional tasting bar with Italian porcelain countertop.</blockquote></div>
+      <div class="pub"><img src="/images/logos/CMag.png" alt=""/><h4>Three Charming Guest Houses For Summer</h4><blockquote>Inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees and warm tones of Carmel stone.</blockquote></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="sec__head"><span class="eyebrow"><span class="divider"></span>Begin<span class="divider"></span></span><h2 style="margin-top:24px"><em>Inquiries</em></h2></div>
+    <div class="ct">
+      <div class="ct__intro">
+        <p>How can I help improve your space? Send a note — I respond within two business days.</p>
+        <div class="ct__info">
+          <b>Studio</b>2150 Folsom Street, Suite 203<br/>San Francisco, CA 94110
+          <b>Contact</b>cpadham@padhamdesign.com<br/>510 · 406 · 3621
+          <b>Hours</b>Monday – Friday · 9 – 5
+        </div>
+      </div>
+      <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;color:var(--gold);font-family:var(--serif);font-style:italic;font-size:28px&quot;>Thank you — I will be in touch shortly.</p>'">
+        <div class="field"><label>Your Name</label><input placeholder="Enter Name"/></div>
+        <div class="field"><label>Email Address</label><input placeholder="Enter Email"/></div>
+        <div class="field"><label>About your project</label><textarea rows="4" placeholder="Tell me a little about the space"></textarea></div>
+        <button class="btn" type="submit" style="margin-top:8px">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">✦</div>
+  <em>Padham Design · San Francisco · 510.406.3621</em>
+</footer>
+
+</body></html>
