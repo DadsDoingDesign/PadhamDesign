@@ -7,8 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  /* Classic interior design aesthetic — ivory, Didone-feel serif (Cormorant), brass accent.
-     Inspired by Architectural Digest / Studio McGee / 1stDibs. */
   :root{
     --bg:#F5F1E8; --bg-2:#EDE6D6; --ink:#2C2A26; --mute:#6F6A60; --line:#D8CFBC;
     --gold:#9C7B3F;
@@ -26,7 +24,6 @@
   .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);font-weight:500}
   .divider{display:inline-block;width:48px;height:1px;background:var(--gold);margin:0 12px;vertical-align:middle}
 
-  /* Nav */
   .topbar{padding:14px 0;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
   .topbar__row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
   .nav{padding:32px 0;text-align:center;position:relative;border-bottom:1px solid var(--line)}
@@ -36,7 +33,6 @@
   .nav__list a{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-weight:500}
   .nav__list a:hover{color:var(--gold)}
 
-  /* HERO — symmetric */
   .hero{padding:96px 0 64px;text-align:center;position:relative}
   .hero h1 em{font-style:italic;color:var(--gold)}
   .hero__sub{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:24px;margin-top:24px;max-width:680px;margin-left:auto;margin-right:auto}
@@ -46,7 +42,6 @@
   .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
   .btn--ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
-  /* Hero feature image — large, framed */
   .feature{padding:48px 0 80px}
   .feature__frame{position:relative;padding:24px;border:1px solid var(--line);background:#FAF7EE}
   .feature__frame::before{content:'';position:absolute;inset:8px;border:1px solid var(--gold);opacity:.4;pointer-events:none}
@@ -54,7 +49,6 @@
   .feature__cap{text-align:center;margin-top:24px;font-family:var(--serif);font-style:italic;color:var(--mute);font-size:18px}
   .feature__cap b{font-style:normal;font-weight:500;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-family:var(--sans);font-size:11px;margin-right:8px}
 
-  /* Press */
   .press{padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
   .press__row{display:flex;align-items:center;justify-content:center;gap:64px;flex-wrap:wrap}
   .press img{height:24px;opacity:.55;filter:grayscale(1) brightness(.4)}
@@ -65,7 +59,6 @@
   .sec__head h2 em{font-style:italic;color:var(--gold)}
   .sec__head p{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:20px;max-width:560px;margin:24px auto 0}
 
-  /* Portfolio — three column classic gallery */
   .pf{display:grid;grid-template-columns:1fr 1fr;gap:48px}
   .pf__card{text-align:center}
   .pf__frame{padding:14px;background:#FAF7EE;border:1px solid var(--line);position:relative;transition:.3s}
@@ -76,7 +69,6 @@
   .pf__card .meta{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-top:8px;font-family:var(--sans);font-weight:500}
   .pf__card p{font-family:var(--serif);color:var(--mute);font-size:16px;margin-top:14px;max-width:420px;margin-left:auto;margin-right:auto;font-style:italic}
 
-  /* Services — classic centered list */
   .svc{background:var(--bg-2)}
   .svc__list{max-width:880px;margin:0 auto;text-align:center}
   .svc-row{padding:48px 0;border-bottom:1px solid var(--line)}
@@ -85,7 +77,6 @@
   .svc-row h4{font-family:var(--serif);font-style:italic;font-weight:400;font-size:36px}
   .svc-row p{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:18px;margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto}
 
-  /* About — portrait with drop cap */
   .about{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
   .about__img{padding:14px;background:#FAF7EE;border:1px solid var(--line);position:relative}
   .about__img::before{content:'';position:absolute;inset:6px;border:1px solid var(--gold);opacity:.4;pointer-events:none}
@@ -95,7 +86,6 @@
   .about p:first-of-type::first-letter{font-family:var(--serif);font-size:84px;line-height:.85;float:left;padding:8px 16px 0 0;color:var(--gold)}
   .about__sig{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:36px;margin-top:32px}
 
-  /* Press editorial */
   .pubs{background:var(--bg-2)}
   .pub-list{display:grid;grid-template-columns:1fr 1fr;gap:48px}
   .pub{background:#FAF7EE;border:1px solid var(--line);padding:40px;text-align:center;position:relative}
@@ -105,7 +95,6 @@
   .pub blockquote{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:17px;margin-top:20px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto}
   .pub blockquote::before{content:'“';font-size:48px;color:var(--gold);display:block;line-height:.5;margin-top:10px}
 
-  /* Contact */
   .ct{display:grid;grid-template-columns:1fr 1fr;gap:80px}
   .ct__intro h2 em{font-style:italic;color:var(--gold)}
   .ct__intro p{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:20px;margin-top:18px;max-width:420px}
@@ -147,19 +136,17 @@
   </ul>
 </header>
 
-<section class="hero">
+<section class="hero" style="padding:48px 0 24px">
   <div class="container">
-    <span class="eyebrow"><span class="divider"></span>Established Practice<span class="divider"></span></span>
-    <h1 style="margin-top:24px">Interiors of <em>quiet</em><br/>consequence.</h1>
-    <p class="hero__sub">A client-focused San Francisco studio designing residential and hospitality interiors with clean lines and thoughtful integration with site and architecture.</p>
-    <div class="hero__cta"><a class="btn" href="#contact">Start a Project</a> &nbsp; <a class="btn btn--ghost" href="#portfolio">View Portfolio</a></div>
+    <span class="eyebrow"><span class="divider"></span>Selected Works<span class="divider"></span></span>
   </div>
 </section>
 
-<div class="feature">
+<div class="feature" style="padding:24px 0 64px">
   <div class="container">
-    <div class="feature__frame"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%202.png" alt=""/></div>
-    <div class="feature__cap"><b>FEATURED</b>Carmel Beach Hotel &amp; Spa · Carmel-by-the-Sea, 2023</div>
+    <div class="feature__frame"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%202.png" alt="" style="height:720px"/></div>
+    <div class="feature__cap"><b>I.</b>Carmel Beach Hotel &amp; Spa · Carmel-by-the-Sea, 2023</div>
+    <div style="text-align:center;margin-top:48px"><a class="btn" href="#portfolio">View Full Portfolio</a></div>
   </div>
 </div>
 
