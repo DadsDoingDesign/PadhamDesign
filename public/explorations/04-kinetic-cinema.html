@@ -22,7 +22,6 @@
   .btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .btn .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block}
 
-  /* Nav */
   .nav{position:fixed;top:0;left:0;right:0;z-index:90;padding:24px 0;mix-blend-mode:difference}
   .nav__inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
   .brand{font-family:var(--display);font-size:22px;letter-spacing:-.02em}
@@ -31,22 +30,21 @@
   .nav__list a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.85}
   .nav__list a:hover{opacity:1;color:var(--accent)}
 
-  /* HERO — full cinema */
   .hero{position:relative;height:100vh;min-height:780px;overflow:hidden}
   .hero__bg{position:absolute;inset:0}
   .hero__bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:slow-zoom 20s ease-out forwards}
   @keyframes slow-zoom{to{transform:scale(1)}}
   .hero__bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%, transparent 0%, rgba(10,10,10,.65) 75%), linear-gradient(to top,rgba(10,10,10,.85) 0%,transparent 50%)}
-  .hero__content{position:absolute;left:0;right:0;bottom:80px;z-index:5}
-  .hero__content .container{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:end}
-  .hero h1{font-family:var(--display);font-weight:300;font-size:clamp(72px,9vw,180px);line-height:.88;letter-spacing:-.04em;font-variation-settings:"opsz" 144}
-  .hero h1 em{font-style:italic;font-weight:300;color:var(--accent)}
-  .hero__copy p{color:rgba(255,255,255,.78);max-width:420px;font-size:17px;line-height:1.6;margin-bottom:32px}
+  .hero__content{position:absolute;left:0;right:0;bottom:48px;z-index:5}
+  .hero__content .container{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+  .hero__brand{font-family:var(--display);font-weight:300;font-size:clamp(28px,2.6vw,40px);line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .hero__brand em{font-style:italic;color:var(--accent)}
+  .hero__brand small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:10px;font-weight:500}
+  .hero__topright{position:absolute;top:96px;right:40px;text-align:right;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.3em;text-transform:uppercase;line-height:1.8;z-index:5}
   .hero__meta{position:absolute;top:50%;right:48px;transform:translateY(-50%);writing-mode:vertical-rl;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:500}
   .hero__scroll{position:absolute;left:40px;bottom:24px;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.5)}
   .hero__scroll::after{content:'';display:block;width:1px;height:36px;background:rgba(255,255,255,.3);margin:8px 0 0}
 
-  /* Press */
   .press{padding:32px 0;border-bottom:1px solid var(--line)}
   .press__row{display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:space-between}
   .press__row .lbl{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
@@ -59,7 +57,6 @@
   .sec__head h2 em{font-style:italic;color:var(--accent)}
   .sec__head .num{font-family:var(--display);font-style:italic;font-size:18px;color:var(--accent)}
 
-  /* Work — large cinematic */
   .reel{display:flex;flex-direction:column;gap:140px}
   .reel-item{display:grid;grid-template-columns:repeat(12,1fr);gap:32px;align-items:center}
   .reel-item:nth-child(even){direction:rtl}
@@ -73,7 +70,6 @@
   .reel-item__text p{margin-top:24px;color:var(--mute);font-size:17px;line-height:1.7;max-width:460px}
   .reel-item__text .link{margin-top:36px;display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--accent);padding-bottom:4px;color:var(--accent)}
 
-  /* Services — full bleed text */
   .services{background:#0F0F0E;border-radius:48px 48px 0 0}
   .svc__list{counter-reset:s}
   .svc-row{display:grid;grid-template-columns:80px 1fr 2fr 60px;gap:32px;padding:48px 0;border-top:1px solid var(--line);align-items:center;transition:.4s;cursor:pointer}
@@ -86,7 +82,6 @@
   .svc-row .a{text-align:right;font-size:24px;color:var(--mute);transition:.3s}
   .svc-row:hover .a{color:var(--accent);transform:translateX(8px)}
 
-  /* About — image with overlay text */
   .about{position:relative}
   .about__bg{position:absolute;inset:0;z-index:0;opacity:.25}
   .about__bg img{width:100%;height:100%;object-fit:cover}
@@ -102,7 +97,6 @@
   .about__stats .s{font-family:var(--display);font-size:64px;line-height:1;font-weight:300;font-variation-settings:"opsz" 144}
   .about__stats span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-top:8px}
 
-  /* Press editorial */
   .pubs{background:#0F0F0E}
   .pub-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
   .pub-card{position:relative;overflow:hidden;border-radius:24px;background:#171717;padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:380px;transition:.4s}
@@ -111,7 +105,6 @@
   .pub-card h3{font-family:var(--display);font-weight:300;font-size:32px;line-height:1.15;margin-top:auto;font-variation-settings:"opsz" 144}
   .pub-card p{font-family:var(--display);font-style:italic;color:var(--mute);font-size:15px;line-height:1.65;margin-top:18px;max-width:460px}
 
-  /* CTA / Contact */
   .cta{padding:200px 0 60px;text-align:center;position:relative}
   .cta h2{font-family:var(--display);font-weight:300;font-size:clamp(72px,10vw,200px);line-height:.85;font-variation-settings:"opsz" 144}
   .cta h2 em{font-style:italic;color:var(--accent)}
@@ -154,13 +147,11 @@
 <section class="hero">
   <div class="hero__bg"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%202.png" alt="" /></div>
   <div class="hero__meta">Carmel Beach Hotel · 2023 · Hospitality</div>
+  <div class="hero__topright">01 / 04<br/><span style="color:var(--accent)">View work →</span></div>
   <div class="hero__content">
     <div class="container">
-      <h1>Custom interiors<br/><em>built around</em><br/>the way you live.</h1>
-      <div class="hero__copy">
-        <p>A client-focused studio in San Francisco, working alongside leading architects across hospitality and residential — designs known for clean lines and thoughtful integration with their setting.</p>
-        <a class="btn" href="#work"><span class="dot"></span>View selected work</a>
-      </div>
+      <div class="hero__brand">Padham <em>Design</em><small>Custom Interiors</small></div>
+      <a class="btn" href="#work"><span class="dot"></span>Selected work</a>
     </div>
   </div>
   <div class="hero__scroll">Scroll</div>
