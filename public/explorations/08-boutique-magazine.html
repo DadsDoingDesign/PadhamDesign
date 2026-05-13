@@ -41,14 +41,22 @@
   .cover h1{margin-top:18px;font-size:clamp(44px,5vw,84px)}
   .cover h1 em{font-family:var(--display);font-style:italic;color:var(--rust)}
   .cover__lede{font-family:var(--body);font-style:italic;color:var(--mute);font-size:18px;margin-top:18px;max-width:360px}
-  .cover__cta{margin-top:32px;display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--rust);font-weight:600;border-bottom:2px solid var(--rust);padding-bottom:4px}
+  .cover__ctas{margin-top:32px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+  .cover__cta{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--rust);font-weight:600;border-bottom:2px solid var(--rust);padding-bottom:4px}
+  .cover__cta-btn{display:inline-block;background:var(--rust);color:var(--paper);padding:14px 28px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
+
+  .sticky-inquire{position:fixed;bottom:0;left:0;right:0;background:var(--rust);color:var(--paper);text-align:center;padding:16px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:600;z-index:100;opacity:0;transform:translateY(100%);transition:opacity .4s,transform .4s;pointer-events:none}
+  .sticky-inquire.visible{opacity:1;transform:translateY(0);pointer-events:all}
+  .sticky-inquire a{color:inherit;text-decoration:none}
   .cover__img{position:relative}
   .cover__img img{width:100%;height:720px;object-fit:cover}
   .cover__img .stamp{position:absolute;top:24px;right:24px;background:var(--rust);color:var(--paper);padding:10px 16px;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
   .cover__img .caption{position:absolute;left:24px;bottom:24px;background:var(--paper);padding:10px 16px;font-family:var(--display);font-style:italic;font-size:16px;color:var(--ink);border-left:3px solid var(--rust)}
 
-  .press{padding:24px 0;border-bottom:1px solid var(--line);text-align:center;font-family:var(--display);font-style:italic;font-size:20px}
-  .press img{height:20px;filter:grayscale(1) brightness(.3);opacity:.7;margin:0 18px;vertical-align:middle}
+  .press{padding:20px 0;border-bottom:1px solid var(--line)}
+  .press .container{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+  .press__label{font-family:var(--sans);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+  .press img{height:24px;filter:grayscale(1) brightness(.25);opacity:1;display:inline-block;flex-shrink:0}
 
   section{padding:120px 0}
   .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid var(--ink);margin-bottom:64px}
@@ -97,10 +105,10 @@
   .pubs{background:var(--paper)}
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:48px}
   .q{padding:36px;border:1px solid var(--line);background:var(--bg);position:relative}
-  .q img{height:24px;filter:grayscale(1) brightness(.3);opacity:.7;margin-bottom:20px}
+  .q img{height:44px;filter:grayscale(1) brightness(.15);opacity:1;margin-bottom:20px;display:inline-block}
   .q h4{font-family:var(--display);font-size:22px;line-height:1.2;font-weight:400}
   .q blockquote{font-family:var(--body);font-style:italic;color:var(--ink);font-size:17px;line-height:1.65;margin-top:14px}
-  .q blockquote::before{content:'❝';color:var(--rust);font-size:32px;line-height:.5;display:block;margin-bottom:10px}
+  .q blockquote::before{content:'\276C';color:var(--rust);font-size:32px;line-height:.5;display:block;margin-bottom:10px}
 
   .letter{background:var(--paper);border:1px solid var(--line);padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;position:relative}
   .letter::before{content:'CORRESPONDENCE';position:absolute;top:-12px;left:24px;background:var(--bg);padding:0 14px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--rust);font-weight:600}
@@ -152,40 +160,43 @@
       <div class="issue">No. 01 · Selected Works</div>
       <h1>The <em>Portfolio</em></h1>
       <p class="cover__lede">Hospitality and residential, photographed across the Bay Area and California coast.</p>
-      <a class="cover__cta" href="#portfolio">Browse all projects →</a>
+      <div class="cover__ctas">
+        <a class="cover__cta" href="#portfolio">Browse all projects &rarr;</a>
+        <a class="cover__cta-btn" href="#contact">Start an Inquiry</a>
+      </div>
     </div>
     <div class="cover__img">
       <span class="stamp">Cover Story</span>
       <img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%202.png" alt=""/>
-      <span class="caption">Carmel Beach Hotel &amp; Spa · 2023</span>
+      <span class="caption">Carmel Beach Hotel &amp; Spa &middot; 2023</span>
     </div>
   </section>
 </div>
 
 <div class="press">
   <div class="container">
-    <span style="font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);margin-right:24px">As featured in</span>
-    <img src="/images/logos/Vogue.png" alt=""/>
-    <img src="/images/logos/HotelsMag.png" alt=""/>
-    <img src="/images/logos/CAHome+Design.png" alt=""/>
-    <img src="/images/logos/CMag.png" alt=""/>
-    <img src="/images/logos/WinAdvisor.png" alt=""/>
+    <span class="press__label">As featured in</span>
+    <img src="/images/logos/Vogue.png" alt="Vogue"/>
+    <img src="/images/logos/HotelsMag.png" alt="Hotels Magazine"/>
+    <img src="/images/logos/CAHome+Design.png" alt="CA Home + Design"/>
+    <img src="/images/logos/CMag.png" alt="C Magazine"/>
+    <img src="/images/logos/WinAdvisor.png" alt="Wine Advisor"/>
   </div>
 </div>
 
 <section id="feature">
   <div class="container">
-    <div class="sec-head"><div class="num">№ 01</div><h2>The Feature</h2><div class="meta">Carmel-by-the-Sea · 2023</div></div>
+    <div class="sec-head"><div class="num">&numero; 01</div><h2>The Feature</h2><div class="meta">Carmel-by-the-Sea &middot; 2023</div></div>
     <div class="article">
       <div class="article__copy">
-        <span class="eyebrow">Hospitality · Carmel Beach Hotel</span>
+        <span class="eyebrow">Hospitality &middot; Carmel Beach Hotel</span>
         <h3>An ocean-inspired <em>palette</em>, framed by cypress and Carmel stone.</h3>
-        <p>The hotel's designers, Carol Padham and Phyllis Martin-Vegue, sought inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees, and warm tones of Carmel stone — all of which play out throughout the decor.</p>
+        <p>The hotel's designers, Carol Padham and Phyllis Martin-Vegue, sought inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees, and warm tones of Carmel stone &mdash; all of which play out throughout the decor.</p>
         <p>Custom walnut-grained millwork includes the minibar and headboards running the length of the rooms, each outfitted with woven-back chairs and cafe tables. Interior designers Carol Padham and Marin-Vogue worked with the palette to create custom furnishings for the guest rooms, which also feature Victoria + Albert bath fixtures.</p>
       </div>
       <div class="article__media">
         <img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%201.png" alt=""/>
-        <p class="caption">Fig. 01 — Guest room, Carmel Beach Hotel &amp; Spa. Photography by the studio.</p>
+        <p class="caption">Fig. 01 &mdash; Guest room, Carmel Beach Hotel &amp; Spa. Photography by the studio.</p>
       </div>
     </div>
   </div>
@@ -193,22 +204,22 @@
 
 <section id="portfolio">
   <div class="container">
-    <div class="sec-head"><div class="num">№ 02</div><h2>The Portfolio</h2><div class="meta">Selected · 2020–2023</div></div>
+    <div class="sec-head"><div class="num">&numero; 02</div><h2>The Portfolio</h2><div class="meta">Selected &middot; 2020&ndash;2023</div></div>
     <div class="pf">
-      <a class="pf__item pf__a" href="#"><img src="/images/projects/Walt%20Tasting%20Room%201.png" alt=""/><div class="pf__cap"><h4>WALT Wines Tasting Room</h4><div class="m">2022 · Napa</div></div></a>
+      <a class="pf__item pf__a" href="#"><img src="/images/projects/Walt%20Tasting%20Room%201.png" alt=""/><div class="pf__cap"><h4>WALT Wines Tasting Room</h4><div class="m">2022 &middot; Napa</div></div></a>
       <a class="pf__item pf__b" href="#"><img src="/images/projects/L%27Auberge%20Carmel%201.png" alt=""/><div class="pf__cap"><h4>L'Auberge Carmel</h4><div class="m">Carmel-by-the-Sea</div></div></a>
-      <a class="pf__item pf__c" href="#"><img src="/images/projects/Bardessono%20Inn%20%26%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Bardessono Inn</h4><div class="m">Yountville · 2021</div></div></a>
-      <a class="pf__item pf__d" href="#"><img src="/images/projects/Huntington%20Hotel%2C%20Nob%20Hill%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Huntington Hotel</h4><div class="m">Nob Hill Spa · 2020</div></div></a>
-      <a class="pf__item pf__e" href="#"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%203.png" alt=""/><div class="pf__cap"><h4>Carmel Beach Hotel</h4><div class="m">Suites · 2023</div></div></a>
+      <a class="pf__item pf__c" href="#"><img src="/images/projects/Bardessono%20Inn%20%26%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Bardessono Inn</h4><div class="m">Yountville &middot; 2021</div></div></a>
+      <a class="pf__item pf__d" href="#"><img src="/images/projects/Huntington%20Hotel%2C%20Nob%20Hill%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Huntington Hotel</h4><div class="m">Nob Hill Spa &middot; 2020</div></div></a>
+      <a class="pf__item pf__e" href="#"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%203.png" alt=""/><div class="pf__cap"><h4>Carmel Beach Hotel</h4><div class="m">Suites &middot; 2023</div></div></a>
     </div>
   </div>
 </section>
 
 <section id="services">
   <div class="container">
-    <div class="sec-head"><div class="num">№ 03</div><h2>The Services</h2><div class="meta">Capability Index</div></div>
+    <div class="sec-head"><div class="num">&numero; 03</div><h2>The Services</h2><div class="meta">Capability Index</div></div>
     <div class="svc-toc">
-      <div class="svc-toc__title">— A single studio, every decision —</div>
+      <div class="svc-toc__title">&mdash; A single studio, every decision &mdash;</div>
       <div class="svc-row"><span class="n">i.</span><div><span class="title">Concept Design</span><span class="desc">Individualizing style &amp; setting design goals to support your lifestyle.</span></div><span class="pg">p. 04</span></div>
       <div class="svc-row"><span class="n">ii.</span><div><span class="title">Space Planning</span><span class="desc">A layout of your space with furnishings planned to simplify daily life.</span></div><span class="pg">p. 06</span></div>
       <div class="svc-row"><span class="n">iii.</span><div><span class="title">Fixtures &amp; Finishing</span><span class="desc">Furniture, lighting and hardware specified within your style.</span></div><span class="pg">p. 08</span></div>
@@ -225,10 +236,10 @@
       <div>
         <span class="eyebrow">Profile</span>
         <h3 style="margin-top:14px">A practice built <em>around</em> the client.</h3>
-        <p class="by">— On Carol Padham, Principal</p>
+        <p class="by">&mdash; On Carol Padham, Principal</p>
         <p>Her design process is client-focused, starting with the client's vision and involving them closely in every step. Carol's designs are known for their clean lines and thoughtful integration with both architecture and environment, ensuring each space is as functional as it is stylish.</p>
         <p>Over 25 years of experience combining beauty and practicality. Working extensively in the Bay Area, Carol has collaborated with leading architectural firms on hospitality and residential projects.</p>
-        <div class="bio__sig">— Carol Padham</div>
+        <div class="bio__sig">&mdash; Carol Padham</div>
       </div>
     </div>
   </div>
@@ -236,12 +247,12 @@
 
 <section class="pubs" id="press">
   <div class="container">
-    <div class="sec-head"><div class="num">№ 04</div><h2>In Press</h2><div class="meta">Selected Coverage</div></div>
+    <div class="sec-head"><div class="num">&numero; 04</div><h2>In Press</h2><div class="meta">Selected Coverage</div></div>
     <div class="quotes">
-      <div class="q"><img src="/images/logos/Vogue.png" alt=""/><h4>Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</h4><blockquote>Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms.</blockquote></div>
-      <div class="q"><img src="/images/logos/HotelsMag.png" alt=""/><h4>Carmel Beach Hotel's upcoming opening</h4><blockquote>The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel's lighting.</blockquote></div>
-      <div class="q"><img src="/images/logos/CAHome+Design.png" alt=""/><h4>Wine Country Agenda: WALT Wines</h4><blockquote>SF interior designer Carol Padham creates a calming, airy design with a custom 3-dimensional tasting bar with Italian porcelain countertop.</blockquote></div>
-      <div class="q"><img src="/images/logos/CMag.png" alt=""/><h4>Three Charming Guest Houses For Summer</h4><blockquote>Inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees and warm tones of Carmel stone.</blockquote></div>
+      <div class="q"><img src="/images/logos/Vogue.png" alt="Vogue"/><h4>Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</h4><blockquote>Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms.</blockquote></div>
+      <div class="q"><img src="/images/logos/HotelsMag.png" alt="Hotels Magazine"/><h4>Carmel Beach Hotel's upcoming opening</h4><blockquote>The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel's lighting.</blockquote></div>
+      <div class="q"><img src="/images/logos/CAHome+Design.png" alt="CA Home + Design"/><h4>Wine Country Agenda: WALT Wines</h4><blockquote>SF interior designer Carol Padham creates a calming, airy design with a custom 3-dimensional tasting bar with Italian porcelain countertop.</blockquote></div>
+      <div class="q"><img src="/images/logos/CMag.png" alt="C Magazine"/><h4>Three Charming Guest Houses For Summer</h4><blockquote>Inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees and warm tones of Carmel stone.</blockquote></div>
     </div>
   </div>
 </section>
@@ -251,8 +262,8 @@
     <div class="letter">
       <div>
         <h3>How can I <em>help</em><br/>improve your space?</h3>
-        <p class="salut">Dear reader — send a note and I'll respond within two business days.</p>
-        <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;color:var(--rust);font-family:var(--display);font-style:italic;font-size:28px&quot;>Thank you — yours, Carol.</p>'">
+        <p class="salut">Dear reader &mdash; send a note and I'll respond within two business days.</p>
+        <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;color:var(--rust);font-family:var(--display);font-style:italic;font-size:28px&quot;>Thank you &mdash; yours, Carol.</p>'">
           <div class="field"><label>Your Name</label><input placeholder="Enter Name"/></div>
           <div class="field"><label>Email</label><input placeholder="Enter Email"/></div>
           <div class="field"><label>About your project</label><textarea rows="3" placeholder="Tell me about the space"></textarea></div>
@@ -261,13 +272,27 @@
       </div>
       <div class="letter__info">
         <b>Studio</b>2150 Folsom Street, Suite 203<br/>San Francisco, CA 94110
-        <b>Direct</b>cpadham@padhamdesign.com<br/>510 · 406 · 3621
-        <b>Hours</b>Monday – Friday · 9 – 5
+        <b>Direct</b>cpadham@padhamdesign.com<br/>510 &middot; 406 &middot; 3621
+        <b>Hours</b>Monday &ndash; Friday &middot; 9 &ndash; 5
       </div>
     </div>
   </div>
 </section>
 
-<footer>© Padham Design · Vol. XXVI · Instagram · Pinterest · LinkedIn</footer>
+<footer>&copy; Padham Design &middot; Vol. XXVI &middot; Instagram &middot; Pinterest &middot; LinkedIn</footer>
+
+<div class="sticky-inquire" id="stickyInquire">
+  <a href="#contact">Inquire with Carol &rarr;</a>
+</div>
+
+<script>
+  const bar = document.getElementById('stickyInquire');
+  const contact = document.getElementById('contact');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 400;
+    const nearContact = contact.getBoundingClientRect().top < window.innerHeight;
+    bar.classList.toggle('visible', scrolled && !nearContact);
+  });
+</script>
 
 </body></html>
