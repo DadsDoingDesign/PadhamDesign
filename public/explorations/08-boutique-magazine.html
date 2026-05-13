@@ -102,13 +102,28 @@
   .bio p:first-of-type::first-letter{font-family:var(--display);font-size:72px;line-height:.85;float:left;padding:8px 14px 0 0;color:var(--rust)}
   .bio__sig{font-family:var(--display);font-style:italic;color:var(--rust);font-size:36px;margin-top:32px}
 
+  /* ── Press section ── */
   .pubs{background:var(--paper)}
-  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-  .q{padding:36px;border:1px solid var(--line);background:var(--bg);position:relative}
-  .q img{height:44px;filter:grayscale(1) brightness(.15);opacity:1;margin-bottom:20px;display:inline-block}
-  .q h4{font-family:var(--display);font-size:22px;line-height:1.2;font-weight:400}
-  .q blockquote{font-family:var(--body);font-style:italic;color:var(--ink);font-size:17px;line-height:1.65;margin-top:14px}
-  .q blockquote::before{content:'\276C';color:var(--rust);font-size:32px;line-height:.5;display:block;margin-bottom:10px}
+
+  /* Logo showcase band */
+  .pubs__logos{background:var(--ink);padding:40px 0}
+  .pubs__logos .container{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+  .pubs__logos img{height:32px;filter:invert(1);opacity:.85;display:inline-block;flex-shrink:0;transition:opacity .2s}
+  .pubs__logos img:hover{opacity:1}
+
+  /* Featured pull-quote */
+  .pubs__feature{padding:64px 0 56px;border-bottom:1px solid var(--line)}
+  .pubs__feature blockquote{font-family:var(--display);font-style:italic;font-size:clamp(26px,3vw,42px);line-height:1.2;color:var(--ink);max-width:900px;margin:0 auto;text-align:center}
+  .pubs__feature cite{display:block;margin-top:24px;font-family:var(--sans);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--rust);font-style:normal;text-align:center;font-weight:600}
+
+  /* Editorial clippings list */
+  .clip{display:grid;grid-template-columns:180px 1fr 80px;gap:40px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
+  .clip:first-child{border-top:1px solid var(--line)}
+  .clip__pub{display:flex;align-items:center}
+  .clip__pub img{height:28px;filter:grayscale(1) brightness(.15);opacity:1;display:inline-block}
+  .clip__body h4{font-family:var(--display);font-size:20px;font-weight:400;line-height:1.2;margin-bottom:8px}
+  .clip__body p{font-family:var(--body);font-style:italic;color:var(--mute);font-size:15px;line-height:1.6}
+  .clip__year{font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);text-align:right}
 
   .letter{background:var(--paper);border:1px solid var(--line);padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;position:relative}
   .letter::before{content:'CORRESPONDENCE';position:absolute;top:-12px;left:24px;background:var(--bg);padding:0 14px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--rust);font-weight:600}
@@ -125,11 +140,14 @@
   footer{padding:48px 0;text-align:center;border-top:1px solid var(--ink);font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
 
   @media(max-width:900px){
-    .cover,.article,.bio,.letter,.quotes{grid-template-columns:1fr;gap:32px}
+    .cover,.article,.bio,.letter{grid-template-columns:1fr;gap:32px}
     .pf > *{grid-column:span 12 !important;aspect-ratio:4/5 !important}
     .nav__list{gap:18px;flex-wrap:wrap}
     .masthead__row{grid-template-columns:1fr}
     .sec-head{grid-template-columns:1fr;gap:8px}
+    .clip{grid-template-columns:1fr;gap:12px}
+    .clip__year{text-align:left}
+    .pubs__logos .container{justify-content:center;gap:24px}
   }
 </style>
 </head>
@@ -246,13 +264,50 @@
 </section>
 
 <section class="pubs" id="press">
+  <!-- Logo showcase: dark band, all pubs at a glance -->
+  <div class="pubs__logos">
+    <div class="container">
+      <img src="/images/logos/Vogue.png" alt="Vogue"/>
+      <img src="/images/logos/HotelsMag.png" alt="Hotels Magazine"/>
+      <img src="/images/logos/CAHome+Design.png" alt="CA Home + Design"/>
+      <img src="/images/logos/CMag.png" alt="C Magazine"/>
+      <img src="/images/logos/WinAdvisor.png" alt="Wine Advisor"/>
+    </div>
+  </div>
+
   <div class="container">
-    <div class="sec-head"><div class="num">&numero; 04</div><h2>In Press</h2><div class="meta">Selected Coverage</div></div>
-    <div class="quotes">
-      <div class="q"><img src="/images/logos/Vogue.png" alt="Vogue"/><h4>Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</h4><blockquote>Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms.</blockquote></div>
-      <div class="q"><img src="/images/logos/HotelsMag.png" alt="Hotels Magazine"/><h4>Carmel Beach Hotel's upcoming opening</h4><blockquote>The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel's lighting.</blockquote></div>
-      <div class="q"><img src="/images/logos/CAHome+Design.png" alt="CA Home + Design"/><h4>Wine Country Agenda: WALT Wines</h4><blockquote>SF interior designer Carol Padham creates a calming, airy design with a custom 3-dimensional tasting bar with Italian porcelain countertop.</blockquote></div>
-      <div class="q"><img src="/images/logos/CMag.png" alt="C Magazine"/><h4>Three Charming Guest Houses For Summer</h4><blockquote>Inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees and warm tones of Carmel stone.</blockquote></div>
+    <div class="sec-head" style="margin-top:80px"><div class="num">&numero; 04</div><h2>In Press</h2><div class="meta">Selected Coverage</div></div>
+
+    <!-- Featured pull-quote -->
+    <div class="pubs__feature">
+      <blockquote>&ldquo;Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms.&rdquo;</blockquote>
+      <cite>Vogue &nbsp;&middot;&nbsp; Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</cite>
+    </div>
+
+    <!-- Editorial clippings list -->
+    <div class="clip">
+      <div class="clip__pub"><img src="/images/logos/HotelsMag.png" alt="Hotels Magazine"/></div>
+      <div class="clip__body">
+        <h4>Carmel Beach Hotel&rsquo;s upcoming opening</h4>
+        <p>The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel&rsquo;s lighting.</p>
+      </div>
+      <div class="clip__year">2023</div>
+    </div>
+    <div class="clip">
+      <div class="clip__pub"><img src="/images/logos/CAHome+Design.png" alt="CA Home + Design"/></div>
+      <div class="clip__body">
+        <h4>Wine Country Agenda: WALT Wines</h4>
+        <p>SF interior designer Carol Padham creates a calming, airy design with a custom 3-dimensional tasting bar with Italian porcelain countertop.</p>
+      </div>
+      <div class="clip__year">2022</div>
+    </div>
+    <div class="clip">
+      <div class="clip__pub"><img src="/images/logos/CMag.png" alt="C Magazine"/></div>
+      <div class="clip__body">
+        <h4>Three Charming Guest Houses For Summer</h4>
+        <p>Inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees and warm tones of Carmel stone.</p>
+      </div>
+      <div class="clip__year">2022</div>
     </div>
   </div>
 </section>
@@ -262,7 +317,7 @@
     <div class="letter">
       <div>
         <h3>How can I <em>help</em><br/>improve your space?</h3>
-        <p class="salut">Dear reader &mdash; send a note and I'll respond within two business days.</p>
+        <p class="salut">Dear reader &mdash; send a note and I&rsquo;ll respond within two business days.</p>
         <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;color:var(--rust);font-family:var(--display);font-style:italic;font-size:28px&quot;>Thank you &mdash; yours, Carol.</p>'">
           <div class="field"><label>Your Name</label><input placeholder="Enter Name"/></div>
           <div class="field"><label>Email</label><input placeholder="Enter Email"/></div>
