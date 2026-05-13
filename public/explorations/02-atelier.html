@@ -20,7 +20,6 @@
   .btn{display:inline-block;padding:14px 32px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;transition:.25s}
   .btn:hover{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 
-  /* Nav — vertical / minimal */
   .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:24px 0;background:transparent}
   .nav__inner{display:flex;justify-content:space-between;align-items:center}
   .brand{font-family:var(--serif);font-size:18px;letter-spacing:.04em}
@@ -29,7 +28,6 @@
   .nav__list a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);transition:.2s}
   .nav__list a:hover{color:var(--ink)}
 
-  /* Portfolio-first hero */
   .lead{padding:120px 0 80px}
   .lead__row{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;height:640px}
   .lp{position:relative;overflow:hidden}
@@ -50,7 +48,6 @@
   .titlebar__right .meta-row:first-child{border-top:none}
   .titlebar__right strong{color:var(--ink);font-weight:600}
 
-  /* Press strip */
   .press{padding:50px 0;border-bottom:1px solid var(--line)}
   .press__row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
   .press__row img{height:22px;opacity:.55;filter:brightness(0) invert(1)}
@@ -61,7 +58,6 @@
   .sec__head .between{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
   .sec__head p{max-width:480px;color:var(--mute);font-size:15px}
 
-  /* Services as a numbered table */
   .svc-table{border-top:1px solid var(--line)}
   .svc-row{display:grid;grid-template-columns:60px 240px 1fr 80px;gap:32px;align-items:center;padding:32px 0;border-bottom:1px solid var(--line);transition:.3s}
   .svc-row:hover{background:linear-gradient(to right,transparent,rgba(197,165,114,.04),transparent)}
@@ -70,7 +66,6 @@
   .svc-desc{color:var(--mute);font-size:14px;max-width:520px}
   .svc-arrow{font-size:18px;color:var(--mute);text-align:right}
 
-  /* About */
   .about{background:var(--bg-2)}
   .about__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
   .about__media{position:relative}
@@ -79,7 +74,6 @@
   .about p{color:var(--mute);font-size:16px;margin-top:20px;max-width:540px;line-height:1.8}
   .about__sig{font-family:var(--serif);font-style:italic;font-size:38px;color:#C5A572;margin-top:32px}
 
-  /* Press editorial */
   .ed{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
   .ed__feat{grid-column:span 7;position:relative;border-radius:var(--r) 0 var(--r) 0;overflow:hidden;min-height:540px;background:#222}
   .ed__feat img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
@@ -92,7 +86,6 @@
   .ed-item h4{font-family:var(--serif);font-size:18px;font-weight:400}
   .ed-item p{color:var(--mute);font-size:13px;margin-top:10px;font-style:italic;line-height:1.7}
 
-  /* Contact panel */
   .contact{position:relative;overflow:hidden;background:var(--bg-2);border-radius:var(--r) var(--r) 0 0;padding:120px 0}
   .contact__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px}
   .contact h2{font-size:clamp(40px,5vw,72px)}
@@ -150,14 +143,11 @@
   </div>
 </section>
 
-<section class="titlebar">
-  <div class="container titlebar__inner">
-    <h1>Padham <em>Design</em><br/>Custom Interiors.</h1>
-    <div class="titlebar__right">
-      <div class="meta-row"><span>Studio</span><strong>San Francisco</strong></div>
-      <div class="meta-row"><span>Founded</span><strong>1998</strong></div>
-      <div class="meta-row"><span>Practice</span><strong>Hospitality · Residential</strong></div>
-      <div class="meta-row"><span>Principal</span><strong>Carol Padham</strong></div>
+<section class="titlebar" style="padding:48px 0">
+  <div class="container titlebar__inner" style="grid-template-columns:1fr auto;align-items:center">
+    <h1 style="font-size:clamp(36px,4vw,56px);line-height:1">Padham <em>Design</em> — Custom Interiors</h1>
+    <div class="titlebar__right" style="text-align:right">
+      <a class="btn" href="#work" style="text-decoration:none;display:inline-block">View Selected Work →</a>
     </div>
   </div>
 </section>
