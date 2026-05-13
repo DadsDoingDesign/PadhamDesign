@@ -7,8 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  /* Coastal Soft — inspired by Carmel-by-the-Sea content. Sand, sage, fog, soft organic shapes.
-     Warm not white. Bath spa feeling. */
   :root{
     --sand:#EFE6D8; --paper:#F7F1E5; --fog:#E2DDD0; --sage:#7B8E78; --ocean:#3C5862;
     --ink:#2A2925; --mute:#766F5F; --line:#CDC4B2; --shell:#D9C9AC;
@@ -26,10 +24,8 @@
   .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--sage);font-weight:500}
   em{font-style:italic;color:var(--ocean)}
 
-  /* Decorative shapes */
   body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(123,142,120,.18),transparent 70%);pointer-events:none;z-index:0}
 
-  /* Nav */
   .nav{padding:24px 0;position:sticky;top:0;background:rgba(247,241,229,.86);backdrop-filter:blur(12px);z-index:50;border-bottom:1px solid rgba(205,196,178,.4)}
   .nav__inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
   .brand{font-family:var(--display);font-size:22px;letter-spacing:-.01em}
@@ -42,7 +38,6 @@
   .btn--ghost{background:transparent;color:var(--ocean);border:1px solid var(--ocean)}
   .btn--ghost:hover{background:var(--ocean);color:var(--paper)}
 
-  /* HERO with organic shape */
   .hero{padding:96px 0 64px;position:relative;z-index:1}
   .hero__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
   .hero h1 em{color:var(--ocean)}
@@ -54,7 +49,6 @@
   .hero__media .pebble{position:absolute;width:120px;height:120px;border-radius:56% 44% 64% 36% / 36% 56% 44% 64%;background:var(--sage);opacity:.85;top:30px;right:-30px}
   .hero__media .pebble--2{width:80px;height:80px;background:var(--shell);top:auto;bottom:60px;right:auto;left:-30px;opacity:.7;border-radius:60% 40% 44% 56% / 44% 64% 36% 56%}
 
-  /* Press */
   .press{padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--sand)}
   .press__row{display:flex;justify-content:space-around;align-items:center;gap:24px;flex-wrap:wrap}
   .press img{height:24px;opacity:.6;filter:grayscale(1) brightness(.3)}
@@ -65,7 +59,6 @@
   .sec__head .between{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
   .sec__head p{font-family:var(--display);font-style:italic;color:var(--mute);font-size:20px;max-width:480px}
 
-  /* Portfolio — soft organic frames */
   .pf{display:grid;grid-template-columns:1fr 1fr;gap:64px}
   .pf__card{position:relative}
   .pf__shape{position:relative;overflow:hidden;aspect-ratio:5/6;border-radius:62% 38% 52% 48% / 44% 56% 44% 56%;background:var(--shell);transition:.7s ease}
@@ -79,7 +72,6 @@
   .pf__meta h3{font-style:italic;font-weight:400}
   .pf__meta .m{font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--sage)}
 
-  /* Services — sage cards */
   .svc{background:var(--fog);border-radius:80px 80px 0 0}
   .svc__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
   .svc__card{background:var(--paper);border-radius:32px;padding:32px 24px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s;position:relative;overflow:hidden}
@@ -93,7 +85,6 @@
   .svc__card p{color:var(--mute);font-size:13px;margin-top:14px}
   .svc__card .n{font-family:var(--display);font-style:italic;color:var(--sage);font-size:14px;margin-top:18px}
 
-  /* About */
   .about{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
   .about__media{position:relative}
   .about__media .shape{aspect-ratio:4/5;border-radius:52% 48% 36% 64% / 44% 56% 44% 56%;overflow:hidden;background:var(--shell)}
@@ -103,7 +94,6 @@
   .about p{font-size:17px;line-height:1.85;margin-top:18px;max-width:560px;color:var(--ink)}
   .about__sig{font-family:var(--display);font-style:italic;color:var(--ocean);font-size:36px;margin-top:32px}
 
-  /* Press / quote cards */
   .pubs{background:var(--ocean);color:var(--paper);border-radius:80px 80px 0 0}
   .pubs h2,.pubs em,.pubs .eyebrow{color:var(--paper)}
   .pubs .eyebrow{color:var(--shell)}
@@ -116,7 +106,6 @@
   .q-card h4{font-family:var(--display);font-size:22px;font-weight:300;line-height:1.2}
   .q-card blockquote{font-family:var(--display);font-style:italic;color:rgba(247,241,229,.75);font-size:16px;line-height:1.7;margin-top:18px}
 
-  /* Contact */
   .ct{background:var(--sand);border-radius:80px 80px 0 0;padding:140px 0}
   .ct__grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
   .ct h2 em{color:var(--ocean)}
@@ -154,14 +143,13 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" style="padding:48px 0 24px">
   <div class="container">
-    <div class="hero__inner">
+    <div class="hero__inner" style="grid-template-columns:.7fr 1fr;align-items:center;gap:48px">
       <div>
-        <span class="eyebrow">San Francisco · Custom Interiors</span>
-        <h1 style="margin-top:24px">A practice rooted in <em>place</em>, light, and the way you live.</h1>
-        <p class="hero__sub">Hospitality and residential interiors with clean lines and thoughtful integration with site, architecture and the warmth of natural materials.</p>
-        <div class="hero__cta"><a class="btn" href="#contact">Start a Project</a><a class="btn btn--ghost" href="#portfolio">See the Work</a></div>
+        <span class="eyebrow">Padham Design</span>
+        <div style="font-family:var(--display);font-size:clamp(40px,5vw,72px);line-height:1;margin-top:14px;font-style:italic;color:var(--ocean)">Custom interiors.</div>
+        <a class="btn" style="margin-top:32px" href="#portfolio">See the Work →</a>
       </div>
       <div class="hero__media">
         <div class="pebble pebble--2"></div>
