@@ -25,11 +25,10 @@
   em{font-style:italic}
 
   .masthead{padding:24px 0;border-bottom:1px solid var(--ink)}
-  .masthead__row{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center}
-  .masthead__brand{font-family:var(--display);font-size:32px;letter-spacing:.08em;text-align:center}
+  .masthead__row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .masthead__brand{font-family:var(--display);font-size:32px;letter-spacing:.08em}
   .masthead__brand em{font-style:italic;color:var(--rust)}
-  .masthead__left,.masthead__right{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
-  .masthead__right{text-align:right}
+  .masthead__right{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);text-align:right}
   .nav{padding:16px 0;border-bottom:1px solid var(--line)}
   .nav__list{display:flex;justify-content:center;gap:48px;list-style:none}
   .nav__list a{font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500}
@@ -93,7 +92,7 @@
   .svc-row .pg{font-family:var(--sans);font-size:11px;letter-spacing:.28em;color:var(--mute)}
 
   .bio{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;background:var(--paper);padding:64px;border:1px solid var(--line);position:relative}
-  .bio::before{content:'PROFILE';position:absolute;top:-7px;left:24px;padding:0 14px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--rust);font-weight:600}
+  .bio::before{content:'PROFILE';position:absolute;top:-13px;left:24px;padding:6px 14px;border:1px solid var(--line);background:var(--bg);font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--rust);font-weight:600;line-height:1}
   .bio__img img{width:100%;aspect-ratio:4/5;object-fit:cover}
   .bio h3{font-size:48px;line-height:1.05}
   .bio h3 em{color:var(--rust)}
@@ -126,7 +125,7 @@
   .clip__year{font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);text-align:right}
 
   .letter{background:var(--paper);border:1px solid var(--line);padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;position:relative}
-  .letter::before{content:'CORRESPONDENCE';position:absolute;top:-7px;left:24px;padding:0 14px;font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--rust);font-weight:600}
+  .letter::before{content:'CORRESPONDENCE';position:absolute;top:-13px;left:24px;padding:6px 14px;border:1px solid var(--line);background:var(--bg);font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--rust);font-weight:600;line-height:1}
   .letter h3{font-size:40px;margin-bottom:14px}
   .letter h3 em{color:var(--rust)}
   .letter .salut{font-family:var(--body);font-style:italic;color:var(--mute);font-size:18px;margin-bottom:32px}
@@ -155,7 +154,6 @@
 
 <header class="masthead">
   <div class="container masthead__row">
-    <div class="masthead__left">VOL. XXVI · No. 3 · 2026</div>
     <div class="masthead__brand">Padham <em>Design</em></div>
     <div class="masthead__right">San Francisco · Custom Interiors</div>
   </div>
@@ -224,11 +222,11 @@
   <div class="container">
     <div class="sec-head"><div class="num">&numero; 02</div><h2>The Portfolio</h2><div class="meta">Selected &middot; 2020&ndash;2023</div></div>
     <div class="pf">
-      <a class="pf__item pf__a" href="#"><img src="/images/projects/Walt%20Tasting%20Room%201.png" alt=""/><div class="pf__cap"><h4>WALT Wines Tasting Room</h4><div class="m">2022 &middot; Napa</div></div></a>
-      <a class="pf__item pf__b" href="#"><img src="/images/projects/L%27Auberge%20Carmel%201.png" alt=""/><div class="pf__cap"><h4>L'Auberge Carmel</h4><div class="m">Carmel-by-the-Sea</div></div></a>
-      <a class="pf__item pf__c" href="#"><img src="/images/projects/Bardessono%20Inn%20%26%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Bardessono Inn</h4><div class="m">Yountville &middot; 2021</div></div></a>
-      <a class="pf__item pf__d" href="#"><img src="/images/projects/Huntington%20Hotel%2C%20Nob%20Hill%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Huntington Hotel</h4><div class="m">Nob Hill Spa &middot; 2020</div></div></a>
-      <a class="pf__item pf__e" href="#"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%203.png" alt=""/><div class="pf__cap"><h4>Carmel Beach Hotel</h4><div class="m">Suites &middot; 2023</div></div></a>
+      <a class="pf__item pf__a" href="/explorations/projects/walt-tasting-room.html"><img src="/images/projects/Walt%20Tasting%20Room%201.png" alt=""/><div class="pf__cap"><h4>WALT Wines Tasting Room</h4><div class="m">2022 &middot; Napa</div></div></a>
+      <a class="pf__item pf__b" href="/explorations/projects/l-auberge-carmel.html"><img src="/images/projects/L%27Auberge%20Carmel%201.png" alt=""/><div class="pf__cap"><h4>L'Auberge Carmel</h4><div class="m">Carmel-by-the-Sea</div></div></a>
+      <a class="pf__item pf__c" href="/explorations/projects/bardessono-inn.html"><img src="/images/projects/Bardessono%20Inn%20%26%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Bardessono Inn</h4><div class="m">Yountville &middot; 2021</div></div></a>
+      <a class="pf__item pf__d" href="/explorations/projects/huntington-hotel.html"><img src="/images/projects/Huntington%20Hotel%2C%20Nob%20Hill%20Spa%201.png" alt=""/><div class="pf__cap"><h4>Huntington Hotel</h4><div class="m">Nob Hill Spa &middot; 2020</div></div></a>
+      <a class="pf__item pf__e" href="/explorations/projects/carmel-beach-hotel.html"><img src="/images/projects/Carmel%20Beach%20Hotel%20%26%20Spa%203.png" alt=""/><div class="pf__cap"><h4>Carmel Beach Hotel</h4><div class="m">Suites &middot; 2023</div></div></a>
     </div>
   </div>
 </section>
@@ -278,36 +276,36 @@
   <div class="container">
     <div class="sec-head" style="margin-top:80px"><div class="num">&numero; 04</div><h2>In Press</h2><div class="meta">Selected Coverage</div></div>
 
-    <!-- Featured pull-quote -->
+    <!-- Featured pull-quote (1:1 from C Magazine) -->
     <div class="pubs__feature">
-      <blockquote>&ldquo;Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms.&rdquo;</blockquote>
-      <cite>Vogue &nbsp;&middot;&nbsp; Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</cite>
+      <blockquote>&ldquo;The hotel&rsquo;s designers, Carol Padham and Phyllis Martin-Vegue, sought inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees, and warm tones of Carmel stone, all of which play out throughout the decor.&rdquo;</blockquote>
+      <cite>C Magazine &nbsp;&middot;&nbsp; Three Charming Guest Houses For Summer</cite>
     </div>
 
-    <!-- Editorial clippings list -->
+    <!-- Editorial clippings list — verbatim from source content -->
     <div class="clip">
-      <div class="clip__pub"><img src="/images/logos/HotelsMag.png" alt="Hotels Magazine"/></div>
+      <div class="clip__pub"><img src="/images/logos/Vogue.png" alt="Vogue"/></div>
       <div class="clip__body">
-        <h4>Carmel Beach Hotel&rsquo;s upcoming opening</h4>
-        <p>The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel&rsquo;s lighting.</p>
+        <h4>Why Carmel-by-the-Sea Is the West Coast Destination of the Moment</h4>
+        <p>&ldquo;Interior designers Carol Padham and Marin-Vogue worked with an ocean-inspired palette to create custom furnishings for the guest rooms, which also feature Victoria + Albert bath fixtures.&rdquo;</p>
       </div>
       <div class="clip__year">2023</div>
     </div>
     <div class="clip">
       <div class="clip__pub"><img src="/images/logos/CAHome+Design.png" alt="CA Home + Design"/></div>
       <div class="clip__body">
-        <h4>Wine Country Agenda: WALT Wines</h4>
-        <p>SF interior designer Carol Padham creates a calming, airy design with a custom 3-dimensional tasting bar with Italian porcelain countertop.</p>
+        <h4>Wine Country Agenda: WALT Wines, Trefethen Now, Doug Aitken Install, Meet At La Calenda</h4>
+        <p>&ldquo;Inside, SF interior designer Carol Padham creates a calming, airy design with a selection of owners Kathryn Walt Hall and Craig Hall&rsquo;s personal art collection, showcasing the Hall&rsquo;s love of modern with a custom, 3-dimensional tasting bar with Italian porcelain countertop, under faceted LED globes.&rdquo;</p>
       </div>
       <div class="clip__year">2022</div>
     </div>
     <div class="clip">
-      <div class="clip__pub"><img src="/images/logos/CMag.png" alt="C Magazine"/></div>
+      <div class="clip__pub"><img src="/images/logos/HotelsMag.png" alt="Hotels Magazine"/></div>
       <div class="clip__body">
-        <h4>Three Charming Guest Houses For Summer</h4>
-        <p>Inspiration from the pristine white beach, blue-grey hues of the ocean, surrounding cypress trees and warm tones of Carmel stone.</p>
+        <h4>Briefs: Carmel Beach Hotel&rsquo;s upcoming opening</h4>
+        <p>&ldquo;The interiors have been designed by Carol Padham and Phyllis Martin-Vegue, while lighting director Michael Souter worked on the hotel&rsquo;s lighting.&rdquo;</p>
       </div>
-      <div class="clip__year">2022</div>
+      <div class="clip__year">2023</div>
     </div>
   </div>
 </section>
